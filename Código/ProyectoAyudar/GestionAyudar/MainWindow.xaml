@@ -1,0 +1,198 @@
+﻿<Window x:Class="Processar.ProyectoAyudar.GestionAyudar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Name="ventanaPrincipal"
+        Title="Processar - Módulo Asistencial - Comuna de Margarita" Height="720" Width="1050" WindowState="Maximized" Closing="ventanaPrincipal_Closing"  Initialized="ventanaPrincipal_Initialized" Icon="Graficos/logo.png">
+
+    <Window.Resources>
+        <ResourceDictionary Source="recursosdic.xaml"/>
+
+    </Window.Resources>
+    <Grid Style="{StaticResource GridFondo}">
+
+        <Ribbon x:Name="ribbonPrincipal" VerticalAlignment="Top" Height="148"   Margin="0,10,0,0" ShowQuickAccessToolBarOnTop="False"  Background="#FFCADEB8">
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu Width="50" Background="#FF4AA200" BorderBrush="#FFCADEB8">
+                        <RibbonApplicationMenuItem x:Name="menuUsuarioIniciarSesion" Header="Iniciar sesión" Click="menuUsuarioIniciarSesion_Click"/>
+                        
+                        <RibbonApplicationMenuItem x:Name="menuUsuarioCambiarContrasenia" Header="Cambiar contraseña" Click="menuUsuarioCambiarContrasenia_Click"/>
+                        <RibbonApplicationMenuItem x:Name="menuUsuarioCerrarSesion" Header="Cerrar sesión" Click="menuUsuarioCerrarSesion_Click"/>
+                   
+                        
+                        
+                        <!--<RibbonApplicationMenuItem Command="{x:Static viewmodel:commands.ExecuteOption1}" Header="Option 1" />-->
+                    
+
+                    <RibbonApplicationMenuItem x:Name="menuSalir" Header="Salir" Click="menuSalir_Click">
+
+                    </RibbonApplicationMenuItem>
+
+                </RibbonApplicationMenu>
+
+            </Ribbon.ApplicationMenu>
+            <RibbonTab x:Name="tabOrdenesEntrega" Header="Ordenes de Entrega" Height="88" VerticalAlignment="Top" Background="#FFCADEB8"  BorderBrush="#FF4AA200">
+                <RibbonGroup x:Name="grupoEditarOrden" Header="Editar" Margin="0,1" Width="Auto">
+                    <RibbonButton x:Name="btnAgregarOrden" ToolTip="Crear una orden" Label="Nueva" LargeImageSource="Graficos/nuevo.png" Height="55"  Click="btnAgregarOrden_Click" Margin="0,10,0,-10"/>
+                    <!--<RibbonButton x:Name="btnModificarOrden" Label="Modificar" LargeImageSource="Graficos/add.png" Height="55"  Click="btnModificarOrden_Click" Margin="0,10,0,-10"/>-->
+
+
+                    <RibbonButton x:Name="btnModificarOrden" ToolTip="Modificar orden seleccionada" Label="Modificar" LargeImageSource="Graficos/modificar.png" Height="55"  Click="btnModificarOrden_Click"  Margin="0,10,0,-10"/>
+                    <RibbonButton x:Name="btnEliminarOrden" ToolTip="Eliminar orden seleccionada" Label="Eliminar" LargeImageSource="Graficos/delete.png" Height="55"  Click="btnEliminarOrden_Click" Margin="0,10,0,-10"/>
+                </RibbonGroup>
+                <RibbonGroup Header="Buscar Por" Width="Auto">
+                    <RibbonRadioButton Name="opIdentificador" Label="Identificador" ToolTip="Número de identificador como criterio de búsqueda" Checked="opIdentificador_Checked"/>
+                    <RibbonRadioButton Name="opBeneficiario" Label="Beneficiario" ToolTip="Nombre del beneficiario como criterio de búsqueda" Checked="opBeneficiario_Checked" />
+                    <RibbonRadioButton Name="opFecha" Label="Fecha Creación" ToolTip="Fecha de creación como criterio de búsqueda" Checked="opFecha_Checked"/>
+
+
+                </RibbonGroup>
+
+                <RibbonGroup x:Name="grupoConsultarOrden" Header="Consultar" Margin="0,1" Width="500">
+
+                    <!--<Label Content="Criterio" Margin="0,10,0,-10"/>
+                    <RibbonComboBox x:Name="cmbCriterioBusquedaOrden"  Margin="0,10,0,-1">
+                            
+                            <ComboBoxItem Content="Todos"/>
+                            <ComboBoxItem Content="Beneficiario"/>
+                            <ComboBoxItem Content="Identificador"/>
+                        
+
+
+                    </RibbonComboBox>
+                    -->
+                    <!--<RibbonRadioButton x:Name="rdbIdentificador" Label="Identificador" Checked="rdbIdentificador_Checked"/> -->
+                    <!-- <RibbonRadioButton x:Name="rdbDocumento" Label="Documento" Checked="rdbDocumento_Checked"/> -->
+                    <!--<RibbonRadioButton x:Name="rdbFechaCreacion" Label="Fecha Creacion" Checked="rdbFechaCreacion_Checked"/>-->
+
+
+                    <RibbonTextBox x:Name="txtBusquedaOrden"  Style="{StaticResource CajadeTexto}" Label="Buscar:" Margin="10,10,-325,0" TextWrapping="Wrap" TextBoxWidth="300"  VerticalAlignment="Top" Visibility="Visible" KeyDown="txtBusquedaOrden_KeyDown"/>
+                    <DatePicker x:Name="dpFechaDesde" Margin="-39,10,-111,3" Visibility="Hidden"/>
+                    <Label x:Name="lblDesde" Content="Desde" Height="25" Margin="0,-3,-53,3" Visibility="Hidden"/>
+
+                    <DatePicker x:Name="dpFechaHasta" Margin="125,10,-275,1"  Visibility="Hidden"/>
+                    <Label x:Name="lblHasta" Content="Hasta" Height="25" Margin="178,-1,-225,1" Visibility="Hidden"/>
+
+                    <RibbonButton x:Name="btnBuscarOrden" Label="Buscar" LargeImageSource="Graficos/buscar.png" Height="55"  Click="btnBuscarOrden_Click"  Margin="333,10,-333,-10"/>
+                    <RibbonButton x:Name="btnAbrirOrden" ToolTip="Abre la orden seleccionada" Label="Consultar" LargeImageSource="Graficos/consultar.png" Height="55"  Click="btnAbrirOrden_Click"  Margin="343,10,-345,-10"/>
+                </RibbonGroup>
+
+                <RibbonGroup x:Name="grupoTratamientoOrden" Header="Tratamiento" Margin="0,1" Width="Auto">
+                    <RibbonButton x:Name="btnAutorizarOrden" ToolTip="Autorizar orden seleccionada" Label="Autorizar" LargeImageSource="Graficos/autorizar.png" Height="55"  Click="btnAutorizarOrden_Click" Margin="0,10,0,-10"/>
+                    <RibbonButton x:Name="btnEntregarOrden" ToolTip="Entregar orden seleccionada" Label="Entregar" LargeImageSource="Graficos/entrega.png" Height="55"  Click="btnEntregarOrden_Click" Margin="0,10,0,-10"/>
+                    <RibbonButton x:Name="btnCancelarOrden" ToolTip="Cancelar orden seleccionada" Label="Cancelar" LargeImageSource="Graficos/cancelar.png" Height="55"  Click="btnCancelarOrden_Click" Margin="0,10,0,-10"/>
+                </RibbonGroup>
+
+                <RibbonGroup x:Name="grupoReportesOrden" Header="Reportes" Margin="0,1" Width="Auto">
+                    <RibbonButton x:Name="btnReporteEstadosOrden" ToolTip="Genera un reporte por estados y fechas de las ordenes" Label="Estados" LargeImageSource="Graficos/reportes.png" Height="55"  Click="btnReporteEstadosOrden_Click" Margin="0,10,0,-10"/>
+                    
+
+                </RibbonGroup>
+
+            </RibbonTab>
+
+            <RibbonTab x:Name="tabBeneficiarios" Header="Beneficiarios" Height="88" VerticalAlignment="Top" Background="#FFCADEB8"  BorderBrush="#FF4AA200">
+                <RibbonGroup x:Name="grupoEditarBeneficiario" Header="Editar" Margin="0,1" Width="Auto">
+                    <RibbonButton x:Name="btnNuevoBeneficiario" ToolTip="Crea un beneficiario" Label="Nuevo" LargeImageSource="Graficos/beneficiario_agregar.png" Height="55"  Click="btnNuevoBeneficiario_Click"  Margin="0,10,0,-10"/>
+                    <RibbonButton x:Name="btnAdministrarBeneficiario" ToolTip="Abre una nueva ventana para administrar los beneficiarios" Label="Administrar" LargeImageSource="Graficos/beneficiario_administrar.png" Height="55"  Click="btnAdministrarBeneficiario_Click"  Margin="0,10,0,-10"/>
+                    <!-- <RibbonButton x:Name="btnModificarBeneficiario" Label="Modificar" LargeImageSource="Graficos/add.png" Height="55"  Click="btnModificarBeneficiario_Click" Margin="0,10,0,-10"/> -->
+                    <!-- <RibbonButton x:Name="btnEliminarBeneficiario" Label="Eliminar" LargeImageSource="Graficos/delete.png" Height="55"  Click="btnEliminarBeneficiario_Click" Margin="0,10,0,-10"/>  -->
+                </RibbonGroup>
+
+                <!--
+                <RibbonGroup x:Name="grupoConsultarBeneficiario" Header="Consultar" Margin="0,1" Width="530">
+                    <Label Content="Criterio" Margin="0,10,0,-10"/>
+                    <RibbonComboBox x:Name="cmbCriterioBusquedaBeneficiario"  Margin="0,10,0,-1"/>
+
+                    <RibbonTextBox x:Name="txtBusquedaBeneficiario" Label="Buscar:" Margin="10,10,-325,0" TextWrapping="Wrap" TextBoxWidth="300"  VerticalAlignment="Top" TextChanged="txtBusquedaBeneficiario_TextChanged"  PreviewKeyDown="txtBusquedaBeneficiario_PreviewKeyDown" />
+                    <RibbonButton x:Name="btnBuscarBeneficiario" Label="Buscar" LargeImageSource="Graficos/add.png" Height="55"  Click="btnBuscarBeneficiario_Click"  Margin="333,10,-333,-10"/>
+
+                </RibbonGroup>
+-->
+
+                <RibbonGroup x:Name="grupoReportesBeneficiario" Header="Reportes" Margin="0,1" Width="Auto">
+                    <RibbonButton x:Name="btnReporteEntregaBeneficiario" ToolTip="Genera un reporte de entregas por beneficiario" Label="Entregas" LargeImageSource="Graficos/reportes.png" Height="55"  Click="btnReporteEntregaBeneficiario_Click" Margin="0,10,0,-10"/>
+                </RibbonGroup>
+            </RibbonTab>
+
+            <RibbonTab x:Name="tabArticulos" Header="Articulos" Height="88" VerticalAlignment="Top" Background="#FFCADEB8"  BorderBrush="#FF4AA200">
+                <RibbonGroup x:Name="grupoEditarArticulo" Header="Editar" Margin="0,1" Width="Auto">
+                    <RibbonButton x:Name="btnNuevoArticulo" ToolTip="Crea un artículo" Label="Nuevo" LargeImageSource="Graficos/nuevo.png" Height="55"  Click="btnNuevoArticulo_Click"  Margin="0,10,0,-10"/>
+                    <RibbonButton x:Name="btnAdministrarArticulo" Label="Administrar" ToolTip="Abre una ventana para administrar artículos" LargeImageSource="Graficos/administrar.png" Height="55"  Click="btnAdministrarArticulo_Click"  Margin="0,10,0,-10"/>
+                    <!-- <RibbonButton x:Name="btnModificarArticulo" Label="Modificar" LargeImageSource="Graficos/add.png" Height="55"  Click="btnModificarArticulo_Click"  Margin="0,10,0,-10"/>
+                    <RibbonButton x:Name="btnEliminarArticulo" Label="Eliminar" LargeImageSource="Graficos/delete.png" Height="55"  Click="btnEliminarArticulo_Click"  Margin="0,10,0,-10"/> -->
+
+                </RibbonGroup>
+
+                <RibbonGroup x:Name="grupoEditarTipoArticulo" Header="Tipo de Articulos" Margin="0,1" Width="Auto">
+                    <RibbonButton x:Name="btnNuevoTipoArticulo" Label="Nuevo" ToolTip="Crea un Tipo de artículo" LargeImageSource="Graficos/nuevo.png" Height="55"  Click="btnNuevoTipoArticulo_Click"  Margin="0,10,0,-10"/>
+                    <RibbonButton x:Name="btnAdministrarTipoArticulo" Label="Administrar" ToolTip="Abre una ventana para administrar los tipos de artículos" LargeImageSource="Graficos/administrar.png" Height="55"  Click="btnAdministrarTipoArticulo_Click"  Margin="0,10,0,-10"/>
+
+
+                </RibbonGroup>
+                <!--
+                <RibbonGroup x:Name="grupoConsultarArticulo" Header="Consultar" Margin="0,1" Width="530">
+
+                    <Label Content="Criterio" Margin="0,10,0,-10"/>
+                    <RibbonComboBox x:Name="cmbCriterioBusquedaArticulo"  Margin="0,10,0,-1"/>
+                    <RibbonTextBox x:Name="txtBusquedaArticulo" Label="Buscar:" Margin="10,10,-325,0" TextWrapping="Wrap" TextBoxWidth="300"  VerticalAlignment="Top" TextChanged="txtBusquedaArticulo_TextChanged"  PreviewKeyDown="txtBusquedaArticulo_PreviewKeyDown" />
+                    <RibbonButton x:Name="btnBuscarArticulo" Label="Buscar" LargeImageSource="Graficos/add.png" Height="55"  Click="btnBuscarArticulo_Click"  Margin="333,10,-333,-10"/>
+
+                </RibbonGroup>
+                -->
+            </RibbonTab>
+
+            <RibbonTab x:Name="tabOtros" Header="Otros" Height="88" VerticalAlignment="Top" Background="#FFCADEB8"  BorderBrush="#FF4AA200">
+                <RibbonGroup x:Name="grupoEditarBarrio" Header="Barrio" Margin="0,1" Width="Auto">
+                    <RibbonButton x:Name="btnAgregarBarrio" ToolTip="Crea un barrio" Label="Nuevo" LargeImageSource="Graficos/barrio_nuevo.png" Height="55"  Click="btnAgregarBarrio_Click"  Margin="0,10,0,-10"/>
+
+                    <RibbonButton x:Name="btnAdministrarBarrios" Label="Administrar" ToolTip="Abre una ventana para administrar los barrios" LargeImageSource="Graficos/barrio_administrar.png" Height="55"  Click="btnAdministrarBarrios_Click"  Margin="0,10,0,-10"/>
+                </RibbonGroup>
+
+            </RibbonTab>
+
+            <RibbonTab x:Name="tabAvanzado" Header="Avanzado" Height="88" VerticalAlignment="Top" Background="#FFCADEB8"  BorderBrush="#FF4AA200">
+                <RibbonGroup x:Name="grupoEditarUsuario" Header="Usuario" Margin="0,1" Width="Auto">
+                    <RibbonButton x:Name="btnAgregarUsuario" ToolTip="Crea un usuario" Label="Nuevo" LargeImageSource="Graficos/usuario_agregar.png" Height="55"  Click="btnAgregarUsuario_Click"  Margin="0,10,0,-10"/>
+                    <!-- <RibbonButton x:Name="btnModificarUsuario" Label="Modificar" LargeImageSource="Graficos/add.png" Height="55"  Click="btnModificarUsuario_Click"  Margin="0,10,0,-10"/>
+                    <RibbonButton x:Name="btnEliminarUsuario" Label="Eliminar" LargeImageSource="Graficos/delete.png" Height="55"  Click="btnEliminarUsuario_Click"  Margin="0,10,0,-10"/> -->
+
+                    <RibbonButton x:Name="btnAdministrarUsuario" Label="Administrar" ToolTip="Abre una ventana para administrar los usuarios" LargeImageSource="Graficos/usuario_administrar.png" Height="55"  Click="btnAdministrarUsuario_Click"  Margin="0,10,0,-10"/>
+                </RibbonGroup>
+
+
+
+            </RibbonTab>
+        </Ribbon>
+        <Grid x:Name="gridOrdenes" Style="{StaticResource GridVerde}" Margin="10,163,10,10">
+            <DataGrid x:Name="grillaOrdenes" Style="{StaticResource Tabla}" CellStyle="{StaticResource CeldaGrilla}" HorizontalAlignment="Left" Margin="10,40,0,11" Width="750" IsReadOnly="True" AutoGenerateColumns="False" DataContext="{Binding}" SelectionChanged="grillaOrdenes_SelectionChanged" FocusableChanged="grillaOrdenes_FocusableChanged" GotFocus="grillaOrdenes_GotFocus" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id_orden_entrega}" ClipboardContentBinding="{x:Null}" Header="Identificador"/>
+                    <DataGridTextColumn Binding="{Binding Descripcion}" ClipboardContentBinding="{x:Null}" Header="Descripción"/>
+                    <DataGridTextColumn Binding="{Binding Beneficiario.Nombre}" ClipboardContentBinding="{x:Null}" Header="Beneficiario"/>
+                    <DataGridTextColumn Binding="{Binding Fecha, StringFormat={}{0:dd/MM/yyyy HH:mm:ss }}" ClipboardContentBinding="{x:Null}" Header="Fecha Creación"/>
+                    <DataGridTextColumn Binding="{Binding EstadoActual.Estado}" ClipboardContentBinding="{x:Null}" Header="Estado"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <DataGrid x:Name="grillaOrdenesIniciadas" Style="{StaticResource Tabla}" CellStyle="{StaticResource CeldaGrilla}" Margin="766,40,10,0" VerticalAlignment="Top" Height="211" IsReadOnly="True" AutoGenerateColumns="False" DataContext="{Binding}" SelectionChanged="grillaOrdenesIniciadas_SelectionChanged" FocusableChanged="grillaOrdenesIniciadas_FocusableChanged" GotFocus="grillaOrdenesIniciadas_GotFocus">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id_orden_entrega}" ClipboardContentBinding="{x:Null}" Header="Identificador"/>
+                    <DataGridTextColumn Binding="{Binding Descripcion}" ClipboardContentBinding="{x:Null}" Header="Descripción"/>
+                    <DataGridTextColumn Binding="{Binding Beneficiario.Nombre}" ClipboardContentBinding="{x:Null}" Header="Beneficiario"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <DataGrid x:Name="grillaOrdenesAutorizadas" Style="{StaticResource Tabla}" CellStyle="{StaticResource CeldaGrilla}" Margin="766,285,10,11" IsReadOnly="True" AutoGenerateColumns="False" DataContext="{Binding}" SelectionChanged="grillaOrdenesAutorizadas_SelectionChanged" FocusableChanged="grillaOrdenesAutorizadas_FocusableChanged" GotFocus="grillaOrdenesAutorizadas_GotFocus">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id_orden_entrega}" ClipboardContentBinding="{x:Null}" Header="Identificador"/>
+                    <DataGridTextColumn Binding="{Binding Descripcion}" ClipboardContentBinding="{x:Null}" Header="Descripción"/>
+                    <DataGridTextColumn Binding="{Binding Beneficiario.Nombre}" ClipboardContentBinding="{x:Null}" Header="Beneficiario"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label x:Name="lblOrdenesDeEntrega" Content="Ordenes de Entrega" Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top"/>
+            <Label Content="Ordenes Iniciadas" Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="766,11,0,0" VerticalAlignment="Top"/>
+            <Label Content="Ordenes Autorizadas" Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="766,256,0,0" VerticalAlignment="Top"/>
+        </Grid>
+
+    </Grid>
+</Window>

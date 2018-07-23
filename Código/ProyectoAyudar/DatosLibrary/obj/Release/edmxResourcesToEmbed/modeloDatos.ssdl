@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="saluddbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="articulo">
+    <Key>
+      <PropertyRef Name="id_articulo" />
+    </Key>
+    <Property Name="id_articulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_tipo_articulo" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="254" />
+    <Property Name="descripcion" Type="varchar" MaxLength="254" />
+  </EntityType>
+  <EntityType Name="barrio">
+    <Key>
+      <PropertyRef Name="id_barrio" />
+    </Key>
+    <Property Name="id_barrio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_barrio" Type="varchar" MaxLength="254" />
+    <Property Name="ciudad" Type="varchar" MaxLength="254" />
+  </EntityType>
+  <EntityType Name="beneficiario">
+    <Key>
+      <PropertyRef Name="id_beneficiario" />
+    </Key>
+    <Property Name="id_beneficiario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_barrio" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="254" />
+    <Property Name="documento" Type="varchar" MaxLength="254" />
+    <Property Name="direccion" Type="varchar" MaxLength="254" />
+    <Property Name="telefono" Type="varchar" MaxLength="254" />
+  </EntityType>
+  <EntityType Name="funcion">
+    <Key>
+      <PropertyRef Name="id_funcion" />
+    </Key>
+    <Property Name="id_funcion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_menu" Type="varchar" MaxLength="254" />
+    <Property Name="nombre_funcion" Type="varchar" MaxLength="254" />
+    <Property Name="nombre_menu" Type="varchar" MaxLength="254" />
+  </EntityType>
+  <EntityType Name="itemcompra">
+    <Key>
+      <PropertyRef Name="id_item_compra" />
+    </Key>
+    <Property Name="id_compra" Type="bigint" Nullable="false" />
+    <Property Name="id_item_compra" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_articulo" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="float" />
+    <Property Name="precio_unitario" Type="float" />
+  </EntityType>
+  <EntityType Name="itementrega">
+    <Key>
+      <PropertyRef Name="id_item_entrega" />
+    </Key>
+    <Property Name="id_orden" Type="bigint" Nullable="false" />
+    <Property Name="id_item_entrega" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_articulo" Type="int" Nullable="false" />
+    <Property Name="cantidad" Type="float" />
+  </EntityType>
+  <EntityType Name="ordenentrega">
+    <Key>
+      <PropertyRef Name="id_orden" />
+    </Key>
+    <Property Name="id_orden" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_beneficiario" Type="int" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="254" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="id_usu_autoriza" Type="int" />
+    <Property Name="id_usu_entrega" Type="int" />
+  </EntityType>
+  <EntityType Name="ordenestado">
+    <Key>
+      <PropertyRef Name="id_ordenEstado" />
+    </Key>
+    <Property Name="id_ordenEstado" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_orden" Type="bigint" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="estado" Type="int" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="permiso">
+    <Key>
+      <PropertyRef Name="id_permiso" />
+    </Key>
+    <Property Name="id_permiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="id_funcion" Type="int" />
+    <Property Name="permitido" Type="bool" />
+  </EntityType>
+  <EntityType Name="proveedor">
+    <Key>
+      <PropertyRef Name="id_proveedor" />
+    </Key>
+    <Property Name="id_proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="254" />
+    <Property Name="descripcion" Type="varchar" MaxLength="254" />
+    <Property Name="direccion" Type="varchar" MaxLength="254" />
+    <Property Name="telefono" Type="varchar" MaxLength="254" />
+    <Property Name="email" Type="varchar" MaxLength="254" />
+  </EntityType>
+  <EntityType Name="tipoarticulo">
+    <Key>
+      <PropertyRef Name="id_tipo_articulo" />
+    </Key>
+    <Property Name="id_tipo_articulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_tipo" Type="varchar" MaxLength="254" />
+    <Property Name="es_dinero" Type="bool" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_usuario" Type="varchar" MaxLength="254" />
+    <Property Name="contrasenia" Type="varchar" MaxLength="254" />
+    <Property Name="nombre_completo" Type="varchar" MaxLength="254" />
+  </EntityType>
+  <EntityContainer Name="saluddbModelStoreContainer">
+    <EntitySet Name="articulo" EntityType="Self.articulo" Schema="saluddb" store:Type="Tables" />
+    <EntitySet Name="barrio" EntityType="Self.barrio" Schema="saluddb" store:Type="Tables" />
+    <EntitySet Name="beneficiario" EntityType="Self.beneficiario" Schema="saluddb" store:Type="Tables" />
+    <EntitySet Name="funcion" EntityType="Self.funcion" Schema="saluddb" store:Type="Tables" />
+    <EntitySet Name="itemcompra" EntityType="Self.itemcompra" Schema="saluddb" store:Type="Tables" />
+    <EntitySet Name="itementrega" EntityType="Self.itementrega" Schema="saluddb" store:Type="Tables" />
+    <EntitySet Name="ordenentrega" EntityType="Self.ordenentrega" Schema="saluddb" store:Type="Tables" />
+    <EntitySet Name="ordenestado" EntityType="Self.ordenestado" Schema="saluddb" store:Type="Tables" />
+    <EntitySet Name="permiso" EntityType="Self.permiso" Schema="saluddb" store:Type="Tables" />
+    <EntitySet Name="proveedor" EntityType="Self.proveedor" Schema="saluddb" store:Type="Tables" />
+    <EntitySet Name="tipoarticulo" EntityType="Self.tipoarticulo" Schema="saluddb" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="saluddb" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

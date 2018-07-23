@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="saluddbModelStoreContainer" CdmEntityContainer="saluddbEntities">
+    <EntitySetMapping Name="articuloes">
+      <EntityTypeMapping TypeName="saluddbModel.articulo">
+        <MappingFragment StoreEntitySet="articulo">
+          <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+          <ScalarProperty Name="id_tipo_articulo" ColumnName="id_tipo_articulo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="beneficiarios">
+      <EntityTypeMapping TypeName="saluddbModel.beneficiario">
+        <MappingFragment StoreEntitySet="beneficiario">
+          <ScalarProperty Name="id_barrio" ColumnName="id_barrio" />
+          <ScalarProperty Name="id_beneficiario" ColumnName="id_beneficiario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="documento" ColumnName="documento" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="funcions">
+      <EntityTypeMapping TypeName="saluddbModel.funcion">
+        <MappingFragment StoreEntitySet="funcion">
+          <ScalarProperty Name="id_funcion" ColumnName="id_funcion" />
+          <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+          <ScalarProperty Name="nombre_funcion" ColumnName="nombre_funcion" />
+          <ScalarProperty Name="nombre_menu" ColumnName="nombre_menu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="itemcompras">
+      <EntityTypeMapping TypeName="saluddbModel.itemcompra">
+        <MappingFragment StoreEntitySet="itemcompra">
+          <ScalarProperty Name="id_compra" ColumnName="id_compra" />
+          <ScalarProperty Name="id_item_compra" ColumnName="id_item_compra" />
+          <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="itementregas">
+      <EntityTypeMapping TypeName="saluddbModel.itementrega">
+        <MappingFragment StoreEntitySet="itementrega">
+          <ScalarProperty Name="id_orden" ColumnName="id_orden" />
+          <ScalarProperty Name="id_item_entrega" ColumnName="id_item_entrega" />
+          <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ordenentregas">
+      <EntityTypeMapping TypeName="saluddbModel.ordenentrega">
+        <MappingFragment StoreEntitySet="ordenentrega">
+          <ScalarProperty Name="id_usu_entrega" ColumnName="id_usu_entrega" />
+          <ScalarProperty Name="id_usu_autoriza" ColumnName="id_usu_autoriza" />
+          <ScalarProperty Name="id_orden" ColumnName="id_orden" />
+          <ScalarProperty Name="id_beneficiario" ColumnName="id_beneficiario" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permisoes">
+      <EntityTypeMapping TypeName="saluddbModel.permiso">
+        <MappingFragment StoreEntitySet="permiso">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
+          <ScalarProperty Name="id_funcion" ColumnName="id_funcion" />
+          <ScalarProperty Name="permitido" ColumnName="permitido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="proveedors">
+      <EntityTypeMapping TypeName="saluddbModel.proveedor">
+        <MappingFragment StoreEntitySet="proveedor">
+          <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoarticuloes">
+      <EntityTypeMapping TypeName="saluddbModel.tipoarticulo">
+        <MappingFragment StoreEntitySet="tipoarticulo">
+          <ScalarProperty Name="id_tipo_articulo" ColumnName="id_tipo_articulo" />
+          <ScalarProperty Name="nombre_tipo" ColumnName="nombre_tipo" />
+          <ScalarProperty Name="es_dinero" ColumnName="es_dinero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="saluddbModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+          <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+          <ScalarProperty Name="nombre_completo" ColumnName="nombre_completo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ordenestadoes">
+      <EntityTypeMapping TypeName="saluddbModel.ordenestado">
+        <MappingFragment StoreEntitySet="ordenestado">
+          <ScalarProperty Name="id_ordenEstado" ColumnName="id_ordenEstado" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_orden" ColumnName="id_orden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="barrios">
+      <EntityTypeMapping TypeName="saluddbModel.barrio">
+        <MappingFragment StoreEntitySet="barrio">
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="nombre_barrio" ColumnName="nombre_barrio" />
+          <ScalarProperty Name="id_barrio" ColumnName="id_barrio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

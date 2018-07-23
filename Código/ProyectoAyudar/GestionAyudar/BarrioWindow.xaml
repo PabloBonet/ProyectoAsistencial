@@ -1,0 +1,39 @@
+﻿<Window x:Class="Processar.ProyectoAyudar.GestionAyudar.BarrioWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Barrio" Height="500" Width="1024"  WindowStartupLocation="CenterScreen" Initialized="Window_Initialized" ResizeMode="NoResize" Icon="Graficos/logo.png">
+    <Window.Resources>
+        <ResourceDictionary Source="recursosdic.xaml"/>
+
+    </Window.Resources>
+    <Grid Style="{StaticResource GridFondo}">
+        <Ribbon VerticalAlignment="Top" Height="148"   Margin="0,10,0,0" ShowQuickAccessToolBarOnTop="False"  Background="#FFCADEB8" >
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu Visibility="Hidden" Width="0"/>
+            </Ribbon.ApplicationMenu>
+            <RibbonTab  Header="Editar" Height="88" VerticalAlignment="Top" Background="#FFCADEB8"  BorderBrush="#FF4AA200">
+                <RibbonGroup x:Name="grupoEditarBarrio" Header="Editar" Margin="0,1" Width="Auto">
+                    <RibbonButton x:Name="btnEliminarBarrio" Label="Eliminar" LargeImageSource="Graficos/delete.png" Height="55"  Click="btnEliminarBarrio_Click"  Margin="0,10,0,-10"/>
+
+                </RibbonGroup>
+
+                <RibbonGroup x:Name="grupoCambios" Header="Cambios" Margin="0,1" Width="Auto">
+                    <RibbonButton x:Name="btnGuardarBarrio" Label="Guardar" LargeImageSource="Graficos/guardar.png" Height="55"  Click="btnGuardarBarrio_Click"  Margin="4,10,-4,-10"/>
+                    <RibbonButton x:Name="btnCancelarCambios" Label="Cancelar" LargeImageSource="Graficos/cancel.png" Height="55"  Click="btnCancelarCambios_Click"  Margin="4,10,-4,-10"/>
+                </RibbonGroup>
+
+            </RibbonTab>
+
+        </Ribbon>
+
+        <Grid x:Name="gridBeneficiarios" Style="{StaticResource GridVerde}" Margin="10,163,10,10">
+            <TextBox x:Name="txtNombre" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="243,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" TextChanged="txtBox_TextChanged"/>
+            <Label x:Name="lblNombre" Content="Nombre:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="150,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.583"/>
+            <TextBox x:Name="txtCiudad" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="243,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" TextChanged="txtBox_TextChanged"/>
+            <Label x:Name="lblCiudad" Content="Ciudad:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="150,150,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtBien" Style="{StaticResource CajadeTexto}" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="142,623,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtMal" Style="{StaticResource CajadeTextoError}" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="302,646,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,41 @@
+﻿<Window x:Class="Processar.ProyectoAyudar.GestionAyudar.CambiarContraseniaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GestionBeneficiarios"
+        mc:Ignorable="d"
+         Title="Cambiar contraseña" Height="420" Width="500"  WindowStartupLocation="CenterScreen"  ResizeMode="NoResize"  Initialized="Window_Initialized" Icon="Graficos/logo.png">
+    <Window.Resources>
+        <ResourceDictionary Source="recursosdic.xaml"/>
+
+    </Window.Resources>
+
+    <Grid Style="{StaticResource GridFondo}" >
+
+        <Grid x:Name="gridSesion" Style="{StaticResource GridVerde}" Margin="10"  >
+            <Label x:Name="lblUsuario"  Style="{StaticResource Label_Comun}" Content="Usuario" HorizontalAlignment="Center" Margin="130,21,283,0" VerticalAlignment="Top" Width="61"/>
+            <PasswordBox x:Name="txtContrasenia"  Style="{StaticResource CajadePassword}" HorizontalAlignment="Left" Margin="130,190,0,0" VerticalAlignment="Top" Width="250" Height="22" PreviewLostKeyboardFocus="txtContrasenia_PreviewLostKeyboardFocus"/>
+            <Label x:Name="lblContrasenia"  Style="{StaticResource Label_Comun}" Content="Contraseña Nueva" HorizontalAlignment="Left" Margin="130,161,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.611,0.149" Width="121"/>
+            <Button x:Name="btnAceptar" Style="{StaticResource BotonMenu}" HorizontalAlignment="Left" Margin="160,300,0,0" VerticalAlignment="Top" Width="60" Height="40" Click="btnAceptar_Click"  IsDefault="True">
+                <Grid>
+                    <Image x:Name="imgbtnAgregar" Source="Graficos/accept.png" Height="32" Width="32" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+
+                </Grid>
+            </Button>
+            <Button x:Name="btnCancelar" Style="{StaticResource BotonMenu}" HorizontalAlignment="Left" Margin="287,300,0,0" VerticalAlignment="Top" Width="60" Height="40" Click="btnCancelar_Click"  IsCancel="True">
+                <Grid>
+                    <Image x:Name="imgbtnAgregar1" Source="Graficos/cancel.png" Height="32" Width="32" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+
+                </Grid>
+            </Button>
+            <PasswordBox x:Name="txtRepetirContrasenia"  Style="{StaticResource CajadePassword}" HorizontalAlignment="Left" Margin="130,260,0,0" VerticalAlignment="Top" Width="250" Height="22" PreviewLostKeyboardFocus="txtRepetirContrasenia_PreviewLostKeyboardFocus"/>
+            <Label x:Name="lblRepetirContrasenia"  Style="{StaticResource Label_Comun}" Content="Repetir Contraseña" HorizontalAlignment="Left" Margin="130,231,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.611,0.149" Width="130"/>
+            <Label x:Name="lblNombreUsuario"  Style="{StaticResource Label_Comun}" Content="" HorizontalAlignment="Left" Margin="130,50,0,0" VerticalAlignment="Top" Width="250"/>
+            <PasswordBox x:Name="txtContraseniaAnt"  Style="{StaticResource CajadePassword}" HorizontalAlignment="Left" Margin="130,120,0,0" VerticalAlignment="Top" Width="250" Height="22" PreviewLostKeyboardFocus="txtContraseniaAnt_PreviewLostKeyboardFocus"/>
+            <Label x:Name="lblContraseniaActual"  Style="{StaticResource Label_Comun}" Content="Contraseña Anterior" HorizontalAlignment="Left" Margin="130,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.611,0.149" Width="130"/>
+        </Grid>
+        <TextBox Name="txtBien" Style="{StaticResource CajadeTexto}" Visibility="Hidden"/>
+        <TextBox Name="txtMal" Style="{StaticResource CajadeTextoError}" Visibility="Hidden"/>
+    </Grid>
+</Window>

@@ -1,0 +1,43 @@
+C:\Users\Pablo_Bonet\documents\visual studio 2013\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\ClasesLibrary.dll.config
+C:\Users\Pablo_Bonet\documents\visual studio 2013\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\ClasesLibrary.dll
+C:\Users\Pablo_Bonet\documents\visual studio 2013\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\ClasesLibrary.pdb
+C:\Users\Pablo_Bonet\documents\visual studio 2013\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\DatosLibrary.dll
+C:\Users\Pablo_Bonet\documents\visual studio 2013\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\EntityFramework.dll
+C:\Users\Pablo_Bonet\documents\visual studio 2013\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\DatosLibrary.pdb
+C:\Users\Pablo_Bonet\documents\visual studio 2013\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\EntityFramework.xml
+C:\Users\Pablo_Bonet\documents\visual studio 2013\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\obj\Debug\ClasesLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Pablo_Bonet\documents\visual studio 2013\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\obj\Debug\ClasesLibrary.dll
+C:\Users\Pablo_Bonet\documents\visual studio 2013\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\obj\Debug\ClasesLibrary.pdb
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\ClasesLibrary.dll.config
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\ClasesLibrary.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\ClasesLibrary.pdb
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\DatosLibrary.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\EntityFramework.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\MySql.Data.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\DatosLibrary.pdb
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\EntityFramework.xml
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\obj\Debug\ClasesLibrary.csprojResolveAssemblyReference.cache
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\obj\Debug\ClasesLibrary.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ClasesLibrary\obj\Debug\ClasesLibrary.pdb
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\ProyectoAyudar\ClasesLibrary\obj\Debug\ClasesLibrary.csprojResolveAssemblyReference.cache
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\ProyectoAyudar\ClasesLibrary\obj\Debug\ClasesLibrary.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\ProyectoAyudar\ClasesLibrary\obj\Debug\ClasesLibrary.pdb
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\ProyectoAyudar\ClasesLibrary\bin\Debug\ClasesLibrary.dll.config
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\ProyectoAyudar\ClasesLibrary\bin\Debug\ClasesLibrary.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\ProyectoAyudar\ClasesLibrary\bin\Debug\ClasesLibrary.pdb
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\ProyectoAyudar\ClasesLibrary\bin\Debug\DatosLibrary.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\ProyectoAyudar\ClasesLibrary\bin\Debug\EntityFramework.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\ProyectoAyudar\ClasesLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\ProyectoAyudar\ClasesLibrary\bin\Debug\MySql.Data.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\ProyectoAyudar\ClasesLibrary\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\ProyectoAyudar\ClasesLibrary\bin\Debug\DatosLibrary.pdb
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\ProyectoAyudar\ClasesLibrary\bin\Debug\EntityFramework.xml
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\ProyectoAyudar\ClasesLibrary\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ClasesLibrary\bin\Debug\SqlServerTypes\x64\msvcr100.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ClasesLibrary\bin\Debug\SqlServerTypes\x64\SqlServerSpatial120.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ClasesLibrary\bin\Debug\SqlServerTypes\x86\msvcr100.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ClasesLibrary\bin\Debug\SqlServerTypes\x86\SqlServerSpatial120.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ClasesLibrary\bin\Debug\Microsoft.SqlServer.Types.dll

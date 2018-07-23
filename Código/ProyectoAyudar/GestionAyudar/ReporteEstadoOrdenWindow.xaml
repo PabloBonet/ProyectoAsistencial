@@ -1,0 +1,80 @@
+﻿<Window x:Class="Processar.ProyectoAyudar.GestionAyudar.ReporteEstadoOrdenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GestionBeneficiarios"
+        mc:Ignorable="d"
+       Title="Reporte por estados - Comuna de Margarita" Height="720" Width="1050" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Initialized="Window_Initialized" Icon="Graficos/logo.png">
+
+    <Window.Resources>
+        <ResourceDictionary Source="recursosdic.xaml"/>
+
+    </Window.Resources>
+    <Grid Style="{StaticResource GridFondo}">
+
+        <Ribbon VerticalAlignment="Top" Height="148"   Margin="0,10,0,0" ShowQuickAccessToolBarOnTop="False"  Background="#FFCADEB8" >
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu Visibility="Hidden" Width="0"/>
+            </Ribbon.ApplicationMenu>
+
+            <RibbonTab  Header="Reporte por Estado" Height="88" VerticalAlignment="Top" Background="#FFCADEB8"  BorderBrush="#FF4AA200">
+                <RibbonGroup x:Name="grupoEstado" Header="Estado" Margin="0,1" Width="200">
+                    <CheckBox x:Name="chAutorizado" Style="{StaticResource CheckBoxVerde}" Content="Autorizado" HorizontalAlignment="Left" Margin="10,10,-1,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="chEntregado" Style="{StaticResource CheckBoxVerde}"  Content="Entregado" HorizontalAlignment="Left" Margin="10,10,-1,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="chCancelado"  Style="{StaticResource CheckBoxVerde}" Content="Cancelado" HorizontalAlignment="Left" Margin="10,10,-1,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="chIniciado" Style="{StaticResource CheckBoxVerde}" Content="Iniciado" HorizontalAlignment="Left" Margin="10,10,-1,0" VerticalAlignment="Top"/>
+                    
+                </RibbonGroup>
+                <RibbonGroup x:Name="grupoPeriodoBusqueda" Header="Período" Margin="0,1" Width="410">
+                    <DatePicker x:Name="dpFechaDesde" Margin="10,10,-160,3" />
+                    <Label x:Name="lblDesde" Content="Desde" Height="25" Margin="50,-3,-103,3" />
+
+                    <DatePicker x:Name="dpFechaHasta" Margin="180,10,-330,1"  />
+                    <Label x:Name="lblHasta" Content="Hasta" Height="25" Margin="220,-1,-267,1" />
+                    <RibbonButton x:Name="btnBuscarOrdenes" Label="Buscar" LargeImageSource="Graficos/buscar.png" Height="55"  Click="btnBuscarOrdenes_Click"  Margin="340,10,-340,-10"/>
+                </RibbonGroup>
+                <RibbonGroup x:Name="grupoImprimir" Header="Imprimir" Margin="0,1" Width="215">
+                    <RibbonGroup x:Name="grupoOpciones" Header="Opciones" Margin="0,1,6,1">
+                    <CheckBox x:Name="chImprimirArticulos" Style="{StaticResource CheckBoxVerde}" Content="Imprimir Artículos" HorizontalAlignment="Left" Margin="10,10,-1,0" VerticalAlignment="Top"/>
+                    </RibbonGroup>
+                    
+                    <RibbonButton x:Name="btnImprimir" Label="Imprimir" LargeImageSource="Graficos/imprimir.png" Height="55"  Click="btnImprimir_Click"  Margin="10,10,-10,-10"/>
+                    
+
+                </RibbonGroup>
+            </RibbonTab>
+        </Ribbon>
+
+        <Grid x:Name="gridOrdenes" Style="{StaticResource GridVerde}" Margin="10,163,10,10">
+            <DataGrid x:Name="grillaOrdenes" Style="{StaticResource Tabla}" CellStyle="{StaticResource CeldaGrilla}" HorizontalAlignment="Left" Margin="10,39,0,253" Width="1002" IsReadOnly="True" AutoGenerateColumns="False" DataContext="{Binding}" SelectionChanged="grillaOrdenes_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id_orden_entrega}" ClipboardContentBinding="{x:Null}" Header="Nº Orden" Visibility="Visible"/>
+                    <DataGridTextColumn Binding="{Binding Beneficiario.Documento}" ClipboardContentBinding="{x:Null}" Header="DNI Beneficiario"/>
+                    
+                    <DataGridTextColumn  Binding="{Binding Descripcion}" ClipboardContentBinding="{x:Null}" Header="Descripción" Visibility="Visible"/>
+                    <DataGridTextColumn Binding="{Binding FechaCreadoFormateada}" ClipboardContentBinding="{x:Null}" Header="Fecha creado"/>
+                    <DataGridTextColumn Binding="{Binding UsuarioEntrega.Nombre_completo}" ClipboardContentBinding="{x:Null}" Header="Entregado por"/>
+                    <DataGridTextColumn Binding="{Binding UsuarioAutoriza.Nombre_completo}" ClipboardContentBinding="{x:Null}" Header="Autorizado por"/>
+                    <DataGridTextColumn Binding="{Binding EstadoActual.Estado}" ClipboardContentBinding="{x:Null}" Header="Estado"/>
+                    <DataGridTextColumn Binding="{Binding EstadoActual.FechaFormateada}" ClipboardContentBinding="{x:Null}" Header="Fecha estado"/>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label x:Name="lblReporteEstados" Style="{StaticResource Label_Comun}" Content="Ordenes por estados" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="163"/>
+            <DataGrid x:Name="grillaArticulos" Style="{StaticResource Tabla}" CellStyle="{StaticResource CeldaGrilla}" HorizontalAlignment="Left" Margin="10,297,0,9" Width="1002" IsReadOnly="True" AutoGenerateColumns="False" DataContext="{Binding}" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id_item_entrega}" ClipboardContentBinding="{x:Null}" Header="IdItem" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Cantidad}" ClipboardContentBinding="{x:Null}" Header="Cantidad"/>
+                    <DataGridTextColumn Binding="{Binding Articulo.Nombre_articulo}" ClipboardContentBinding="{x:Null}" Header="Nombre"/>
+                    <DataGridTextColumn Binding="{Binding Articulo.Descripcion_articulo}" ClipboardContentBinding="{x:Null}" Header="Descripción"/>
+                    <DataGridTextColumn Binding="{Binding Articulo.Tipo_articulo.Nombre_TipoArticulo}" ClipboardContentBinding="{x:Null}" Header="Tipo Artículo"/>
+                    
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label x:Name="lblItems" Style="{StaticResource Label_Comun}" Content="Articulos por orden de entrega" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="203"/>
+
+        </Grid>
+        </Grid>
+</Window>

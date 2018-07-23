@@ -1,0 +1,65 @@
+﻿<Window x:Class="Processar.ProyectoAyudar.GestionAyudar.AdministrarArticulosWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Administrar Articulos - Comuna de Margarita" WindowStartupLocation="CenterScreen" Height="720" Width="1024"  ResizeMode="NoResize" Closing="Window_Closing" Initialized="Window_Initialized" Icon="Graficos/logo.png" >
+
+    <Window.Resources>
+        <ResourceDictionary Source="recursosdic.xaml"/>
+
+    </Window.Resources>
+    <Grid Style="{StaticResource GridFondo}">
+        <Ribbon VerticalAlignment="Top" Height="148"   Margin="0,10,0,0" ShowQuickAccessToolBarOnTop="False"  Background="#FFCADEB8" >
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu Visibility="Hidden" Width="0"/>
+            </Ribbon.ApplicationMenu>
+
+            <RibbonTab  Header="Editar" Height="88" VerticalAlignment="Top" Background="#FFCADEB8"  BorderBrush="#FF4AA200">
+                <RibbonGroup x:Name="grupoEditarArticulos" Header="Editar" Margin="0,1" Width="Auto">
+                    <RibbonButton x:Name="btnNuevoArticulo" Label="Nuevo" LargeImageSource="Graficos/nuevo.png" Height="55"  Click="btnNuevoArticulo_Click"  Margin="0,10,0,-10"/>
+
+                    <RibbonButton x:Name="btnModificarArticulo" Label="Modificar" LargeImageSource="Graficos/modificar.png" Height="55"  Click="btnModificarArticulo_Click"  Margin="0,10,0,-10"/>
+
+                    <RibbonButton x:Name="btnEliminarArticulo" Label="Eliminar" LargeImageSource="Graficos/delete.png" Height="55"  Click="btnEliminarArticulo_Click"  Margin="0,10,0,-10"/>
+                </RibbonGroup>
+
+               
+                <RibbonGroup x:Name="grupoConsultarArticulo" Header="Consultar" Margin="0,1" Width="590">
+                    <RibbonGroup x:Name="grupoCriterio" Header="Criterios" Margin="0,1" Width="90">
+
+                        <RibbonRadioButton x:Name="rdbNombre" Label="Nombre" Checked="rdbNombre_Checked"/>
+                        <RibbonRadioButton x:Name="rdbTipo" Label="Tipo" Checked="rdbTipo_Checked"/>
+
+
+                    </RibbonGroup>
+
+
+
+                    <RibbonTextBox x:Name="txtBusquedaArticulo"  Style="{StaticResource CajadeTexto}" Label="Buscar:" Margin="10,10,-325,0" TextWrapping="Wrap" TextBoxWidth="300"  VerticalAlignment="Top" KeyDown="txtBusquedaArticulo_KeyDown" />
+                    <RibbonButton x:Name="btnBuscarArticulo" Label="Buscar" LargeImageSource="Graficos/buscar.png" Height="55"  Click="btnBuscarArticulo_Click"  Margin="333,10,-333,-10"/>
+
+                    <RibbonButton x:Name="btnAbrirArticulo" Label="Consultar" LargeImageSource="Graficos/consultar.png" Height="55"  Click="btnAbrirArticulo_Click"  Margin="343,10,-333,-10"/>
+
+
+                </RibbonGroup>
+               
+
+                
+            </RibbonTab>
+
+        </Ribbon>
+        <Grid x:Name="gridArticulos" Style="{StaticResource GridVerde}" Margin="10,163,10,10">
+            <DataGrid x:Name="grillaArticulos" Style="{StaticResource Tabla}" CellStyle="{StaticResource CeldaGrilla}" HorizontalAlignment="Left" Margin="10,40,0,11" Width="976" IsReadOnly="True" AutoGenerateColumns="False" DataContext="{Binding}" SelectionChanged="grillaArticulos_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id_articulo}" ClipboardContentBinding="{x:Null}" Header="Identificador" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Nombre_articulo}" ClipboardContentBinding="{x:Null}" Header="Nombre"/>
+                    <DataGridTextColumn Binding="{Binding Descripcion_articulo}" ClipboardContentBinding="{x:Null}" Header="Descripción"/>
+                    <DataGridTextColumn Binding="{Binding Tipo_articulo.Nombre_TipoArticulo}" ClipboardContentBinding="{x:Null}" Header="Tipo Artículo"/>
+                    
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="Articulos:" Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top"/>
+        </Grid>
+
+    </Grid>
+</Window>

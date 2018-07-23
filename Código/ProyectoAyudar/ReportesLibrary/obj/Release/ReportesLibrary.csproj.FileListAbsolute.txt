@@ -1,0 +1,59 @@
+C:\Users\Pablo_Bonet\Documents\Visual Studio 2013\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\bin\Release\ReportesLibrary.dll
+C:\Users\Pablo_Bonet\Documents\Visual Studio 2013\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\bin\Release\ReportesLibrary.pdb
+C:\Users\Pablo_Bonet\Documents\Visual Studio 2013\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\bin\Release\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Pablo_Bonet\Documents\Visual Studio 2013\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\bin\Release\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Pablo_Bonet\Documents\Visual Studio 2013\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\AIMR.GestionBeneficiarios.ReportesLibrary.frmInformeAutorizacion.resources
+C:\Users\Pablo_Bonet\Documents\Visual Studio 2013\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\AIMR.GestionBeneficiarios.ReportesLibrary.frmInformeEntrega.resources
+C:\Users\Pablo_Bonet\Documents\Visual Studio 2013\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\AIMR.GestionBeneficiarios.ReportesLibrary.frmReporteEntregaConArticulo.resources
+C:\Users\Pablo_Bonet\Documents\Visual Studio 2013\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\AIMR.GestionBeneficiarios.ReportesLibrary.frmReporteEntregaPorEstado.resources
+C:\Users\Pablo_Bonet\Documents\Visual Studio 2013\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\AIMR.GestionBeneficiarios.ReportesLibrary.frmVerEntregaBeneficiario.resources
+C:\Users\Pablo_Bonet\Documents\Visual Studio 2013\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\ReportesLibrary.csproj.GenerateResource.Cache
+C:\Users\Pablo_Bonet\Documents\Visual Studio 2013\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\RdlCompile.cache
+C:\Users\Pablo_Bonet\Documents\Visual Studio 2013\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\RdlCompile.compiled
+C:\Users\Pablo_Bonet\Documents\Visual Studio 2013\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\ReportesLibrary.dll
+C:\Users\Pablo_Bonet\Documents\Visual Studio 2013\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\ReportesLibrary.pdb
+C:\Users\Pablo_Bonet\Documents\Visual Studio 2013\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\ReportesLibrary.csprojResolveAssemblyReference.cache
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\bin\Release\ReportesLibrary.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\bin\Release\ReportesLibrary.pdb
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\bin\Release\Microsoft.ReportViewer.WinForms.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\bin\Release\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\ReportesLibrary.csprojResolveAssemblyReference.cache
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\AIMR.GestionBeneficiarios.ReportesLibrary.frmInformeAutorizacion.resources
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\AIMR.GestionBeneficiarios.ReportesLibrary.frmInformeEntrega.resources
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\AIMR.GestionBeneficiarios.ReportesLibrary.frmReporteEntregaConArticulo.resources
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\AIMR.GestionBeneficiarios.ReportesLibrary.frmReporteEntregaPorEstado.resources
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\AIMR.GestionBeneficiarios.ReportesLibrary.frmVerEntregaBeneficiario.resources
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\ReportesLibrary.csproj.GenerateResource.Cache
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\RdlCompile.cache
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\RdlCompile.compiled
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\ReportesLibrary.dll
+C:\Users\pablo\Documents\Visual Studio 2015\Projects\Sistema de Gestión de Beneficiarios\ReportesLibrary\obj\Release\ReportesLibrary.pdb
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\ReportesLibrary.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\ReportesLibrary.pdb
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\Microsoft.ReportViewer.WinForms.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\obj\Release\Processar.ProyectoAyudar.ReportesLibrary.frmInformeAutorizacion.resources
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\obj\Release\Processar.ProyectoAyudar.ReportesLibrary.frmInformeEntrega.resources
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\obj\Release\Processar.ProyectoAyudar.ReportesLibrary.frmReporteEntregaConArticulo.resources
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\obj\Release\Processar.ProyectoAyudar.ReportesLibrary.frmReporteEntregaPorEstado.resources
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\obj\Release\Processar.ProyectoAyudar.ReportesLibrary.frmVerEntregaBeneficiario.resources
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\obj\Release\ReportesLibrary.csproj.GenerateResource.Cache
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\obj\Release\RdlCompile.cache
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\obj\Release\RdlCompile.compiled
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\obj\Release\ReportesLibrary.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\obj\Release\ReportesLibrary.pdb
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\ReportesLibrary.dll.config
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\EntityFramework.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\MySql.Data.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\MySql.Data.Entity.EF6.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\EntityFramework.xml
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\SqlServerTypes\x64\msvcr100.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\SqlServerTypes\x64\SqlServerSpatial120.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\SqlServerTypes\x86\msvcr100.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\SqlServerTypes\x86\SqlServerSpatial120.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\Microsoft.SqlServer.Types.dll

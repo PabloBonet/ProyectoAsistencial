@@ -1,0 +1,78 @@
+﻿<Window x:Class="Processar.ProyectoAyudar.GestionAyudar.ReporteEntregaBeneficiarioWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GestionBeneficiarios"
+        mc:Ignorable="d"
+        Title="Reporte Entrega a Beneficiarios - Comuna de Margarita" WindowStartupLocation="CenterScreen" Height="720" Width="1050" Closing="Window_Closing" Initialized="Window_Initialized" Icon="Graficos/logo.png">
+
+    <Window.Resources>
+        <ResourceDictionary Source="recursosdic.xaml"/>
+
+    </Window.Resources>
+    <Grid Style="{StaticResource GridFondo}">
+
+        <Ribbon VerticalAlignment="Top" Height="148"   Margin="0,10,0,0" ShowQuickAccessToolBarOnTop="False"  Background="#FFCADEB8" >
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu Visibility="Hidden" Width="0"/>
+            </Ribbon.ApplicationMenu>
+
+            <RibbonTab  Header="Entrega Beneficiario" Height="88" VerticalAlignment="Top" Background="#FFCADEB8"  BorderBrush="#FF4AA200">
+                <RibbonGroup x:Name="grupoBeneficiario" Header="Beneficiario" Margin="0,1" Width="80">
+
+                    <RibbonButton x:Name="btnBuscarBeneficiario" Label="Seleccionar" LargeImageSource="Graficos/seleccionar_beneficiario.png" Height="55"  Click="btnBuscarBeneficiario_Click"  Margin="0,10,0,-10"/>
+
+                </RibbonGroup>
+                <RibbonGroup x:Name="grupoPeriodoBusqueda" Header="Período" Margin="0,1" Width="402">
+                    <DatePicker x:Name="dpFechaDesde" Margin="10,10,-160,3" />
+                    <Label x:Name="lblDesde" Content="Desde" Height="25" Margin="50,-3,-103,3" />
+
+                    <DatePicker x:Name="dpFechaHasta" Margin="180,10,-330,1"  />
+                    <Label x:Name="lblHasta" Content="Hasta" Height="25" Margin="220,-1,-267,1" />
+                    <RibbonButton x:Name="btnBuscarArticulos" Label="Buscar" LargeImageSource="Graficos/buscar.png" Height="55"  Click="btnBuscarArticulos_Click"  Margin="340,10,-340,-10"/>
+                </RibbonGroup>
+                    <RibbonGroup x:Name="grupoImprimir" Header="Imprimir" Margin="0,1" Width="75">
+                    <RibbonButton x:Name="btnImprimir" Label="Imprimir" LargeImageSource="Graficos/imprimir.png" Height="55"  Click="btnImprimir_Click"  Margin="4,10,-4,-10"/>
+
+                </RibbonGroup>
+            </RibbonTab>
+        </Ribbon>
+
+        <Grid x:Name="gridArticulo" Style="{StaticResource GridVerde}" Margin="10,163,10,10">
+            <Label x:Name="lblNombre" Content="Nombre:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="520,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.583"/>
+            <Label x:Name="lblDocumento" Content="Documento:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="140,50,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblDireccion" Content="Dirección"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="140,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,-0.667"/>
+            <Label x:Name="lblTelefono" Content="Teléfono:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="140,150,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblBarrio" Content="Barrio:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="520,100,0,0" VerticalAlignment="Top"/>
+            <DataGrid x:Name="grillaArticulos" Style="{StaticResource Tabla}" CellStyle="{StaticResource CeldaGrilla}" HorizontalAlignment="Left" Margin="10,229,0,9" Width="1002" IsReadOnly="True" AutoGenerateColumns="False" DataContext="{Binding}" SelectionChanged="grillaArticulos_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id_grillaReporte}" ClipboardContentBinding="{x:Null}" Header="IdGrilla" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Id_articulo}" ClipboardContentBinding="{x:Null}" Header="IdArticulo" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Cantidad_articulo}" ClipboardContentBinding="{x:Null}" Header="Cantidad"/>
+                    <DataGridTextColumn Binding="{Binding Nombre_articulo}" ClipboardContentBinding="{x:Null}" Header="Nombre"/>
+                    <DataGridTextColumn Binding="{Binding Descripcion_articulo}" ClipboardContentBinding="{x:Null}" Header="Descripción"/>
+                    <DataGridTextColumn Binding="{Binding Tipo_articulo}" ClipboardContentBinding="{x:Null}" Header="Tipo Artículo"/>
+                    <DataGridTextColumn Binding="{Binding Id_orden_entrega}" ClipboardContentBinding="{x:Null}" Header="Nº orden"/>
+                    <DataGridTextColumn Binding="{Binding Autorizado_por}" ClipboardContentBinding="{x:Null}" Header="Autorizado por"/>
+                    <DataGridTextColumn Binding="{Binding Entregado_por}" ClipboardContentBinding="{x:Null}" Header="Entregado por"/>
+                    <DataGridTextColumn Binding="{Binding FechaEntrega_orden_entrega}" ClipboardContentBinding="{x:Null}" Header="Fecha Entrega"/>
+                    <DataGridTextColumn Binding="{Binding HoraEntrega_orden_entrega}" ClipboardContentBinding="{x:Null}" Header="Hora Entrega"/>
+
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBox x:Name="txtNombre" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="590,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" />
+            <TextBox x:Name="txtDocumento" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="220,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" />
+            <TextBox x:Name="txtDireccion" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="220,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" />
+            <TextBox x:Name="txtTelefono" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="220,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" />
+            <TextBox x:Name="txtBarrio" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="590,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" />
+            <Label x:Name="lblArticulos" Style="{StaticResource Label_Comun}" Content="Artículos entregados" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblBeneficiario" Style="{StaticResource Label_Comun}" Content="Beneficiario" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+
+        </Grid>
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="saluddbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="articulo">
+    <Key>
+      <PropertyRef Name="id_articulo" />
+    </Key>
+    <Property Name="id_articulo" Type="Int32" Nullable="false" />
+    <Property Name="id_tipo_articulo" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="beneficiario">
+    <Key>
+      <PropertyRef Name="id_beneficiario" />
+    </Key>
+    <Property Name="id_beneficiario" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="documento" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="id_barrio" Type="Int32" />
+  </EntityType>
+  <EntityType Name="funcion">
+    <Key>
+      <PropertyRef Name="id_funcion" />
+    </Key>
+    <Property Name="id_funcion" Type="Int32" Nullable="false" />
+    <Property Name="id_menu" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="nombre_funcion" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="nombre_menu" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="itemcompra">
+    <Key>
+      <PropertyRef Name="id_item_compra" />
+    </Key>
+    <Property Name="id_compra" Type="Int64" Nullable="false" />
+    <Property Name="id_item_compra" Type="Int64" Nullable="false" />
+    <Property Name="id_articulo" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Single" />
+    <Property Name="precio_unitario" Type="Single" />
+  </EntityType>
+  <EntityType Name="itementrega">
+    <Key>
+      <PropertyRef Name="id_item_entrega" />
+    </Key>
+    <Property Name="id_orden" Type="Int64" Nullable="false" />
+    <Property Name="id_item_entrega" Type="Int64" Nullable="false" />
+    <Property Name="id_articulo" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Single" />
+  </EntityType>
+  <EntityType Name="ordenentrega">
+    <Key>
+      <PropertyRef Name="id_orden" />
+    </Key>
+    <Property Name="id_orden" Type="Int64" Nullable="false" />
+    <Property Name="id_beneficiario" Type="Int32" Nullable="false" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="id_usu_autoriza" Type="Int32" />
+    <Property Name="id_usu_entrega" Type="Int32" />
+  </EntityType>
+  <EntityType Name="permiso">
+    <Key>
+      <PropertyRef Name="id_permiso" />
+    </Key>
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="id_permiso" Type="Int32" Nullable="false" />
+    <Property Name="id_funcion" Type="Int32" />
+    <Property Name="permitido" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="proveedor">
+    <Key>
+      <PropertyRef Name="id_proveedor" />
+    </Key>
+    <Property Name="id_proveedor" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tipoarticulo">
+    <Key>
+      <PropertyRef Name="id_tipo_articulo" />
+    </Key>
+    <Property Name="id_tipo_articulo" Type="Int32" Nullable="false" />
+    <Property Name="nombre_tipo" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="es_dinero" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="nombre_usuario" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="contrasenia" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="nombre_completo" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="saluddbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="articuloes" EntityType="Self.articulo" />
+    <EntitySet Name="beneficiarios" EntityType="Self.beneficiario" />
+    <EntitySet Name="funcions" EntityType="Self.funcion" />
+    <EntitySet Name="itemcompras" EntityType="Self.itemcompra" />
+    <EntitySet Name="itementregas" EntityType="Self.itementrega" />
+    <EntitySet Name="ordenentregas" EntityType="Self.ordenentrega" />
+    <EntitySet Name="permisoes" EntityType="Self.permiso" />
+    <EntitySet Name="proveedors" EntityType="Self.proveedor" />
+    <EntitySet Name="tipoarticuloes" EntityType="Self.tipoarticulo" />
+    <EntitySet Name="usuarios" EntityType="Self.usuario" />
+    <EntitySet Name="ordenestadoes" EntityType="saluddbModel.ordenestado" />
+    <EntitySet Name="barrios" EntityType="saluddbModel.barrio" />
+  </EntityContainer>
+  <EntityType Name="ordenestado">
+    <Key>
+      <PropertyRef Name="id_ordenEstado" />
+    </Key>
+    <Property Name="id_orden" Type="Int64" Nullable="false" />
+    <Property Name="estado" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="id_ordenEstado" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="barrio">
+    <Key>
+      <PropertyRef Name="id_barrio" />
+    </Key>
+    <Property Name="id_barrio" Type="Int32" Nullable="false" />
+    <Property Name="nombre_barrio" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="ciudad" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>
