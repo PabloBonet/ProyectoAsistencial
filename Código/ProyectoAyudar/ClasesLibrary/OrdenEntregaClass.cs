@@ -15,7 +15,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
         #region Propiedades
 
         private saluddbEntities ctx;
-        private long _id_orden_entrega;
+        private int _id_orden_entrega;
         private String _descripcion;
         private DateTime _fecha;
         private List<ItemEntregaClass> _items_entrega;
@@ -180,7 +180,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
        /// <param name="fecha">Fecha de generación de la orden de entega</param>
        /// <param name="items">Lista de items de la orden</param>
        /// <param name="usuario">Usuario que crea la orden de entrega</param>
-       public OrdenEntregaClass(long id_orden_entrega, BeneficiarioClass beneficiario, String descripcion, DateTime fecha, List<ItemEntregaClass> items, UsuarioClass usuario)
+       public OrdenEntregaClass(int id_orden_entrega, BeneficiarioClass beneficiario, String descripcion, DateTime fecha, List<ItemEntregaClass> items, UsuarioClass usuario)
        {
            ctx = new saluddbEntities();
            _id_orden_entrega = id_orden_entrega;
@@ -320,7 +320,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                        ctx.ordenestadoes.Add(oe);
                        ctx.SaveChanges();
 
-                        primerEstado.IdOrdenEstado = oe.id_ordenEstado;
+                        primerEstado.IdOrdenEstado = oe.id_ordenestado;
 
                         _estados.Add(primerEstado);
                         r = true;
@@ -513,7 +513,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                        ctx.ordenestadoes.Add(oe);
                        ctx.SaveChanges();
 
-                       estado.IdOrdenEstado = oe.id_ordenEstado;
+                       estado.IdOrdenEstado = oe.id_ordenestado;
                        _estados.Add(estado);
                        r = true;
                    }

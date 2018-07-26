@@ -4,19 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e7daa306027e4f0b8ca76e1a25487fbb" Name="Diagram1">
-        <EntityTypeShape EntityType="saluddbModel.articulo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="saluddbModel.beneficiario" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="saluddbModel.funcion" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="saluddbModel.itemcompra" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="saluddbModel.itementrega" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="saluddbModel.ordenentrega" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="saluddbModel.permiso" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="saluddbModel.proveedor" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="saluddbModel.tipoarticulo" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="saluddbModel.usuario" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="saluddbModel.ordenestado" Width="1.5" PointX="5.375" PointY="6.625" />
-        <EntityTypeShape EntityType="saluddbModel.barrio" Width="1.5" PointX="7.375" PointY="6.75" />
+      <Diagram DiagramId="e7daa306027e4f0b8ca76e1a25487fbb" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="saluddbModel.beneficiario_grupo" Width="1.5" PointX="5.125" PointY="0.75" />
+        <EntityTypeShape EntityType="saluddbModel.grupo" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="saluddbModel.articulo" Width="1.5" PointX="5.75" PointY="3.5" />
+        <EntityTypeShape EntityType="saluddbModel.barrio" Width="1.5" PointX="3.75" PointY="9.75" />
+        <EntityTypeShape EntityType="saluddbModel.beneficiario" Width="1.5" PointX="5.75" PointY="9.75" />
+        <EntityTypeShape EntityType="saluddbModel.funcion" Width="1.5" PointX="5.75" PointY="6" />
+        <EntityTypeShape EntityType="saluddbModel.itemcompra" Width="1.5" PointX="7.75" PointY="9.75" />
+        <EntityTypeShape EntityType="saluddbModel.itementrega" Width="1.5" PointX="3.875" PointY="7.75" />
+        <EntityTypeShape EntityType="saluddbModel.ordenentrega" Width="1.5" PointX="7.75" PointY="3.5" />
+        <EntityTypeShape EntityType="saluddbModel.ordenestado" Width="1.5" PointX="7.75" PointY="7" />
+        <EntityTypeShape EntityType="saluddbModel.permiso" Width="1.5" PointX="5.875" PointY="8.75" />
+        <EntityTypeShape EntityType="saluddbModel.proveedor" Width="1.5" PointX="8.125" PointY="0.75" />
+        <EntityTypeShape EntityType="saluddbModel.tipoarticulo" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="saluddbModel.usuario" Width="1.5" PointX="2.75" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

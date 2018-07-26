@@ -14,10 +14,10 @@ namespace Processar.ProyectoAyudar.DatosLibrary
     
     public partial class itemcompra
     {
-        public long id_compra { get; set; }
-        public long id_item_compra { get; set; }
+        public int id_item_compra { get; set; }
+        public int id_compra { get; set; }
         public int id_articulo { get; set; }
-        public Nullable<float> cantidad { get; set; }
-        public Nullable<float> precio_unitario { get; set; }
+        public float cantidad { get; set; }
+        public float precio_unitario { get; set; }
     }
 }

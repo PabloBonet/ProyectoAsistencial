@@ -98,7 +98,7 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             {
                 if (IniciarSesion())
                 {
-                    MessageBox.Show("Ha iniciado sesión con el usuario: " + usuario_logueado.Nombre_usuario, "Inicio de Sesión", MessageBoxButton.OK, MessageBoxImage.Information);
+                    
                     InicializarComponentes();
                 }
                 else

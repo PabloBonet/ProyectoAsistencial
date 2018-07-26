@@ -12,11 +12,10 @@ namespace Processar.ProyectoAyudar.DatosLibrary
     using System;
     using System.Collections.Generic;
     
-    public partial class funcion
+    public partial class beneficiario_grupo
     {
-        public int id_funcion { get; set; }
-        public int id_menu { get; set; }
-        public string nombre_funcion { get; set; }
-        public string nombre_menu { get; set; }
+        public int id_benef_grupo { get; set; }
+        public int id_beneficiario { get; set; }
+        public int id_gupo { get; set; }
     }
 }

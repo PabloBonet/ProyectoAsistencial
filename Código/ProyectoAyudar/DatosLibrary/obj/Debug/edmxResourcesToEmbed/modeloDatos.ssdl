@@ -4,129 +4,148 @@
     <Key>
       <PropertyRef Name="id_articulo" />
     </Key>
-    <Property Name="id_articulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_tipo_articulo" Type="int" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="254" />
-    <Property Name="descripcion" Type="varchar" MaxLength="254" />
+    <Property Name="id_articulo" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_tipo_articulo" Type="uint" Nullable="false" />
+    <Property Name="nombre" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="descripcion" Type="char" MaxLength="254" Nullable="false" />
   </EntityType>
   <EntityType Name="barrio">
     <Key>
       <PropertyRef Name="id_barrio" />
     </Key>
-    <Property Name="id_barrio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre_barrio" Type="varchar" MaxLength="254" />
-    <Property Name="ciudad" Type="varchar" MaxLength="254" />
+    <Property Name="id_barrio" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_barrio" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="ciudad" Type="char" MaxLength="254" Nullable="false" />
   </EntityType>
   <EntityType Name="beneficiario">
     <Key>
       <PropertyRef Name="id_beneficiario" />
     </Key>
-    <Property Name="id_beneficiario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_barrio" Type="int" />
-    <Property Name="nombre" Type="varchar" MaxLength="254" />
-    <Property Name="documento" Type="varchar" MaxLength="254" />
-    <Property Name="direccion" Type="varchar" MaxLength="254" />
-    <Property Name="telefono" Type="varchar" MaxLength="254" />
+    <Property Name="id_beneficiario" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_barrio" Type="uint" Nullable="false" />
+    <Property Name="id_grupo" Type="uint" Nullable="false" />
+    <Property Name="nombre" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="documento" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="direccion" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="telefono" Type="char" MaxLength="254" Nullable="false" />
+  </EntityType>
+  <EntityType Name="beneficiario_grupo">
+    <Key>
+      <PropertyRef Name="id_benef_grupo" />
+    </Key>
+    <Property Name="id_benef_grupo" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_beneficiario" Type="uint" Nullable="false" />
+    <Property Name="id_gupo" Type="uint" Nullable="false" />
   </EntityType>
   <EntityType Name="funcion">
     <Key>
       <PropertyRef Name="id_funcion" />
     </Key>
-    <Property Name="id_funcion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_menu" Type="varchar" MaxLength="254" />
-    <Property Name="nombre_funcion" Type="varchar" MaxLength="254" />
-    <Property Name="nombre_menu" Type="varchar" MaxLength="254" />
+    <Property Name="id_funcion" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_menu" Type="uint" Nullable="false" />
+    <Property Name="nombre_funcion" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="nombre_menu" Type="char" MaxLength="254" Nullable="false" />
+  </EntityType>
+  <EntityType Name="grupo">
+    <Key>
+      <PropertyRef Name="id_grupo" />
+    </Key>
+    <Property Name="id_grupo" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="descripcion" Type="char" MaxLength="254" Nullable="false" />
   </EntityType>
   <EntityType Name="itemcompra">
     <Key>
       <PropertyRef Name="id_item_compra" />
     </Key>
-    <Property Name="id_compra" Type="bigint" Nullable="false" />
-    <Property Name="id_item_compra" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_articulo" Type="int" Nullable="false" />
-    <Property Name="cantidad" Type="float" />
-    <Property Name="precio_unitario" Type="float" />
+    <Property Name="id_item_compra" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_compra" Type="uint" Nullable="false" />
+    <Property Name="id_articulo" Type="uint" Nullable="false" />
+    <Property Name="cantidad" Type="float" Nullable="false" />
+    <Property Name="precio_unitario" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="itementrega">
     <Key>
       <PropertyRef Name="id_item_entrega" />
     </Key>
-    <Property Name="id_orden" Type="bigint" Nullable="false" />
-    <Property Name="id_item_entrega" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_articulo" Type="int" Nullable="false" />
-    <Property Name="cantidad" Type="float" />
+    <Property Name="id_item_entrega" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_orden" Type="uint" Nullable="false" StoreGeneratedPattern="None" />
+    <Property Name="id_articulo" Type="uint" Nullable="false" />
+    <Property Name="cantidad" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="ordenentrega">
     <Key>
       <PropertyRef Name="id_orden" />
     </Key>
-    <Property Name="id_orden" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_beneficiario" Type="int" Nullable="false" />
-    <Property Name="id_usuario" Type="int" Nullable="false" />
-    <Property Name="descripcion" Type="varchar" MaxLength="254" />
-    <Property Name="fecha" Type="datetime" Precision="0" />
-    <Property Name="id_usu_autoriza" Type="int" />
-    <Property Name="id_usu_entrega" Type="int" />
+    <Property Name="id_orden" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_beneficiario" Type="uint" Nullable="false" />
+    <Property Name="id_usuario" Type="uint" Nullable="false" />
+    <Property Name="id_usu_autoriza" Type="uint" Nullable="false" />
+    <Property Name="id_usu_entrega" Type="uint" Nullable="false" />
+    <Property Name="descripcion" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Precision="0" Nullable="false" />
   </EntityType>
   <EntityType Name="ordenestado">
     <Key>
-      <PropertyRef Name="id_ordenEstado" />
+      <PropertyRef Name="id_ordenestado" />
     </Key>
-    <Property Name="id_ordenEstado" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_orden" Type="bigint" Nullable="false" />
-    <Property Name="id_usuario" Type="int" Nullable="false" />
-    <Property Name="estado" Type="int" />
-    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="id_ordenestado" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_usuario" Type="uint" Nullable="false" />
+    <Property Name="id_orden" Type="uint" Nullable="false" />
+    <Property Name="estado" Type="uint" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Precision="0" Nullable="false" />
   </EntityType>
   <EntityType Name="permiso">
     <Key>
       <PropertyRef Name="id_permiso" />
     </Key>
-    <Property Name="id_permiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_usuario" Type="int" Nullable="false" />
-    <Property Name="id_funcion" Type="int" />
-    <Property Name="permitido" Type="bool" />
+    <Property Name="id_permiso" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_usuario" Type="uint" Nullable="false" />
+    <Property Name="id_funcion" Type="uint" Nullable="false" />
+    <Property Name="permitido" Type="bool" Nullable="false" />
   </EntityType>
   <EntityType Name="proveedor">
     <Key>
       <PropertyRef Name="id_proveedor" />
     </Key>
-    <Property Name="id_proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="254" />
-    <Property Name="descripcion" Type="varchar" MaxLength="254" />
-    <Property Name="direccion" Type="varchar" MaxLength="254" />
-    <Property Name="telefono" Type="varchar" MaxLength="254" />
-    <Property Name="email" Type="varchar" MaxLength="254" />
+    <Property Name="id_proveedor" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="descripcion" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="direccion" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="telefono" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="email" Type="char" MaxLength="254" Nullable="false" />
   </EntityType>
   <EntityType Name="tipoarticulo">
     <Key>
       <PropertyRef Name="id_tipo_articulo" />
     </Key>
-    <Property Name="id_tipo_articulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre_tipo" Type="varchar" MaxLength="254" />
-    <Property Name="es_dinero" Type="bool" />
+    <Property Name="id_tipo_articulo" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_tipo" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="es_dinero" Type="bool" Nullable="false" />
   </EntityType>
   <EntityType Name="usuario">
     <Key>
       <PropertyRef Name="id_usuario" />
     </Key>
-    <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre_usuario" Type="varchar" MaxLength="254" />
-    <Property Name="contrasenia" Type="varchar" MaxLength="254" />
-    <Property Name="nombre_completo" Type="varchar" MaxLength="254" />
+    <Property Name="id_usuario" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_usuario" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="contrasenia" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="nombre_completo" Type="char" MaxLength="254" Nullable="false" />
   </EntityType>
   <EntityContainer Name="saluddbModelStoreContainer">
-    <EntitySet Name="articulo" EntityType="Self.articulo" Schema="saluddb" store:Type="Tables" />
-    <EntitySet Name="barrio" EntityType="Self.barrio" Schema="saluddb" store:Type="Tables" />
-    <EntitySet Name="beneficiario" EntityType="Self.beneficiario" Schema="saluddb" store:Type="Tables" />
-    <EntitySet Name="funcion" EntityType="Self.funcion" Schema="saluddb" store:Type="Tables" />
-    <EntitySet Name="itemcompra" EntityType="Self.itemcompra" Schema="saluddb" store:Type="Tables" />
-    <EntitySet Name="itementrega" EntityType="Self.itementrega" Schema="saluddb" store:Type="Tables" />
-    <EntitySet Name="ordenentrega" EntityType="Self.ordenentrega" Schema="saluddb" store:Type="Tables" />
-    <EntitySet Name="ordenestado" EntityType="Self.ordenestado" Schema="saluddb" store:Type="Tables" />
-    <EntitySet Name="permiso" EntityType="Self.permiso" Schema="saluddb" store:Type="Tables" />
-    <EntitySet Name="proveedor" EntityType="Self.proveedor" Schema="saluddb" store:Type="Tables" />
-    <EntitySet Name="tipoarticulo" EntityType="Self.tipoarticulo" Schema="saluddb" store:Type="Tables" />
-    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="saluddb" store:Type="Tables" />
+    <EntitySet Name="articulo" EntityType="Self.articulo" Schema="ayudardb" store:Type="Tables" />
+    <EntitySet Name="barrio" EntityType="Self.barrio" Schema="ayudardb" store:Type="Tables" />
+    <EntitySet Name="beneficiario" EntityType="Self.beneficiario" Schema="ayudardb" store:Type="Tables" />
+    <EntitySet Name="beneficiario_grupo" EntityType="Self.beneficiario_grupo" Schema="ayudardb" store:Type="Tables" />
+    <EntitySet Name="funcion" EntityType="Self.funcion" Schema="ayudardb" store:Type="Tables" />
+    <EntitySet Name="grupo" EntityType="Self.grupo" Schema="ayudardb" store:Type="Tables" />
+    <EntitySet Name="itemcompra" EntityType="Self.itemcompra" Schema="ayudardb" store:Type="Tables" />
+    <EntitySet Name="itementrega" EntityType="Self.itementrega" Schema="ayudardb" store:Type="Tables" />
+    <EntitySet Name="ordenentrega" EntityType="Self.ordenentrega" Schema="ayudardb" store:Type="Tables" />
+    <EntitySet Name="ordenestado" EntityType="Self.ordenestado" Schema="ayudardb" store:Type="Tables" />
+    <EntitySet Name="permiso" EntityType="Self.permiso" Schema="ayudardb" store:Type="Tables" />
+    <EntitySet Name="proveedor" EntityType="Self.proveedor" Schema="ayudardb" store:Type="Tables" />
+    <EntitySet Name="tipoarticulo" EntityType="Self.tipoarticulo" Schema="ayudardb" store:Type="Tables" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="ayudardb" store:Type="Tables" />
   </EntityContainer>
 </Schema>

@@ -64,7 +64,13 @@
     <Compile Include="beneficiario.cs">
       <DependentUpon>modeloDatos.tt</DependentUpon>
     </Compile>
+    <Compile Include="beneficiario_grupo.cs">
+      <DependentUpon>modeloDatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="funcion.cs">
+      <DependentUpon>modeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="grupo.cs">
       <DependentUpon>modeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="itemcompra.cs">

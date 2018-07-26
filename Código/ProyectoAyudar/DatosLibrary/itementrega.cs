@@ -14,9 +14,9 @@ namespace Processar.ProyectoAyudar.DatosLibrary
     
     public partial class itementrega
     {
-        public long id_orden { get; set; }
-        public long id_item_entrega { get; set; }
+        public int id_item_entrega { get; set; }
+        public int id_orden { get; set; }
         public int id_articulo { get; set; }
-        public Nullable<float> cantidad { get; set; }
+        public float cantidad { get; set; }
     }
 }

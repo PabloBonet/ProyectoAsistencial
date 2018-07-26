@@ -80,7 +80,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
         /// </summary>
         /// <param name="id_orden">id del orden de entrega</param>
         /// <returns>Retorna True si se guardó correctamente</returns>
-        public bool NuevoItemEntrega(long id_orden)
+        public bool NuevoItemEntrega(int id_orden)
         {
 
             bool r = false;

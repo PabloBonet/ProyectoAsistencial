@@ -25,17 +25,19 @@ namespace Processar.ProyectoAyudar.DatosLibrary
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<beneficiario_grupo> beneficiario_grupo { get; set; }
+        public DbSet<grupo> grupoes { get; set; }
         public DbSet<articulo> articuloes { get; set; }
+        public DbSet<barrio> barrios { get; set; }
         public DbSet<beneficiario> beneficiarios { get; set; }
         public DbSet<funcion> funcions { get; set; }
         public DbSet<itemcompra> itemcompras { get; set; }
         public DbSet<itementrega> itementregas { get; set; }
         public DbSet<ordenentrega> ordenentregas { get; set; }
+        public DbSet<ordenestado> ordenestadoes { get; set; }
         public DbSet<permiso> permisoes { get; set; }
         public DbSet<proveedor> proveedors { get; set; }
         public DbSet<tipoarticulo> tipoarticuloes { get; set; }
         public DbSet<usuario> usuarios { get; set; }
-        public DbSet<ordenestado> ordenestadoes { get; set; }
-        public DbSet<barrio> barrios { get; set; }
     }
 }

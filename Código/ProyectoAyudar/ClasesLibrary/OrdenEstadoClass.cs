@@ -12,8 +12,8 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
     {
         #region Propiedades
         private saluddbEntities ctx;
-        private long _id_orden_estado;
-        private long _id_orden_entrega;
+        private int _id_orden_estado;
+        private int _id_orden_entrega;
         private UsuarioClass _usuario;
         private EstadoOrden _estado;
         private DateTime _fecha;
@@ -22,7 +22,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
         /// <summary>
         /// Retorna o establece el Id de la ordenEstado
         /// </summary>
-        public long IdOrdenEstado
+        public int IdOrdenEstado
         {
             get { return _id_orden_estado; }
 
@@ -32,7 +32,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
         /// <summary>
         /// Retorna o establece el id del orden de entrega
         /// </summary>
-        public long IdOrdenEntrega
+        public int IdOrdenEntrega
         {
             get { return _id_orden_entrega; }
             set { _id_orden_entrega = value; }
@@ -98,7 +98,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
         /// <param name="usuario">Usuario que realizo el cambio de estado</param>
         /// <param name="estado">Estado de la orden</param>
         /// <param name="fecha">Fecha de modificación del estado</param>
-        public OrdenEstadoClass(long id_ordenEstado, long id_ordenEntrega, UsuarioClass usuario, EstadoOrden estado, DateTime fecha)
+        public OrdenEstadoClass(int id_ordenEstado, int id_ordenEntrega, UsuarioClass usuario, EstadoOrden estado, DateTime fecha)
         {
             ctx = new saluddbEntities();
             _id_orden_entrega = id_ordenEstado;
@@ -132,7 +132,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             {
                 ctx.ordenestadoes.Add(f);
                 ctx.SaveChanges();
-                _id_orden_estado = f.id_ordenEstado;
+                _id_orden_estado = f.id_ordenestado;
 
                 r = true;
             }
@@ -158,7 +158,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             saluddbEntities ctx = new saluddbEntities();
 
             var cur = from o in ctx.ordenestadoes
-                      where o.id_ordenEstado == id_ordenEstado
+                      where o.id_ordenestado == id_ordenEstado
                       select o;
 
             if (cur.Count() > 0)
@@ -166,7 +166,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                 var f = cur.First();
 
 
-                r._id_orden_estado = f.id_ordenEstado;
+                r._id_orden_estado = f.id_ordenestado;
                 r._estado = (EstadoOrden)f.estado;
                 r._fecha = (DateTime) f.fecha;
                 r._id_orden_entrega = f.id_orden;
@@ -197,7 +197,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
 
             var cur = from o in ctx.ordenestadoes
                       where o.id_orden == id_ordenEntrega
-                      orderby o.id_ordenEstado descending
+                      orderby o.id_ordenestado descending
                       select o;
 
             if (cur.Count() > 0)
@@ -208,7 +208,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                 var f = cur.First();
 
 
-                r._id_orden_estado = f.id_ordenEstado;
+                r._id_orden_estado = f.id_ordenestado;
                 r._estado = (EstadoOrden)f.estado;
                 r._fecha = (DateTime)f.fecha;
                 r._id_orden_entrega = f.id_orden;
@@ -246,7 +246,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                 x = new OrdenEstadoClass();
 
                 x._id_orden_entrega = f.id_orden;
-                x._id_orden_estado = f.id_ordenEstado;
+                x._id_orden_estado = f.id_ordenestado;
                 x._estado = (EstadoOrden)f.estado;
                 x._fecha = (DateTime)f.fecha;
                 x._usuario = UsuarioClass.BuscarUsuarioPorId((int)f.id_usuario);
@@ -280,7 +280,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                 x = new OrdenEstadoClass();
 
                 x._id_orden_entrega = f.id_orden;
-                x._id_orden_estado = f.id_ordenEstado;
+                x._id_orden_estado = f.id_ordenestado;
                 x._estado = (EstadoOrden)f.estado;
                 x._fecha = (DateTime) f.fecha;
                 x._usuario = UsuarioClass.BuscarUsuarioPorId((int)f.id_usuario);

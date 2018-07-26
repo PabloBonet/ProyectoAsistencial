@@ -368,12 +368,10 @@
     <Resource Include="icono.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Graficos\logoReporte.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Graficos\logoReporte.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr100.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -102,8 +102,9 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             bool r = false;
 
             funcion f = new funcion();
-
-            f.id_menu = this._id_menu;
+            int idMenu = 0;
+            Int32.TryParse( this._id_menu, out idMenu);
+            f.id_menu = idMenu;
             f.nombre_funcion = this._nombre_funcion;
             f.nombre_menu = this._nombre_menu;
 
@@ -141,7 +142,10 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
 
             var f = cur.First();
 
-            f.id_menu = _id_menu;
+            int idMenu = 0;
+            Int32.TryParse(this._id_menu, out idMenu);
+            f.id_menu = idMenu;
+          
             f.nombre_funcion = _nombre_funcion;
             f.nombre_menu = _nombre_menu;
 
@@ -243,7 +247,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                 var f = cur.First();
 
                 r._id_funcion = f.id_funcion;
-                r._id_menu = f.id_menu;
+                r._id_menu = (f.id_menu).ToString();
                 r._nombre_funcion = f.nombre_funcion;
                 r._nombre_menu = f.nombre_menu;
 
@@ -278,7 +282,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
 
                 x._nombre_menu = f.nombre_menu;
                 x._nombre_funcion = f.nombre_funcion;
-                x._id_menu = f.id_menu;
+                x._id_menu =(f.id_menu).ToString();
                 x._id_funcion = f.id_funcion;
 
                 r.Add(x);

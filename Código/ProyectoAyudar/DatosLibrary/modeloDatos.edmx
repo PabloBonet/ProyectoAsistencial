@@ -9,263 +9,301 @@
           <Key>
             <PropertyRef Name="id_articulo" />
           </Key>
-          <Property Name="id_articulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_tipo_articulo" Type="int" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="254" />
-          <Property Name="descripcion" Type="varchar" MaxLength="254" />
+          <Property Name="id_articulo" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_tipo_articulo" Type="uint" Nullable="false" />
+          <Property Name="nombre" Type="char" MaxLength="254" Nullable="false" />
+          <Property Name="descripcion" Type="char" MaxLength="254" Nullable="false" />
         </EntityType>
         <EntityType Name="barrio">
           <Key>
             <PropertyRef Name="id_barrio" />
           </Key>
-          <Property Name="id_barrio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre_barrio" Type="varchar" MaxLength="254" />
-          <Property Name="ciudad" Type="varchar" MaxLength="254" />
+          <Property Name="id_barrio" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_barrio" Type="char" MaxLength="254" Nullable="false" />
+          <Property Name="ciudad" Type="char" MaxLength="254" Nullable="false" />
         </EntityType>
         <EntityType Name="beneficiario">
           <Key>
             <PropertyRef Name="id_beneficiario" />
           </Key>
-          <Property Name="id_beneficiario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_barrio" Type="int" />
-          <Property Name="nombre" Type="varchar" MaxLength="254" />
-          <Property Name="documento" Type="varchar" MaxLength="254" />
-          <Property Name="direccion" Type="varchar" MaxLength="254" />
-          <Property Name="telefono" Type="varchar" MaxLength="254" />
+          <Property Name="id_beneficiario" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_barrio" Type="uint" Nullable="false" />
+          <Property Name="id_grupo" Type="uint" Nullable="false" />
+          <Property Name="nombre" Type="char" MaxLength="254" Nullable="false" />
+          <Property Name="documento" Type="char" MaxLength="254" Nullable="false" />
+          <Property Name="direccion" Type="char" MaxLength="254" Nullable="false" />
+          <Property Name="telefono" Type="char" MaxLength="254" Nullable="false" />
+        </EntityType>
+        <EntityType Name="beneficiario_grupo">
+          <Key>
+            <PropertyRef Name="id_benef_grupo" />
+          </Key>
+          <Property Name="id_benef_grupo" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_beneficiario" Type="uint" Nullable="false" />
+          <Property Name="id_gupo" Type="uint" Nullable="false" />
         </EntityType>
         <EntityType Name="funcion">
           <Key>
             <PropertyRef Name="id_funcion" />
           </Key>
-          <Property Name="id_funcion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_menu" Type="varchar" MaxLength="254" />
-          <Property Name="nombre_funcion" Type="varchar" MaxLength="254" />
-          <Property Name="nombre_menu" Type="varchar" MaxLength="254" />
+          <Property Name="id_funcion" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_menu" Type="uint" Nullable="false" />
+          <Property Name="nombre_funcion" Type="char" MaxLength="254" Nullable="false" />
+          <Property Name="nombre_menu" Type="char" MaxLength="254" Nullable="false" />
+        </EntityType>
+        <EntityType Name="grupo">
+          <Key>
+            <PropertyRef Name="id_grupo" />
+          </Key>
+          <Property Name="id_grupo" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="char" MaxLength="254" Nullable="false" />
+          <Property Name="descripcion" Type="char" MaxLength="254" Nullable="false" />
         </EntityType>
         <EntityType Name="itemcompra">
           <Key>
             <PropertyRef Name="id_item_compra" />
           </Key>
-          <Property Name="id_compra" Type="bigint" Nullable="false" />
-          <Property Name="id_item_compra" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_articulo" Type="int" Nullable="false" />
-          <Property Name="cantidad" Type="float" />
-          <Property Name="precio_unitario" Type="float" />
+          <Property Name="id_item_compra" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_compra" Type="uint" Nullable="false" />
+          <Property Name="id_articulo" Type="uint" Nullable="false" />
+          <Property Name="cantidad" Type="float" Nullable="false" />
+          <Property Name="precio_unitario" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="itementrega">
           <Key>
             <PropertyRef Name="id_item_entrega" />
           </Key>
-          <Property Name="id_orden" Type="bigint" Nullable="false" />
-          <Property Name="id_item_entrega" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_articulo" Type="int" Nullable="false" />
-          <Property Name="cantidad" Type="float" />
+          <Property Name="id_item_entrega" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_orden" Type="uint" Nullable="false" StoreGeneratedPattern="None" />
+          <Property Name="id_articulo" Type="uint" Nullable="false" />
+          <Property Name="cantidad" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="ordenentrega">
           <Key>
             <PropertyRef Name="id_orden" />
           </Key>
-          <Property Name="id_orden" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_beneficiario" Type="int" Nullable="false" />
-          <Property Name="id_usuario" Type="int" Nullable="false" />
-          <Property Name="descripcion" Type="varchar" MaxLength="254" />
-          <Property Name="fecha" Type="datetime" Precision="0" />
-          <Property Name="id_usu_autoriza" Type="int" />
-          <Property Name="id_usu_entrega" Type="int" />
+          <Property Name="id_orden" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_beneficiario" Type="uint" Nullable="false" />
+          <Property Name="id_usuario" Type="uint" Nullable="false" />
+          <Property Name="id_usu_autoriza" Type="uint" Nullable="false" />
+          <Property Name="id_usu_entrega" Type="uint" Nullable="false" />
+          <Property Name="descripcion" Type="char" MaxLength="254" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Precision="0" Nullable="false" />
         </EntityType>
         <EntityType Name="ordenestado">
           <Key>
-            <PropertyRef Name="id_ordenEstado" />
+            <PropertyRef Name="id_ordenestado" />
           </Key>
-          <Property Name="id_ordenEstado" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_orden" Type="bigint" Nullable="false" />
-          <Property Name="id_usuario" Type="int" Nullable="false" />
-          <Property Name="estado" Type="int" />
-          <Property Name="fecha" Type="datetime" Precision="0" />
+          <Property Name="id_ordenestado" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario" Type="uint" Nullable="false" />
+          <Property Name="id_orden" Type="uint" Nullable="false" />
+          <Property Name="estado" Type="uint" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Precision="0" Nullable="false" />
         </EntityType>
         <EntityType Name="permiso">
           <Key>
             <PropertyRef Name="id_permiso" />
           </Key>
-          <Property Name="id_permiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_usuario" Type="int" Nullable="false" />
-          <Property Name="id_funcion" Type="int" />
-          <Property Name="permitido" Type="bool" />
+          <Property Name="id_permiso" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario" Type="uint" Nullable="false" />
+          <Property Name="id_funcion" Type="uint" Nullable="false" />
+          <Property Name="permitido" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="proveedor">
           <Key>
             <PropertyRef Name="id_proveedor" />
           </Key>
-          <Property Name="id_proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="254" />
-          <Property Name="descripcion" Type="varchar" MaxLength="254" />
-          <Property Name="direccion" Type="varchar" MaxLength="254" />
-          <Property Name="telefono" Type="varchar" MaxLength="254" />
-          <Property Name="email" Type="varchar" MaxLength="254" />
+          <Property Name="id_proveedor" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="char" MaxLength="254" Nullable="false" />
+          <Property Name="descripcion" Type="char" MaxLength="254" Nullable="false" />
+          <Property Name="direccion" Type="char" MaxLength="254" Nullable="false" />
+          <Property Name="telefono" Type="char" MaxLength="254" Nullable="false" />
+          <Property Name="email" Type="char" MaxLength="254" Nullable="false" />
         </EntityType>
         <EntityType Name="tipoarticulo">
           <Key>
             <PropertyRef Name="id_tipo_articulo" />
           </Key>
-          <Property Name="id_tipo_articulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre_tipo" Type="varchar" MaxLength="254" />
-          <Property Name="es_dinero" Type="bool" />
+          <Property Name="id_tipo_articulo" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_tipo" Type="char" MaxLength="254" Nullable="false" />
+          <Property Name="es_dinero" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
             <PropertyRef Name="id_usuario" />
           </Key>
-          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre_usuario" Type="varchar" MaxLength="254" />
-          <Property Name="contrasenia" Type="varchar" MaxLength="254" />
-          <Property Name="nombre_completo" Type="varchar" MaxLength="254" />
+          <Property Name="id_usuario" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_usuario" Type="char" MaxLength="254" Nullable="false" />
+          <Property Name="contrasenia" Type="char" MaxLength="254" Nullable="false" />
+          <Property Name="nombre_completo" Type="char" MaxLength="254" Nullable="false" />
         </EntityType>
         <EntityContainer Name="saluddbModelStoreContainer">
-          <EntitySet Name="articulo" EntityType="Self.articulo" Schema="saluddb" store:Type="Tables" />
-          <EntitySet Name="barrio" EntityType="Self.barrio" Schema="saluddb" store:Type="Tables" />
-          <EntitySet Name="beneficiario" EntityType="Self.beneficiario" Schema="saluddb" store:Type="Tables" />
-          <EntitySet Name="funcion" EntityType="Self.funcion" Schema="saluddb" store:Type="Tables" />
-          <EntitySet Name="itemcompra" EntityType="Self.itemcompra" Schema="saluddb" store:Type="Tables" />
-          <EntitySet Name="itementrega" EntityType="Self.itementrega" Schema="saluddb" store:Type="Tables" />
-          <EntitySet Name="ordenentrega" EntityType="Self.ordenentrega" Schema="saluddb" store:Type="Tables" />
-          <EntitySet Name="ordenestado" EntityType="Self.ordenestado" Schema="saluddb" store:Type="Tables" />
-          <EntitySet Name="permiso" EntityType="Self.permiso" Schema="saluddb" store:Type="Tables" />
-          <EntitySet Name="proveedor" EntityType="Self.proveedor" Schema="saluddb" store:Type="Tables" />
-          <EntitySet Name="tipoarticulo" EntityType="Self.tipoarticulo" Schema="saluddb" store:Type="Tables" />
-          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="saluddb" store:Type="Tables" />
+          <EntitySet Name="articulo" EntityType="Self.articulo" Schema="ayudardb" store:Type="Tables" />
+          <EntitySet Name="barrio" EntityType="Self.barrio" Schema="ayudardb" store:Type="Tables" />
+          <EntitySet Name="beneficiario" EntityType="Self.beneficiario" Schema="ayudardb" store:Type="Tables" />
+          <EntitySet Name="beneficiario_grupo" EntityType="Self.beneficiario_grupo" Schema="ayudardb" store:Type="Tables" />
+          <EntitySet Name="funcion" EntityType="Self.funcion" Schema="ayudardb" store:Type="Tables" />
+          <EntitySet Name="grupo" EntityType="Self.grupo" Schema="ayudardb" store:Type="Tables" />
+          <EntitySet Name="itemcompra" EntityType="Self.itemcompra" Schema="ayudardb" store:Type="Tables" />
+          <EntitySet Name="itementrega" EntityType="Self.itementrega" Schema="ayudardb" store:Type="Tables" />
+          <EntitySet Name="ordenentrega" EntityType="Self.ordenentrega" Schema="ayudardb" store:Type="Tables" />
+          <EntitySet Name="ordenestado" EntityType="Self.ordenestado" Schema="ayudardb" store:Type="Tables" />
+          <EntitySet Name="permiso" EntityType="Self.permiso" Schema="ayudardb" store:Type="Tables" />
+          <EntitySet Name="proveedor" EntityType="Self.proveedor" Schema="ayudardb" store:Type="Tables" />
+          <EntitySet Name="tipoarticulo" EntityType="Self.tipoarticulo" Schema="ayudardb" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="ayudardb" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="saluddbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="saluddbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="beneficiario_grupo" EntityType="saluddbModel.beneficiario_grupo" />
+          <EntitySet Name="grupoes" EntityType="saluddbModel.grupo" />
+          <EntitySet Name="articuloes" EntityType="saluddbModel.articulo" />
+          <EntitySet Name="barrios" EntityType="saluddbModel.barrio" />
+          <EntitySet Name="beneficiarios" EntityType="saluddbModel.beneficiario" />
+          <EntitySet Name="funcions" EntityType="saluddbModel.funcion" />
+          <EntitySet Name="itemcompras" EntityType="saluddbModel.itemcompra" />
+          <EntitySet Name="itementregas" EntityType="saluddbModel.itementrega" />
+          <EntitySet Name="ordenentregas" EntityType="saluddbModel.ordenentrega" />
+          <EntitySet Name="ordenestadoes" EntityType="saluddbModel.ordenestado" />
+          <EntitySet Name="permisoes" EntityType="saluddbModel.permiso" />
+          <EntitySet Name="proveedors" EntityType="saluddbModel.proveedor" />
+          <EntitySet Name="tipoarticuloes" EntityType="saluddbModel.tipoarticulo" />
+          <EntitySet Name="usuarios" EntityType="saluddbModel.usuario" />
+        </EntityContainer>
+        <EntityType Name="beneficiario_grupo">
+          <Key>
+            <PropertyRef Name="id_benef_grupo" />
+          </Key>
+          <Property Name="id_benef_grupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_beneficiario" Type="Int32" Nullable="false" />
+          <Property Name="id_gupo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="grupo">
+          <Key>
+            <PropertyRef Name="id_grupo" />
+          </Key>
+          <Property Name="id_grupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="articulo">
           <Key>
             <PropertyRef Name="id_articulo" />
           </Key>
-          <Property Name="id_articulo" Type="Int32" Nullable="false" />
+          <Property Name="id_articulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_tipo_articulo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="descripcion" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="beneficiario">
-          <Key>
-            <PropertyRef Name="id_beneficiario" />
-          </Key>
-          <Property Name="id_beneficiario" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="documento" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="direccion" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="telefono" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="id_barrio" Type="Int32" />
-        </EntityType>
-        <EntityType Name="funcion">
-          <Key>
-            <PropertyRef Name="id_funcion" />
-          </Key>
-          <Property Name="id_funcion" Type="Int32" Nullable="false" />
-          <Property Name="id_menu" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="nombre_funcion" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="nombre_menu" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="itemcompra">
-          <Key>
-            <PropertyRef Name="id_item_compra" />
-          </Key>
-          <Property Name="id_compra" Type="Int64" Nullable="false" />
-          <Property Name="id_item_compra" Type="Int64" Nullable="false" />
-          <Property Name="id_articulo" Type="Int32" Nullable="false" />
-          <Property Name="cantidad" Type="Single" />
-          <Property Name="precio_unitario" Type="Single" />
-        </EntityType>
-        <EntityType Name="itementrega">
-          <Key>
-            <PropertyRef Name="id_item_entrega" />
-          </Key>
-          <Property Name="id_orden" Type="Int64" Nullable="false" />
-          <Property Name="id_item_entrega" Type="Int64" Nullable="false" />
-          <Property Name="id_articulo" Type="Int32" Nullable="false" />
-          <Property Name="cantidad" Type="Single" />
-        </EntityType>
-        <EntityType Name="ordenentrega">
-          <Key>
-            <PropertyRef Name="id_orden" />
-          </Key>
-          <Property Name="id_orden" Type="Int64" Nullable="false" />
-          <Property Name="id_beneficiario" Type="Int32" Nullable="false" />
-          <Property Name="id_usuario" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="fecha" Type="DateTime" />
-          <Property Name="id_usu_autoriza" Type="Int32" />
-          <Property Name="id_usu_entrega" Type="Int32" />
-        </EntityType>
-        <EntityType Name="permiso">
-          <Key>
-            <PropertyRef Name="id_permiso" />
-          </Key>
-          <Property Name="id_usuario" Type="Int32" Nullable="false" />
-          <Property Name="id_permiso" Type="Int32" Nullable="false" />
-          <Property Name="id_funcion" Type="Int32" />
-          <Property Name="permitido" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="proveedor">
-          <Key>
-            <PropertyRef Name="id_proveedor" />
-          </Key>
-          <Property Name="id_proveedor" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="descripcion" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="direccion" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="telefono" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="tipoarticulo">
-          <Key>
-            <PropertyRef Name="id_tipo_articulo" />
-          </Key>
-          <Property Name="id_tipo_articulo" Type="Int32" Nullable="false" />
-          <Property Name="nombre_tipo" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="es_dinero" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="usuario">
-          <Key>
-            <PropertyRef Name="id_usuario" />
-          </Key>
-          <Property Name="id_usuario" Type="Int32" Nullable="false" />
-          <Property Name="nombre_usuario" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="contrasenia" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="nombre_completo" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityContainer Name="saluddbEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="articuloes" EntityType="Self.articulo" />
-          <EntitySet Name="beneficiarios" EntityType="Self.beneficiario" />
-          <EntitySet Name="funcions" EntityType="Self.funcion" />
-          <EntitySet Name="itemcompras" EntityType="Self.itemcompra" />
-          <EntitySet Name="itementregas" EntityType="Self.itementrega" />
-          <EntitySet Name="ordenentregas" EntityType="Self.ordenentrega" />
-          <EntitySet Name="permisoes" EntityType="Self.permiso" />
-          <EntitySet Name="proveedors" EntityType="Self.proveedor" />
-          <EntitySet Name="tipoarticuloes" EntityType="Self.tipoarticulo" />
-          <EntitySet Name="usuarios" EntityType="Self.usuario" />
-          <EntitySet Name="ordenestadoes" EntityType="saluddbModel.ordenestado" />
-          <EntitySet Name="barrios" EntityType="saluddbModel.barrio" />
-        </EntityContainer>
-        <EntityType Name="ordenestado">
-          <Key>
-            <PropertyRef Name="id_ordenEstado" />
-          </Key>
-          <Property Name="id_orden" Type="Int64" Nullable="false" />
-          <Property Name="estado" Type="Int32" Nullable="false" />
-          <Property Name="fecha" Type="DateTime" />
-          <Property Name="id_usuario" Type="Int32" Nullable="false" />
-          <Property Name="id_ordenEstado" Type="Int64" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="barrio">
           <Key>
             <PropertyRef Name="id_barrio" />
           </Key>
+          <Property Name="id_barrio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_barrio" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="ciudad" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="beneficiario">
+          <Key>
+            <PropertyRef Name="id_beneficiario" />
+          </Key>
+          <Property Name="id_beneficiario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_barrio" Type="Int32" Nullable="false" />
-          <Property Name="nombre_barrio" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="ciudad" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="id_grupo" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="documento" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="funcion">
+          <Key>
+            <PropertyRef Name="id_funcion" />
+          </Key>
+          <Property Name="id_funcion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_menu" Type="Int32" Nullable="false" />
+          <Property Name="nombre_funcion" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_menu" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="itemcompra">
+          <Key>
+            <PropertyRef Name="id_item_compra" />
+          </Key>
+          <Property Name="id_item_compra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_compra" Type="Int32" Nullable="false" />
+          <Property Name="id_articulo" Type="Int32" Nullable="false" />
+          <Property Name="cantidad" Type="Single" Nullable="false" />
+          <Property Name="precio_unitario" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="itementrega">
+          <Key>
+            <PropertyRef Name="id_item_entrega" />
+          </Key>
+          <Property Name="id_item_entrega" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_orden" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="id_articulo" Type="Int32" Nullable="false" />
+          <Property Name="cantidad" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ordenentrega">
+          <Key>
+            <PropertyRef Name="id_orden" />
+          </Key>
+          <Property Name="id_orden" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_beneficiario" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="id_usu_autoriza" Type="Int32" Nullable="false" />
+          <Property Name="id_usu_entrega" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ordenestado">
+          <Key>
+            <PropertyRef Name="id_ordenestado" />
+          </Key>
+          <Property Name="id_ordenestado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="id_orden" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="Int64" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="permiso">
+          <Key>
+            <PropertyRef Name="id_permiso" />
+          </Key>
+          <Property Name="id_permiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="id_funcion" Type="Int32" Nullable="false" />
+          <Property Name="permitido" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="proveedor">
+          <Key>
+            <PropertyRef Name="id_proveedor" />
+          </Key>
+          <Property Name="id_proveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tipoarticulo">
+          <Key>
+            <PropertyRef Name="id_tipo_articulo" />
+          </Key>
+          <Property Name="id_tipo_articulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_tipo" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="es_dinero" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_usuario" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="contrasenia" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_completo" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -273,121 +311,31 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="saluddbModelStoreContainer" CdmEntityContainer="saluddbEntities">
+          <EntitySetMapping Name="beneficiario_grupo">
+            <EntityTypeMapping TypeName="saluddbModel.beneficiario_grupo">
+              <MappingFragment StoreEntitySet="beneficiario_grupo">
+                <ScalarProperty Name="id_gupo" ColumnName="id_gupo" />
+                <ScalarProperty Name="id_beneficiario" ColumnName="id_beneficiario" />
+                <ScalarProperty Name="id_benef_grupo" ColumnName="id_benef_grupo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="grupoes">
+            <EntityTypeMapping TypeName="saluddbModel.grupo">
+              <MappingFragment StoreEntitySet="grupo">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="articuloes">
             <EntityTypeMapping TypeName="saluddbModel.articulo">
               <MappingFragment StoreEntitySet="articulo">
-                <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="id_tipo_articulo" ColumnName="id_tipo_articulo" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="beneficiarios">
-            <EntityTypeMapping TypeName="saluddbModel.beneficiario">
-              <MappingFragment StoreEntitySet="beneficiario">
-                <ScalarProperty Name="id_barrio" ColumnName="id_barrio" />
-                <ScalarProperty Name="id_beneficiario" ColumnName="id_beneficiario" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="documento" ColumnName="documento" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="funcions">
-            <EntityTypeMapping TypeName="saluddbModel.funcion">
-              <MappingFragment StoreEntitySet="funcion">
-                <ScalarProperty Name="id_funcion" ColumnName="id_funcion" />
-                <ScalarProperty Name="id_menu" ColumnName="id_menu" />
-                <ScalarProperty Name="nombre_funcion" ColumnName="nombre_funcion" />
-                <ScalarProperty Name="nombre_menu" ColumnName="nombre_menu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="itemcompras">
-            <EntityTypeMapping TypeName="saluddbModel.itemcompra">
-              <MappingFragment StoreEntitySet="itemcompra">
-                <ScalarProperty Name="id_compra" ColumnName="id_compra" />
-                <ScalarProperty Name="id_item_compra" ColumnName="id_item_compra" />
                 <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="itementregas">
-            <EntityTypeMapping TypeName="saluddbModel.itementrega">
-              <MappingFragment StoreEntitySet="itementrega">
-                <ScalarProperty Name="id_orden" ColumnName="id_orden" />
-                <ScalarProperty Name="id_item_entrega" ColumnName="id_item_entrega" />
-                <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ordenentregas">
-            <EntityTypeMapping TypeName="saluddbModel.ordenentrega">
-              <MappingFragment StoreEntitySet="ordenentrega">
-                <ScalarProperty Name="id_usu_entrega" ColumnName="id_usu_entrega" />
-                <ScalarProperty Name="id_usu_autoriza" ColumnName="id_usu_autoriza" />
-                <ScalarProperty Name="id_orden" ColumnName="id_orden" />
-                <ScalarProperty Name="id_beneficiario" ColumnName="id_beneficiario" />
-                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="permisoes">
-            <EntityTypeMapping TypeName="saluddbModel.permiso">
-              <MappingFragment StoreEntitySet="permiso">
-                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
-                <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
-                <ScalarProperty Name="id_funcion" ColumnName="id_funcion" />
-                <ScalarProperty Name="permitido" ColumnName="permitido" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="proveedors">
-            <EntityTypeMapping TypeName="saluddbModel.proveedor">
-              <MappingFragment StoreEntitySet="proveedor">
-                <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="email" ColumnName="email" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tipoarticuloes">
-            <EntityTypeMapping TypeName="saluddbModel.tipoarticulo">
-              <MappingFragment StoreEntitySet="tipoarticulo">
-                <ScalarProperty Name="id_tipo_articulo" ColumnName="id_tipo_articulo" />
-                <ScalarProperty Name="nombre_tipo" ColumnName="nombre_tipo" />
-                <ScalarProperty Name="es_dinero" ColumnName="es_dinero" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="usuarios">
-            <EntityTypeMapping TypeName="saluddbModel.usuario">
-              <MappingFragment StoreEntitySet="usuario">
-                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
-                <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
-                <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
-                <ScalarProperty Name="nombre_completo" ColumnName="nombre_completo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ordenestadoes">
-            <EntityTypeMapping TypeName="saluddbModel.ordenestado">
-              <MappingFragment StoreEntitySet="ordenestado">
-                <ScalarProperty Name="id_ordenEstado" ColumnName="id_ordenEstado" />
-                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="id_orden" ColumnName="id_orden" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -397,6 +345,115 @@
                 <ScalarProperty Name="ciudad" ColumnName="ciudad" />
                 <ScalarProperty Name="nombre_barrio" ColumnName="nombre_barrio" />
                 <ScalarProperty Name="id_barrio" ColumnName="id_barrio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="beneficiarios">
+            <EntityTypeMapping TypeName="saluddbModel.beneficiario">
+              <MappingFragment StoreEntitySet="beneficiario">
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="documento" ColumnName="documento" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
+                <ScalarProperty Name="id_barrio" ColumnName="id_barrio" />
+                <ScalarProperty Name="id_beneficiario" ColumnName="id_beneficiario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="funcions">
+            <EntityTypeMapping TypeName="saluddbModel.funcion">
+              <MappingFragment StoreEntitySet="funcion">
+                <ScalarProperty Name="nombre_menu" ColumnName="nombre_menu" />
+                <ScalarProperty Name="nombre_funcion" ColumnName="nombre_funcion" />
+                <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+                <ScalarProperty Name="id_funcion" ColumnName="id_funcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="itemcompras">
+            <EntityTypeMapping TypeName="saluddbModel.itemcompra">
+              <MappingFragment StoreEntitySet="itemcompra">
+                <ScalarProperty Name="precio_unitario" ColumnName="precio_unitario" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+                <ScalarProperty Name="id_compra" ColumnName="id_compra" />
+                <ScalarProperty Name="id_item_compra" ColumnName="id_item_compra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="itementregas">
+            <EntityTypeMapping TypeName="saluddbModel.itementrega">
+              <MappingFragment StoreEntitySet="itementrega">
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+                <ScalarProperty Name="id_orden" ColumnName="id_orden" />
+                <ScalarProperty Name="id_item_entrega" ColumnName="id_item_entrega" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ordenentregas">
+            <EntityTypeMapping TypeName="saluddbModel.ordenentrega">
+              <MappingFragment StoreEntitySet="ordenentrega">
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="id_usu_entrega" ColumnName="id_usu_entrega" />
+                <ScalarProperty Name="id_usu_autoriza" ColumnName="id_usu_autoriza" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_beneficiario" ColumnName="id_beneficiario" />
+                <ScalarProperty Name="id_orden" ColumnName="id_orden" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ordenestadoes">
+            <EntityTypeMapping TypeName="saluddbModel.ordenestado">
+              <MappingFragment StoreEntitySet="ordenestado">
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id_orden" ColumnName="id_orden" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_ordenestado" ColumnName="id_ordenestado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="permisoes">
+            <EntityTypeMapping TypeName="saluddbModel.permiso">
+              <MappingFragment StoreEntitySet="permiso">
+                <ScalarProperty Name="permitido" ColumnName="permitido" />
+                <ScalarProperty Name="id_funcion" ColumnName="id_funcion" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_permiso" ColumnName="id_permiso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proveedors">
+            <EntityTypeMapping TypeName="saluddbModel.proveedor">
+              <MappingFragment StoreEntitySet="proveedor">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoarticuloes">
+            <EntityTypeMapping TypeName="saluddbModel.tipoarticulo">
+              <MappingFragment StoreEntitySet="tipoarticulo">
+                <ScalarProperty Name="es_dinero" ColumnName="es_dinero" />
+                <ScalarProperty Name="nombre_tipo" ColumnName="nombre_tipo" />
+                <ScalarProperty Name="id_tipo_articulo" ColumnName="id_tipo_articulo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="saluddbModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="nombre_completo" ColumnName="nombre_completo" />
+                <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+                <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

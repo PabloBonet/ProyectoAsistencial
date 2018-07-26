@@ -16,6 +16,6 @@ namespace Processar.ProyectoAyudar.DatosLibrary
     {
         public int id_tipo_articulo { get; set; }
         public string nombre_tipo { get; set; }
-        public Nullable<bool> es_dinero { get; set; }
+        public bool es_dinero { get; set; }
     }
 }

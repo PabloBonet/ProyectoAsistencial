@@ -14,12 +14,12 @@ namespace Processar.ProyectoAyudar.DatosLibrary
     
     public partial class ordenentrega
     {
-        public long id_orden { get; set; }
+        public int id_orden { get; set; }
         public int id_beneficiario { get; set; }
         public int id_usuario { get; set; }
+        public int id_usu_autoriza { get; set; }
+        public int id_usu_entrega { get; set; }
         public string descripcion { get; set; }
-        public Nullable<System.DateTime> fecha { get; set; }
-        public Nullable<int> id_usu_autoriza { get; set; }
-        public Nullable<int> id_usu_entrega { get; set; }
+        public System.DateTime fecha { get; set; }
     }
 }

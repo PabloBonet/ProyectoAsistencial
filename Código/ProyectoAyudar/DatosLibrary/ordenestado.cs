@@ -14,10 +14,10 @@ namespace Processar.ProyectoAyudar.DatosLibrary
     
     public partial class ordenestado
     {
-        public long id_orden { get; set; }
-        public int estado { get; set; }
-        public Nullable<System.DateTime> fecha { get; set; }
+        public int id_ordenestado { get; set; }
         public int id_usuario { get; set; }
-        public long id_ordenEstado { get; set; }
+        public int id_orden { get; set; }
+        public long estado { get; set; }
+        public System.DateTime fecha { get; set; }
     }
 }

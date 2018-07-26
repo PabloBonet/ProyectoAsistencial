@@ -14,9 +14,9 @@ namespace Processar.ProyectoAyudar.DatosLibrary
     
     public partial class permiso
     {
-        public int id_usuario { get; set; }
         public int id_permiso { get; set; }
-        public Nullable<int> id_funcion { get; set; }
-        public Nullable<bool> permitido { get; set; }
+        public int id_usuario { get; set; }
+        public int id_funcion { get; set; }
+        public bool permitido { get; set; }
     }
 }
