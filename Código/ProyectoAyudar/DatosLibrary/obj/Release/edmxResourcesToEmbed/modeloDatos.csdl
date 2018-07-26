@@ -60,6 +60,8 @@
     <Property Name="documento" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
     <Property Name="direccion" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
     <Property Name="telefono" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="cuit_cuil" Type="String" Nullable="true" MaxLength="254" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_nac" Type="DateTime" Nullable="true" />
   </EntityType>
   <EntityType Name="funcion">
     <Key>

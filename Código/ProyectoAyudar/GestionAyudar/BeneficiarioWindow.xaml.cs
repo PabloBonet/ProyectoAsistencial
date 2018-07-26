@@ -84,7 +84,7 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             txtDireccion.IsReadOnly = false;
             txtTelefono.IsReadOnly = false;
             txtDocumento.IsReadOnly = false;
-
+            txtCuitCuil.IsReadOnly = false;
             cmbBarrio.IsEnabled = true;
 
             //Botones
@@ -108,11 +108,13 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             txtDireccion.IsReadOnly = false;
             txtTelefono.IsReadOnly = false;
             txtDocumento.IsReadOnly = true;
+            txtCuitCuil.IsReadOnly = false;
 
             cmbBarrio.IsEnabled = true;
+      
 
             //Botones
-           
+
             btnEliminarBeneficiario.IsEnabled = true;
             btnGuardarBeneficiario.IsEnabled = true;
             btnGuardarBeneficiario.Label = "Guardar";
@@ -124,7 +126,9 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             txtDireccion.Text = beneficiario.Direccion.ToString();
             txtDocumento.Text = beneficiario.Documento.ToString();
             txtTelefono.Text = beneficiario.Telefono.ToString();
-
+            txtCuitCuil.Text = beneficiario.Cuit_Cuil;
+            dpFechaNac.DisplayDate = beneficiario.FechaNac;
+            dpFechaNac.Text = beneficiario.FechaNac.Date.ToShortDateString();
             seleccionarBarrio();
             
 
@@ -149,11 +153,12 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             txtDireccion.IsReadOnly = true;
             txtTelefono.IsReadOnly = true;
             txtDocumento.IsReadOnly = true;
-
+            txtCuitCuil.IsReadOnly = true;
             cmbBarrio.IsEnabled = false;
+          
 
             //Botones
-           
+
             btnEliminarBeneficiario.IsEnabled = false;
             btnGuardarBeneficiario.IsEnabled = false;
             btnGuardarBeneficiario.Label = "Guardar";
@@ -166,19 +171,25 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             txtDireccion.Text = beneficiario.Direccion.ToString();
             txtDocumento.Text = beneficiario.Documento.ToString();
             txtTelefono.Text = beneficiario.Telefono.ToString();
-
+            txtCuitCuil.Text = beneficiario.Cuit_Cuil.ToString();
+            dpFechaNac.DisplayDate = beneficiario.FechaNac;
+            dpFechaNac.Text = beneficiario.FechaNac.Date.ToShortDateString();
             seleccionarBarrio();
 
         }
         private void Window_Initialized(object sender, EventArgs e)
         {
+            // Orden de Tabulación
             txtDocumento.TabIndex = 0;
             txtNombre.TabIndex = 1;
-            txtDireccion.TabIndex = 2;
-            txtTelefono.TabIndex = 3;
-            cmbBarrio.TabIndex = 4;
-            btnGuardarBeneficiario.TabIndex = 5;
-            btnEliminarBeneficiario.TabIndex = 6;
+            dpFechaNac.TabIndex = 2;
+            txtCuitCuil.TabIndex = 3;
+            txtDireccion.TabIndex = 4;
+            txtTelefono.TabIndex = 5;
+            cmbBarrio.TabIndex = 6;
+
+            btnGuardarBeneficiario.TabIndex = 7;
+            btnEliminarBeneficiario.TabIndex = 8;
 
         }
 
@@ -218,7 +229,8 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                     nuevoBeneficiario.Nombre = txtNombre.Text.ToString();
                     nuevoBeneficiario.Direccion = txtDireccion.Text.ToString();
                     nuevoBeneficiario.Telefono = txtTelefono.Text.ToString();
-
+                    nuevoBeneficiario.Cuit_Cuil = txtCuitCuil.Text.ToString();
+                    nuevoBeneficiario.FechaNac = dpFechaNac.DisplayDate.Date;
                     nuevoBeneficiario.Barrio = (BarrioClass)cmbBarrio.SelectedItem;
                     
                     if (nuevoBeneficiario.NuevoBeneficiario())
@@ -247,7 +259,8 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                             beneficiario.Nombre = txtNombre.Text.ToString();
                             beneficiario.Direccion = txtDireccion.Text.ToString();
                             beneficiario.Telefono = txtTelefono.Text.ToString();
-
+                            beneficiario.Cuit_Cuil = txtCuitCuil.Text.ToString();
+                            beneficiario.FechaNac = dpFechaNac.DisplayDate.Date;
                             beneficiario.Barrio = (BarrioClass)cmbBarrio.SelectedItem;
                             if (beneficiario.Modificar())
                             {

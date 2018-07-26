@@ -578,7 +578,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
         {
             bool r = false;
 
-            if(EstadoActual.Estado == EstadoOrden.AUTORIZADO)
+            if(EstadoActual.Estado == EstadoOrden.AUTORIZADO || EstadoActual.Estado == EstadoOrden.INICIADO)
             {
                 r = true;
             }

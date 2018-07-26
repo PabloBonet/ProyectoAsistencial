@@ -21,5 +21,7 @@ namespace Processar.ProyectoAyudar.DatosLibrary
         public string documento { get; set; }
         public string direccion { get; set; }
         public string telefono { get; set; }
+        public string cuit_cuil { get; set; }
+        public Nullable<System.DateTime> fecha_nac { get; set; }
     }
 }

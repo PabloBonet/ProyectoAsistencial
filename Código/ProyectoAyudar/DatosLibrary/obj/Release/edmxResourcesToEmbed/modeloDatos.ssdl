@@ -28,6 +28,8 @@
     <Property Name="documento" Type="char" MaxLength="254" Nullable="false" />
     <Property Name="direccion" Type="char" MaxLength="254" Nullable="false" />
     <Property Name="telefono" Type="char" MaxLength="254" Nullable="false" />
+    <Property Name="cuit_cuil" Type="char" MaxLength="254" />
+    <Property Name="fecha_nac" Type="datetime" Precision="0" />
   </EntityType>
   <EntityType Name="beneficiario_grupo">
     <Key>
@@ -69,7 +71,7 @@
       <PropertyRef Name="id_item_entrega" />
     </Key>
     <Property Name="id_item_entrega" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_orden" Type="uint" Nullable="false" StoreGeneratedPattern="None" />
+    <Property Name="id_orden" Type="uint" Nullable="false" />
     <Property Name="id_articulo" Type="uint" Nullable="false" />
     <Property Name="cantidad" Type="float" Nullable="false" />
   </EntityType>

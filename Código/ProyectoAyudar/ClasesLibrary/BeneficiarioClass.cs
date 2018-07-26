@@ -17,6 +17,8 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
         private String _documento;
         private String _direccion;
         private String _telefono;
+        private String _cuit_cuil;
+        private DateTime _fecha_nac;
         private BarrioClass _barrio;
 
 
@@ -69,6 +71,23 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             set { _telefono = value; }
         }
 
+        /// <summary>
+        /// Obtiene y establece el CUIT o CUIL del beneficiario
+        /// </summary>
+        public String Cuit_Cuil
+        {
+            get { return _cuit_cuil; }
+            set { _cuit_cuil = value; }
+        }
+
+        /// <summary>
+        /// Obtiene y establece la fecha de nacimiento del beneficiario
+        /// </summary>
+        public DateTime FechaNac
+        {
+            get { return _fecha_nac; }
+            set { _fecha_nac = value; }
+        }
         public BarrioClass Barrio
         {
             get { return _barrio; }
@@ -91,6 +110,8 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             _documento = "";
             _direccion = "";
             _telefono = "";
+            _cuit_cuil = "";
+            _fecha_nac = new DateTime();
             _barrio = new BarrioClass();
 
         }
@@ -103,7 +124,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
         /// <param name="documento">documento del beneficiario</param>
         /// <param name="direccion">dirección del beneficiario</param>
         /// <param name="telefono">teléfono del beneficiario</param>
-        public BeneficiarioClass(int id_beneficiario, String nombre, String documento, String direccion, String telefono, BarrioClass barrio)
+        public BeneficiarioClass(int id_beneficiario, String nombre, String documento, String direccion, String telefono, BarrioClass barrio, String cuit_cuil, DateTime fechaNac)
         {
             ctx = new saluddbEntities();
             _id_beneficiario = id_beneficiario;
@@ -111,6 +132,8 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             _documento = documento;
             _direccion = direccion;
             _telefono = telefono;
+            _cuit_cuil = cuit_cuil;
+            _fecha_nac = fechaNac;
             _barrio = barrio;
         }
         #endregion
@@ -135,6 +158,8 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                     f.documento = this._documento;
                     f.nombre = this._nombre;
                     f.telefono = this._telefono;
+                    f.cuit_cuil = this._cuit_cuil;
+                    f.fecha_nac = this._fecha_nac;
                     f.id_barrio = this._barrio.IdBarrio;
 
                     ctx.beneficiarios.Add(f);
@@ -180,6 +205,8 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                 f.documento = _documento;
                 f.nombre = _nombre;
                 f.telefono = _telefono;
+                f.cuit_cuil = _cuit_cuil;
+                f.fecha_nac = _fecha_nac;
                 f.id_barrio = _barrio.IdBarrio;
 
                     ctx.SaveChanges();
@@ -295,6 +322,8 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                        r._direccion = f.direccion;
                        r._telefono = f.telefono;
                        r._nombre = f.nombre;
+                        r._fecha_nac = (DateTime)f.fecha_nac;
+                        r._cuit_cuil = f.cuit_cuil;
                        r._barrio = BarrioClass.BuscarBarrioPorId((int)f.id_barrio);
                        return r;
                    }
@@ -315,7 +344,9 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                        r._direccion = f.direccion;
                        r._telefono = f.telefono;
                        r._nombre = f.nombre;
-                       r._barrio = BarrioClass.BuscarBarrioPorId((int)f.id_barrio);
+                        r._fecha_nac = (DateTime)f.fecha_nac;
+                        r._cuit_cuil = f.cuit_cuil;
+                        r._barrio = BarrioClass.BuscarBarrioPorId((int)f.id_barrio);
                        return r;
                    }
                     break;
@@ -333,6 +364,8 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                         r._direccion = f.direccion;
                         r._telefono = f.telefono;
                         r._nombre = f.nombre;
+                        r._fecha_nac = (DateTime)f.fecha_nac;
+                        r._cuit_cuil = f.cuit_cuil;
                         r._barrio = BarrioClass.BuscarBarrioPorId((int)f.id_barrio);
                         return r;
                     }
@@ -364,7 +397,9 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                 x._nombre = f.nombre;
                 x._direccion = f.direccion;
                 x._documento = f.documento;
-                x._telefono = f.documento;
+                x._telefono = f.telefono;
+                x._fecha_nac = (DateTime)f.fecha_nac;
+                x._cuit_cuil = f.cuit_cuil;
                 x._barrio = BarrioClass.BuscarBarrioPorId((int)f.id_barrio);
 
                 r.Add(x);
@@ -419,6 +454,8 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                 x._direccion = f.direccion;
                 x._documento = f.documento;
                 x._telefono = f.telefono;
+                x._fecha_nac = (DateTime)f.fecha_nac;
+                x._cuit_cuil = f.cuit_cuil;
                 x._barrio = BarrioClass.BuscarBarrioPorId((int)f.id_barrio);
                                
                 r.Add(x);
@@ -461,7 +498,9 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                 x._nombre = f.nombre;
                 x._direccion = f.direccion;
                 x._documento = f.documento;
-                x._telefono = f.documento;
+                x._telefono = f.telefono;
+                x._fecha_nac = (DateTime)f.fecha_nac;
+                x._cuit_cuil = f.cuit_cuil;
                 x._barrio = BarrioClass.BuscarBarrioPorId((int)f.id_barrio);
 
                 r.Add(x);

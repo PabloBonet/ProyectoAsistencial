@@ -678,7 +678,8 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                     btnEliminarOrden.IsEnabled = PermisoClass.TienePermiso(MainWindow.usuario_logueado.Id_usuario, btnEliminarOrden.Name);
                     btnAutorizarOrden.IsEnabled = PermisoClass.TienePermiso(MainWindow.usuario_logueado.Id_usuario, btnAutorizarOrden.Name);
                     btnEntregarOrden.IsEnabled = false;
-                    btnCancelarOrden.IsEnabled = false;
+                    btnCancelarOrden.IsEnabled = true;
+                   // btnCancelarOrden.IsEnabled = false;
                     btnModificarOrden.IsEnabled = PermisoClass.TienePermiso(usuario_logueado.Id_usuario, btnModificarOrden.Name);
                     btnAbrirOrden.IsEnabled = PermisoClass.TienePermiso(usuario_logueado.Id_usuario, btnAbrirOrden.Name);
                     // btnAgregarItem.IsEnabled = true;

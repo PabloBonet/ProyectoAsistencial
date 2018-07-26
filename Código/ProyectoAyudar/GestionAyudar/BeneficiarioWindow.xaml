@@ -31,12 +31,12 @@
             <Label x:Name="lblNombre" Content="Nombre:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="150,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.583"/>
             <TextBox x:Name="txtDocumento" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="243,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" />
             <Label x:Name="lblDocumento" Content="Documento:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="150,50,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtDireccion" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="243,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" />
-            <Label x:Name="lblDireccion" Content="Dirección"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="150,150,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,-0.667"/>
-            <TextBox x:Name="txtTelefono" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="243,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" />
-            <Label x:Name="lblTelefono" Content="Teléfono:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="150,200,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="lblBarrio" Content="Barrio:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="150,250,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cmbBarrio" Style="{StaticResource ListaDesplegable}" HorizontalAlignment="Left" Margin="243,250,0,0" VerticalAlignment="Top" Width="260">
+            <TextBox x:Name="txtDireccion" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="243,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" />
+            <Label x:Name="lblDireccion" Content="Dirección"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="150,250,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,-0.667"/>
+            <TextBox x:Name="txtTelefono" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="243,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" />
+            <Label x:Name="lblTelefono" Content="Teléfono:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="150,300,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblBarrio" Content="Barrio:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="150,350,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cmbBarrio" Style="{StaticResource ListaDesplegable}" HorizontalAlignment="Left" Margin="243,353,0,0" VerticalAlignment="Top" Width="260">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -45,6 +45,10 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
+            <TextBox x:Name="txtCuitCuil" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="243,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" />
+            <Label x:Name="lblFechaNac" Content="Fecha Nac.:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="150,149,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.583"/>
+            <Label x:Name="lblCuitCuil" Content="CUIT/CUIL:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="150,199,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.583"/>
+            <DatePicker x:Name="dpFechaNac" Margin="243,137,605,335" />
         </Grid>
         <TextBox Name="txtBien" Style="{StaticResource CajadeTexto}" Visibility="Hidden"/>
         <TextBox Name="txtMal" Style="{StaticResource CajadeTextoError}" Visibility="Hidden"/>
