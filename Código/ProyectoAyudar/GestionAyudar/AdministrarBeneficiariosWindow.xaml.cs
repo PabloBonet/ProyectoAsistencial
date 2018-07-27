@@ -244,6 +244,7 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                     }
                     if (todo_ok)
                     {
+                        /*
                         BeneficiarioClass beneficiario = BeneficiarioClass.BuscarBeneficiario(txtBusquedaBeneficiario.Text, _criterio_de_busqueda);
 
                         if (beneficiario != null)
@@ -252,7 +253,16 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                             grillaBeneficiarios.ItemsSource = _beneficiarios;
 
                         }
+                        */
+                        List<BeneficiarioClass> beneficiarios = BeneficiarioClass.ListarBeneficiarioPorCriterio(txtBusquedaBeneficiario.Text, _criterio_de_busqueda);
+                       foreach (BeneficiarioClass beneficiario in beneficiarios)
+                        {
+                            _beneficiarios.Add(beneficiario);
+                           
 
+                        }
+
+                        grillaBeneficiarios.ItemsSource = _beneficiarios;
                         if (_beneficiarios.Count == 0)
                         {
                             btnAbrirBeneficiario.IsEnabled = false;

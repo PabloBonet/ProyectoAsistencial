@@ -311,13 +311,58 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
 
         }
 
+        /// <summary>
+        /// Lista los articulos por criterio
+        /// </summary>
+        /// <param name="parametro">Parámetro con el que se compara para listar</param>
+        /// <param name="criterio">Criterio de búsqueda</param>
+        /// <returns>Lista de Artículos</returns>
+        public static List<ArticuloClass> ListarAticulosPorCriterio(string parametro, CriterioBusqueda criterio)
+        {
+            List<ArticuloClass> r = new List<ArticuloClass>();
+            saluddbEntities mctx = new saluddbEntities();
+            ArticuloClass x;
 
-      ///<summary>
-      ///   Lista todos los artículos registrados en la base de datos que fueron entregados al beneficiario (id_beneficiario)
+
+            var cur = from b in mctx.articuloes
+                      select b;
+
+            foreach (var f in cur)
+            {
+                bool agregar = false;
+                switch (criterio)
+                {
+                   
+
+                    case CriterioBusqueda.Busqueda_Nombre:
+                        agregar = f.nombre.Contains(parametro);
+                        break;
+
+                }
+
+                if (agregar)
+                {
+                    x = new ArticuloClass();
+
+                    x._id_articulo = f.id_articulo;
+                    x._nombre_articulo = f.nombre;
+                    x._descripcion_articulo = f.descripcion;
+                    x._tipo_articulo = TipoArticuloClass.BuscarTipoArticuloPorId(f.id_tipo_articulo);
+
+                    r.Add(x);
+                }
+
+            }
+
+            return r;
+
+        }
+        ///<summary>
+        ///   Lista todos los artículos registrados en la base de datos que fueron entregados al beneficiario (id_beneficiario)
         /// </summary>
         /// <returns>Retorna una lista de objetos de la clase ArticulosClass</returns>
-      /// <param name="id_beneficiario">Id del beneficiario al que se le entrego artículos</param>
-      /// <returns>Retorna una lista de objetos de la clase ArticulosClass</returns>
+        /// <param name="id_beneficiario">Id del beneficiario al que se le entrego artículos</param>
+        /// <returns>Retorna una lista de objetos de la clase ArticulosClass</returns>
         public static List<ArticuloClass> ListarArticulosPorBeneficiario(long id_beneficiario)
         {
           List<ArticuloClass> r = new List<ArticuloClass>();

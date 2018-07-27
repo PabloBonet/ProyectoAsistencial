@@ -332,10 +332,13 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
 
 
                 case CriterioBusqueda.Busqueda_Dni:
-                   var cur2 = from b in ctx.beneficiarios
-                          where b.documento == parametro
-                          select b;
-                   if (cur2.Count() > 0)
+                    var cur2 = from b in ctx.beneficiarios
+                           where b.documento == parametro
+                           select b;
+                           
+                   
+                   
+                    if (cur2.Count() > 0)
                    {
                        var f = cur2.First();
 
@@ -349,6 +352,8 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                         r._barrio = BarrioClass.BuscarBarrioPorId((int)f.id_barrio);
                        return r;
                    }
+                   
+                    
                     break;
 
                 case CriterioBusqueda.Busqueda_Nombre:
@@ -464,7 +469,72 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
 
             return r;
         }
+        /// <summary>
+        /// Lista los beneficiarios por criterio
+        /// </summary>
+        /// <param name="parametro">Parámetro con el que se compara para listar</param>
+        /// <param name="criterio">Criterio de búsqueda</param>
+        /// <returns>Lista de beneficiarios</returns>
+        public static List<BeneficiarioClass> ListarBeneficiarioPorCriterio(string parametro, CriterioBusqueda criterio)
+        {
+            List<BeneficiarioClass> r = new List<BeneficiarioClass>();
+            saluddbEntities mctx = new saluddbEntities();
+            BeneficiarioClass x;
 
+
+            var cur = from b in mctx.beneficiarios
+                      select b;
+
+            foreach (var f in cur)
+            {
+                bool agregar = false;
+                switch(criterio)
+                {
+                    case CriterioBusqueda.Busqueda_Dni:
+                        agregar = f.documento.Contains(parametro);
+                        break;
+                    case CriterioBusqueda.Busqueda_ID:
+                        int id = 0;
+                        Int32.TryParse(parametro, out id);
+                        if (f.id_beneficiario == id)
+                        {
+                            agregar = true;
+                        }
+                        else
+                        {
+                            agregar = false;
+                        }
+                        
+                        break;
+
+                    case CriterioBusqueda.Busqueda_Nombre:
+                        agregar = f.nombre.Contains(parametro);
+                        break;
+
+                                     
+                }
+
+                if (agregar)
+                {
+                    x = new BeneficiarioClass();
+
+                    x._id_beneficiario = f.id_beneficiario;
+                    x._nombre = f.nombre;
+                    x._direccion = f.direccion;
+                    x._documento = f.documento;
+                    x._telefono = f.telefono;
+                    x._fecha_nac = (DateTime)f.fecha_nac;
+                    x._cuit_cuil = f.cuit_cuil;
+                    x._barrio = BarrioClass.BuscarBarrioPorId((int)f.id_barrio);
+
+                    r.Add(x);
+                }
+                
+            }
+
+            return r;
+            
+        }
         /// <summary>
         /// Lista los beneficiarios que adquirieron el articulo pasado como parametro.
         /// </summary>
