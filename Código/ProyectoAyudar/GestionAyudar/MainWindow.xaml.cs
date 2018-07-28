@@ -1173,7 +1173,7 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             if (txtBusquedaOrden.Text.Length == 0 && _criterio_de_busqueda != CriterioBusqueda.Fecha)
             {
 
-                ordenes = OrdenEntregaClass.ListarOrdenesEntrega();
+                ordenes = OrdenEntregaClass.ListarOrdenesEntrega(true);
                 grillaOrdenes.ItemsSource = ordenes;
 
 

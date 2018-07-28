@@ -23,3 +23,4 @@ C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\DatosLibrary
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\DatosLibrary\bin\Release\EntityFramework.SqlServer.xml
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\DatosLibrary\obj\Release\DatosLibrary.dll
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\DatosLibrary\obj\Release\DatosLibrary.pdb
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\DatosLibrary\obj\Release\DatosLibrary.csprojResolveAssemblyReference.cache
