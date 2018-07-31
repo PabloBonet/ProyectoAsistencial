@@ -1,0 +1,56 @@
+﻿<Window x:Class="Processar.ProyectoAyudar.GestionAyudar.AdministrarGruposBeneficiariosWindow"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       Title="Administrar Grupos Beneficiarios - Comuna de Margarita" WindowStartupLocation="CenterScreen" Height="720" Width="1024"  ResizeMode="NoResize" Closing="Window_Closing"  Initialized="Window_Initialized"  Icon="Graficos/logo.png" >
+
+    <Window.Resources>
+        <ResourceDictionary Source="recursosdic.xaml"/>
+
+    </Window.Resources>
+    <Grid Style="{StaticResource GridFondo}">
+        <Ribbon VerticalAlignment="Top" Height="148"   Margin="0,10,0,0" ShowQuickAccessToolBarOnTop="False"  Background="#FFCADEB8" >
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu Visibility="Hidden" Width="0"/>
+            </Ribbon.ApplicationMenu>
+
+            <RibbonTab  Header="Editar" Height="88" VerticalAlignment="Top" Background="#FFCADEB8"  BorderBrush="#FF4AA200">
+                <RibbonGroup x:Name="grupoEditaGrupo" Header="Editar" Margin="0,1" Width="Auto">
+                    <RibbonButton x:Name="btnNuevoGrupo" Label="Nuevo" LargeImageSource="Graficos/beneficiario_agregar.png" Height="55"  Click="btnNuevoGrupo_Click"  Margin="0,10,0,-10"/>
+                    <RibbonButton x:Name="btnModificarGrupo" Label="Modificar" LargeImageSource="Graficos/beneficiario_modificar.png" Height="55"  Click="btnModificarGrupo_Click"  Margin="0,10,0,-10"/>
+
+
+
+                    <RibbonButton x:Name="btnEliminarGrupo" Label="Eliminar" LargeImageSource="Graficos/beneficiario_eliminar.png" Height="55"  Click="btnEliminarGrupo_Click"  Margin="0,10,0,-10"/>
+                </RibbonGroup>
+
+                <RibbonGroup x:Name="grupoConsultarGrupo" Header="Consultar" Margin="0,1" Width="590">
+                    <RibbonGroup x:Name="grupoCriterio" Header="Criterios" Margin="0,1" Width="90">
+                        <RibbonRadioButton x:Name="rdbNombreGrupo" Label="Nombre" Checked="rdbNombreGrupo_Checked"/>
+                        <RibbonRadioButton x:Name="rdbDocumento" Label="Documento" Checked="rdbDocumento_Checked"/>
+                    </RibbonGroup>
+
+
+
+                    <RibbonTextBox x:Name="txtBusquedaGrupo"  Style="{StaticResource CajadeTexto}" Label="Buscar:" Margin="10,10,-325,0" TextWrapping="Wrap" TextBoxWidth="300"  VerticalAlignment="Top" KeyDown="txtBusquedaGrupo_KeyDown" />
+                    <RibbonButton x:Name="btnBuscarGrupo" Label="Buscar" LargeImageSource="Graficos/buscar.png" Height="55"  Click="btnBuscarGrupo_Click"  Margin="333,10,-333,-10"/>
+                    <RibbonButton x:Name="btnAbrirGrupo" Label="Consultar" LargeImageSource="Graficos/beneficiario_seleccionar.png" Height="55"  Click="btnAbrirGrupo_Click"  Margin="343,10,-333,-10"/>
+
+                </RibbonGroup>
+               
+            </RibbonTab>
+
+        </Ribbon>
+        <Grid x:Name="gridGrupos" Style="{StaticResource GridVerde}" Margin="10,163,10,10">
+            <DataGrid x:Name="grillaGrupos" Style="{StaticResource Tabla}" CellStyle="{StaticResource CeldaGrilla}" HorizontalAlignment="Left" Margin="10,40,0,11" Width="976" IsReadOnly="True" AutoGenerateColumns="False" DataContext="{Binding}" SelectionChanged="grillaGrupos_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id_grupo}" ClipboardContentBinding="{x:Null}" Header="Identificador" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Nombre}" ClipboardContentBinding="{x:Null}" Header="Nombre"/>
+                    <DataGridTextColumn Binding="{Binding Descripcion}" ClipboardContentBinding="{x:Null}" Header="Documento"/>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="Grupos:" Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top"/>
+        </Grid>
+
+    </Grid>
+</Window>

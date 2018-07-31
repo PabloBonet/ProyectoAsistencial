@@ -73,6 +73,7 @@
     <Compile Include="EnumeracionClass.cs" />
     <Compile Include="FuncionClass.cs" />
     <Compile Include="GrillaReporteEntregaClass.cs" />
+    <Compile Include="GrupoBeneficiarioClass.cs" />
     <Compile Include="ItemEntregaClass.cs" />
     <Compile Include="OrdenEntregaClass.cs" />
     <Compile Include="OrdenEstadoClass.cs" />

@@ -113,6 +113,9 @@
     <Compile Include="AdministrarBeneficiariosWindow.xaml.cs">
       <DependentUpon>AdministrarBeneficiariosWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdministrarGruposBeneficiariosWindow.xaml.cs">
+      <DependentUpon>AdministrarGruposBeneficiariosWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdministrarTipoArticuloWindow.xaml.cs">
       <DependentUpon>AdministrarTipoArticuloWindow.xaml</DependentUpon>
     </Compile>
@@ -130,6 +133,9 @@
     </Compile>
     <Compile Include="CambiarContraseniaWindow.xaml.cs">
       <DependentUpon>CambiarContraseniaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GrupoBeneficiarioWindow.xaml.cs">
+      <DependentUpon>GrupoBeneficiarioWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="IniciarSesionWindow.xaml.cs">
       <DependentUpon>IniciarSesionWindow.xaml</DependentUpon>
@@ -163,6 +169,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AdministrarGruposBeneficiariosWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdministrarTipoArticuloWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -192,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CambiarContraseniaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GrupoBeneficiarioWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

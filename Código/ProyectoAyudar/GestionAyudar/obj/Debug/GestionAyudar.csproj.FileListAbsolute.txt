@@ -72,3 +72,7 @@ C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyuda
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\bin\Debug\SqlServerTypes\x86\SqlServerSpatial120.dll
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\bin\Debug\Microsoft.SqlServer.Types.dll
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Debug\GestionAyudar_Content.g.cs
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Debug\AdministrarGruposBeneficiariosWindow.baml
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Debug\AdministrarGruposBeneficiariosWindow.g.cs
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Debug\GrupoBeneficiarioWindow.baml
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Debug\GrupoBeneficiarioWindow.g.cs

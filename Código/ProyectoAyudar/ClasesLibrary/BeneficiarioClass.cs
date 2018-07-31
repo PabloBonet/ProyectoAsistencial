@@ -535,6 +535,33 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             return r;
             
         }
+
+        public static List<BeneficiarioClass> ListarBeneficiariosPorGrupo(int id_grupo)
+        {
+            List<BeneficiarioClass> r = new List<BeneficiarioClass>();
+            saluddbEntities mctx = new saluddbEntities();
+            BeneficiarioClass x;
+
+            //une las tablas itemEntregas, ordenEntregas y beneficiari mediante un Join para obtener los beneficiarios que adquirieron un cierto articulo
+            var cur = from bg in mctx.beneficiario_grupo
+                      where bg.id_gupo== id_grupo
+                      select bg;
+
+
+            foreach (var f in cur)
+            {
+
+                string id_benef = (f.id_beneficiario).ToString();
+
+                 x = BuscarBeneficiario(id_benef, CriterioBusqueda.Busqueda_ID);
+             
+                r.Add(x);
+            }
+
+
+            return r;
+        }
+
         /// <summary>
         /// Lista los beneficiarios que adquirieron el articulo pasado como parametro.
         /// </summary>
