@@ -146,22 +146,51 @@ namespace Processar.ProyectoAyudar.GestionAyudar
         {
             txtNombreUsuario.Text = usuario.Nombre_usuario.ToString();
             txtNombreCompleto.Text = usuario.Nombre_completo.ToString();
-            //txtContrasenia.Password = usuario.Contrasenia.ToString();
-            //txtContraseniaRep.Password = usuario.Contrasenia.ToString();
+            txtContraseña.Password = usuario.Contrasenia.ToString();
+            txtContraseñaRepetir.Password = usuario.Contrasenia.ToString();
 
             // _permisos = PermisoClass.ListarPermisosPorUsuario(usuario.Id_usuario);
 
+            List<FuncionClass> listaFunciones = FuncionClass.ListarFunciones();
 
-
-            foreach(PermisoClass permiso in usuario.Permisos)
+            foreach (PermisoClass permiso in usuario.Permisos)
             {
-                
+
                 if (permiso != null)
                 {
                     _permisos.Add(permiso);
                 }
             }
-            
+
+           /* foreach (FuncionClass f in listaFunciones)
+            {
+                bool permitida = false;
+                foreach (PermisoClass p in _permisos)
+                {
+                    
+                    if(f.Id_funcion == p.Funcion.Id_funcion)
+                    {
+                        if(p.Permitido)
+                        {
+                            permitida = true;
+                            // No hago nada, ya esta en la lista de permisos
+                        }
+                        
+                    }
+                }
+
+                if (!permitida)
+                {
+                    PermisoClass per = new PermisoClass();
+                    per.Permitido = false;
+                    per.Funcion = f;
+
+                    _permisos.Add(per);
+                }
+            }
+          
+            */
+           
             //_permisos = usuario.Permisos;
             grillaPermisos.ItemsSource = _permisos;
             grillaPermisos.Items.Refresh();
@@ -575,5 +604,42 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                 }
             }
            }
+
+        /// <summary>
+        ///Codifica el password ingresado
+        /// </summary>
+        /// <param name="clave">Clave Password.</param>
+        /// <returns></returns>
+        private string CodificarPassword(string clave)
+        {
+            string r = "";
+            // Create a new instance of the MD5 object.
+
+
+            MD5 md5Hasher = MD5.Create();
+
+            // Convert the input string to a byte array and compute the hash.
+            byte[] data = md5Hasher.ComputeHash(Encoding.Default.GetBytes(clave));
+
+            // Create a new Stringbuilder to collect the bytes
+            // and create a string.
+            StringBuilder sBuilder = new StringBuilder();
+
+            // Loop through each byte of the hashed data 
+            // and format each one as a hexadecimal string.
+            int i = 0;
+            for (i = 0; i <= data.Length - 1; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+
+            // Return the hexadecimal string.
+
+            r = sBuilder.ToString();
+
+
+            return r;
+        }
+
     }
 }

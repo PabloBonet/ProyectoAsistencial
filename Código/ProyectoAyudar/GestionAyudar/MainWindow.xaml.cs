@@ -38,6 +38,7 @@ namespace Processar.ProyectoAyudar.GestionAyudar
 
         private List<OrdenEntregaWindow> _ventanasOrdenes;
         private List<BeneficiarioWindow> _ventanasBeneficiarios;
+        private List<GrupoBeneficiarioWindow> _ventanasGruposBeneficiarios;
         private List<BarrioWindow> _ventanasBarrios;
         private List<TipoArticuloWindows> _ventanasTipoArticulos;
         private List<ArticuloWindow> _ventanasArticulos;
@@ -58,6 +59,7 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             /*** ATRIBUTOS PRIVADOS ***/
             _ventanasOrdenes = new List<OrdenEntregaWindow>();
             _ventanasBeneficiarios = new List<BeneficiarioWindow>();
+            _ventanasGruposBeneficiarios = new List<GrupoBeneficiarioWindow>();
             _ventanasBarrios = new List<BarrioWindow>();
             _ventanasTipoArticulos = new List<TipoArticuloWindows>();
             _ventanasArticulos = new List<ArticuloWindow>();
@@ -1344,6 +1346,25 @@ namespace Processar.ProyectoAyudar.GestionAyudar
 
             lblOrdenesDeEntrega.Content = "Ordenes de entrega";
 
+        }
+
+        private void btnNuevoGrupoBeneficiario_Click(object sender, RoutedEventArgs e)
+        {
+            //Verifica que el grupo de beneficiario no este abierto, si no esta abierto crea la ventana y la agrega a la lista
+
+            GrupoBeneficiarioWindow grubenWin = new GrupoBeneficiarioWindow(GrupoBeneficiarioWindow.Opcion.nuevo, null, ref _ventanasGruposBeneficiarios);
+
+
+            grubenWin.Owner = this;
+            _ventanasGruposBeneficiarios.Add(grubenWin); //¿ES necesario?
+            grubenWin.Show();
+        }
+
+        private void btnAdministrarGrupoBeneficiario_Click(object sender, RoutedEventArgs e)
+        {
+           AdministrarGruposBeneficiariosWindow adminBeneficiarioWin = new AdministrarGruposBeneficiariosWindow();
+            adminBeneficiarioWin.Owner = this;
+            adminBeneficiarioWin.Show();
         }
     }
 }

@@ -56,7 +56,7 @@
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Path=Nombre_Beneficiario}"/>
+                                    <TextBlock Text="{Binding Path=Nombre}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>

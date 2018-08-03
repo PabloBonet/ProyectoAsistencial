@@ -138,6 +138,8 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                 else
                 if (_criterio_de_busqueda == CriterioBusqueda.Busqueda_Dni)
                 {
+
+
                     if (ValidacionesClass.ValidarNumericoTextBox(txtBusquedaBeneficiario))
                     {
                         todo_ok = true;
@@ -146,7 +148,39 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                     {
                         todo_ok = false;
                     }
+
                     if (todo_ok)
+                    {
+                        
+                        List<BeneficiarioClass> beneficiarios = BeneficiarioClass.ListarBeneficiarioPorCriterio(txtBusquedaBeneficiario.Text, _criterio_de_busqueda);
+                        foreach (BeneficiarioClass beneficiario in beneficiarios)
+                        {
+                            _beneficiarios.Add(beneficiario);
+
+
+                        }
+
+                        grillaBeneficiarios.ItemsSource = _beneficiarios;
+                        if (_beneficiarios.Count == 0)
+                        {
+                            btnSeleccionar.IsEnabled = false;
+
+                            MessageBox.Show("No se encuentran beneficiarios con esos criterios de busqueda", "No se encuentran beneficiarios", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+                            grillaBeneficiarios.Items.Refresh();
+                        }
+                        else
+                        {
+                            grillaBeneficiarios.SelectedItem = grillaBeneficiarios.Items[0];
+                            beneficiarioSeleccionado = (BeneficiarioClass)grillaBeneficiarios.Items[0];
+                            btnSeleccionar.IsEnabled = true;
+                            grillaBeneficiarios.Items.Refresh();
+                        }
+                    }
+
+                    
+                    
+                  /*  if (todo_ok)
                     {
                         BeneficiarioClass beneficiario = BeneficiarioClass.BuscarBeneficiario(txtBusquedaBeneficiario.Text, _criterio_de_busqueda);
 
@@ -173,6 +207,7 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                             grillaBeneficiarios.Items.Refresh();
                         }
                     }
+                    */
 
                 }
 

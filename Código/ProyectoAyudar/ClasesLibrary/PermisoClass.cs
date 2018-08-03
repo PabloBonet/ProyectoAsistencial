@@ -35,6 +35,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             set { _permitido = value; }
         }
 
+
         /// <summary>
         /// Obtiene y establece la función a la cuál hace referencia el permiso
         /// </summary>
@@ -44,6 +45,8 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
 
             set { _funcion = value; }
         }
+
+ 
         #endregion
 
         #region Constructores
@@ -58,6 +61,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             _id_permiso = 0;
             _permitido = false;
             _funcion = new FuncionClass();
+         
         }
 
         /// <summary>
@@ -73,6 +77,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             _id_permiso = id_permiso;
             _permitido = permitido;
             _funcion = funcion;
+       
         }
         #endregion
 

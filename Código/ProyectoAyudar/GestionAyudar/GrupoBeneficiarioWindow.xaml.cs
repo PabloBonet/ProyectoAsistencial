@@ -397,20 +397,12 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             }
 
 
-            //validar txtNombre. Valida que el grupo tenga nombre
-
-            if (ValidacionesClass.ValidarNumericoTextBox(txtNombreGrupo))
+            //valida el txtDescripción
+            if (txtNombreGrupo.Text == "")
             {
-                txtNombreGrupo.Background = txtBien.Background;
-                txtNombreGrupo.ToolTip = "";
-
-            }
-            else
-            {
-                r = false;
                 txtNombreGrupo.Background = txtMal.Background;
-
-                txtNombreGrupo.ToolTip = "No es correcto";
+                txtNombreGrupo.ToolTip = "No puede quedar vacío";
+                r = false;
             }
 
 

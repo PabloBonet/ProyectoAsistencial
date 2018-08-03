@@ -45,6 +45,11 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             {
                 _constrasenia = CodificarPassword(value);
             }
+
+            get
+            {
+                return _constrasenia;
+            }
         }
 
         /// <summary>
