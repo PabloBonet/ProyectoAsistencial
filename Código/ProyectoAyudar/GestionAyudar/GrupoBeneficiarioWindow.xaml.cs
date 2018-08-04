@@ -54,13 +54,18 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             if (op != Opcion.nuevo)
             {
                 this.grupo = grupo;
+                _listaBeneficiarios = grupo.Beneficiarios;
+            }
+            else
+            {
+                
+                _listaBeneficiarios = new List<BeneficiarioClass>();
+                _beneficiarioSeleccionado = null;
+
             }
 
             _ventanas = ventanas;
             _beneficiarios = new List<BeneficiarioClass>();
-            _listaBeneficiarios = new List<BeneficiarioClass>();
-            _beneficiarioSeleccionado = null;
-
             grillaBeneficiarios.ItemsSource = _listaBeneficiarios;
 
             //Carga de articulos
@@ -160,14 +165,18 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             txtDescripcion.IsReadOnly = false;
             txtNombreGrupo.IsReadOnly = true;
 
+            
 
             //Botones
 
             btnEliminarGrupo.IsEnabled = PermisoClass.TienePermiso(MainWindow.usuario_logueado.Id_usuario, btnEliminarGrupo.Name);
 
             btnGuardarGrupo.Label = "Guardar";
-
-
+            btnAgregarBeneficiario.IsEnabled = false;
+            btnQuitarBeneficiario.IsEnabled = false;
+            btnBuscarBeneficiario.IsEnabled = false;
+           
+            btnGuardarGrupo.IsEnabled = false;
 
         }
 

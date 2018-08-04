@@ -487,6 +487,41 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
 
             return r;
         }
+
+        /// <summary>
+        /// Lista los Grupos que el beneficiario pertenece
+        /// </summary>
+        /// <param name="id_beneficiario">Id del beneficiario a buscar en los grupos</param>
+        /// <returns>Retorna una lista de grupos de beneficiarios</returns>
+        public static List<GrupoBeneficiarioClass> ListarGruposPorBeneficiario(int id_beneficiario)
+        {
+            List<GrupoBeneficiarioClass> r = new List<GrupoBeneficiarioClass>();
+            saluddbEntities mctx = new saluddbEntities();
+            GrupoBeneficiarioClass x;
+
+            var cur = from g in mctx.grupoes
+                      join bg in mctx.beneficiario_grupo
+                      on g.id_grupo equals bg.id_gupo
+                      where bg.id_beneficiario == id_beneficiario
+                      orderby g.nombre
+                      select g;
+
+            foreach (var f in cur)
+            {
+                x = new GrupoBeneficiarioClass();
+
+                x._id_grupo = f.id_grupo;
+                x._descripcion = f.descripcion;
+                x._nombre = f.nombre;
+
+                x._beneficiarios = BeneficiarioClass.ListarBeneficiariosPorGrupo(f.id_grupo);
+
+                r.Add(x);
+            }
+
+
+            return r;
+        }
         /// <summary>
         /// Lista los grupos por criterio
         /// </summary>
@@ -523,10 +558,79 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
 
                         break;
 
-                    case CriterioBusqueda.Busqueda_Nombre:
+                    case CriterioBusqueda.Busqueda_Nombre_Grupo:
                         agregar = f.nombre.Contains(parametro);
                         break;
+
+                    case CriterioBusqueda.Busqueda_Dni:
+                        List<BeneficiarioClass> listaBenef = BeneficiarioClass.ListarBeneficiarioPorCriterio(parametro, CriterioBusqueda.Busqueda_Dni);
+                        List<GrupoBeneficiarioClass> listaGrup = new List<GrupoBeneficiarioClass>();
+                        foreach (BeneficiarioClass b in listaBenef)
+                        {
+                            
+                          
+                            List<GrupoBeneficiarioClass> listaGrupoBenf = GrupoBeneficiarioClass.ListarGruposPorBeneficiario(b.Id_beneficiario);
+
+                            foreach(GrupoBeneficiarioClass g in listaGrupoBenf)
+                            {
+                                if(listaGrup.Contains(g))
+                                {
+                                    
+                                }
+                                else
+                                {
+                                    listaGrup.Add(g);
+                                }
+                            }
+
+
+                        }
+
                         
+                        GrupoBeneficiarioClass grupo = listaGrup.Find(g => g.Id_grupo == f.id_grupo);
+
+                        if(grupo != null)
+                        {
+                            agregar = true;
+                        }
+
+                        break;
+
+                    case CriterioBusqueda.Busqueda_Nombre:
+                        List<BeneficiarioClass> listaBen = BeneficiarioClass.ListarBeneficiarioPorCriterio(parametro, CriterioBusqueda.Busqueda_Nombre);
+                        List<GrupoBeneficiarioClass> listaG = new List<GrupoBeneficiarioClass>();
+                        foreach (BeneficiarioClass b in listaBen)
+                        {
+
+
+                            List<GrupoBeneficiarioClass> listaGrupoBenf = GrupoBeneficiarioClass.ListarGruposPorBeneficiario(b.Id_beneficiario);
+
+                            foreach (GrupoBeneficiarioClass g in listaGrupoBenf)
+                            {
+                                if (listaG.Contains(g))
+                                {
+
+                                }
+                                else
+                                {
+                                    listaG.Add(g);
+                                }
+                            }
+
+
+                        }
+
+
+                        GrupoBeneficiarioClass gru = listaG.Find(g => g.Id_grupo == f.id_grupo);
+
+                        if (gru != null)
+                        {
+                            agregar = true;
+                        }
+
+                        break;
+
+
 
                 }
 

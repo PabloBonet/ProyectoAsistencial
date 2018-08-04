@@ -191,7 +191,7 @@ namespace Processar.ProyectoAyudar.GestionAyudar
         /// <param name="e"></param>
         private void rdbNombreGrupo_Checked(object sender, RoutedEventArgs e)
         {
-            _criterio_de_busqueda = CriterioBusqueda.Busqueda_Nombre;
+            _criterio_de_busqueda = CriterioBusqueda.Busqueda_Nombre_Grupo;
         }
 
         /// <summary>
@@ -247,23 +247,17 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                     btnEliminarGrupo.IsEnabled = true;
                     btnAbrirGrupo.IsEnabled = true;
                     btnModificarGrupo.IsEnabled = true;
+                    grillaGrupos.ItemsSource = _grupos;
                     grillaGrupos.Items.Refresh();
                 }
             }
             else
             {
-                if (_criterio_de_busqueda == CriterioBusqueda.Busqueda_Nombre)
+                if (_criterio_de_busqueda == CriterioBusqueda.Busqueda_Nombre_Grupo)
                 {
-                    if (ValidacionesClass.ValidarApellidoNombreTextBox(txtBusquedaGrupo))
-                    {
-
                         todo_ok = true;
 
-                    }
-                    else
-                    {
-                        todo_ok = false;
-                    }
+                    
                     if (todo_ok)
                     {
                         _grupos = GrupoBeneficiarioClass.ListarGrupoBeneficiariosPorNombre(txtBusquedaGrupo.Text.ToString());
@@ -287,22 +281,31 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                             btnAbrirGrupo.IsEnabled = true;
                             btnEliminarGrupo.IsEnabled = true;
                             btnModificarGrupo.IsEnabled = true;
+                            grillaGrupos.ItemsSource = _grupos;
                             grillaGrupos.Items.Refresh();
                         }
                     }
 
                 }
                 else
-                if (_criterio_de_busqueda == CriterioBusqueda.Busqueda_Dni)
+               /*if (_criterio_de_busqueda == CriterioBusqueda.Busqueda_Dni)*/
                 {
-                    if (ValidacionesClass.ValidarNumericoTextBox(txtBusquedaGrupo))
+                    if (_criterio_de_busqueda == CriterioBusqueda.Busqueda_Dni)
                     {
-                        todo_ok = true;
+                        if (ValidacionesClass.ValidarNumericoTextBox(txtBusquedaGrupo))
+                        {
+                            todo_ok = true;
+                        }
+                        else
+                        {
+                            todo_ok = false;
+                        }
                     }
                     else
                     {
-                        todo_ok = false;
+                        todo_ok = true;
                     }
+                    
                     if (todo_ok)
                     {
                        
@@ -341,5 +344,9 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             }
         }
 
+        private void rdbNombreBeneficiario_Checked(object sender, RoutedEventArgs e)
+        {
+            _criterio_de_busqueda = CriterioBusqueda.Busqueda_Nombre;
+        }
     }
 }

@@ -22,12 +22,12 @@
 
                     <RibbonButton x:Name="btnEliminarBeneficiario" Label="Eliminar" LargeImageSource="Graficos/beneficiario_eliminar.png" Height="55"  Click="btnEliminarUsuario_Click"  Margin="0,10,0,-10"/>
                 </RibbonGroup>
+                <RibbonGroup x:Name="grupoCriterio" Header="Criterios" Width="auto" Height="66">
+                    <RibbonRadioButton x:Name="rdbNombre" Label="Nombre" Checked="rdbNombre_Checked"/>
+                    <RibbonRadioButton x:Name="rdbDocumento" Label="Documento" Checked="rdbDocumento_Checked"/>
+                </RibbonGroup>
 
-                <RibbonGroup x:Name="grupoConsultarBeneficiario" Header="Consultar" Margin="0,1" Width="590">
-                    <RibbonGroup x:Name="grupoCriterio" Header="Criterios" Margin="0,1" Width="90">
-                        <RibbonRadioButton x:Name="rdbNombre" Label="Nombre" Checked="rdbNombre_Checked"/>
-                        <RibbonRadioButton x:Name="rdbDocumento" Label="Documento" Checked="rdbDocumento_Checked"/>
-                    </RibbonGroup>
+                <RibbonGroup x:Name="grupoConsultarBeneficiario" Header="Consultar"  Width="590">
                     
 
 

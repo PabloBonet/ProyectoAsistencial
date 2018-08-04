@@ -5,7 +5,8 @@
             Busqueda_Nombre,
             Busqueda_Dni,
             Busqueda_Tipo,
-            Fecha
+            Fecha,
+            Busqueda_Nombre_Grupo
         };
 
 public enum EstadoOrden

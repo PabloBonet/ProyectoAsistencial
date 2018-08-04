@@ -22,12 +22,13 @@
 
                     <RibbonButton x:Name="btnEliminarGrupo" Label="Eliminar" LargeImageSource="Graficos/beneficiario_eliminar.png" Height="55"  Click="btnEliminarGrupo_Click"  Margin="0,10,0,-10"/>
                 </RibbonGroup>
+                <RibbonGroup x:Name="grupoCriterio" Header="Criterios" Margin="0,12,0,0" Width="90">
+                    <RibbonRadioButton x:Name="rdbNombreGrupo" Label="Grupo" Checked="rdbNombreGrupo_Checked"/>
+                    <RibbonRadioButton x:Name="rdbDocumento" Label="Documento" Checked="rdbDocumento_Checked"/>
+                    <RibbonRadioButton x:Name="rdbNombreBeneficiario" Label="Beneficiario" Checked="rdbNombreBeneficiario_Checked"/>
+                </RibbonGroup>
 
                 <RibbonGroup x:Name="grupoConsultarGrupo" Header="Consultar" Margin="0,1" Width="590">
-                    <RibbonGroup x:Name="grupoCriterio" Header="Criterios" Margin="0,1" Width="90">
-                        <RibbonRadioButton x:Name="rdbNombreGrupo" Label="Nombre" Checked="rdbNombreGrupo_Checked"/>
-                        <RibbonRadioButton x:Name="rdbDocumento" Label="Documento" Checked="rdbDocumento_Checked"/>
-                    </RibbonGroup>
 
 
 
@@ -36,7 +37,7 @@
                     <RibbonButton x:Name="btnAbrirGrupo" Label="Consultar" LargeImageSource="Graficos/beneficiario_seleccionar.png" Height="55"  Click="btnAbrirGrupo_Click"  Margin="343,10,-333,-10"/>
 
                 </RibbonGroup>
-               
+
             </RibbonTab>
 
         </Ribbon>
@@ -46,7 +47,7 @@
                     <DataGridTextColumn Binding="{Binding Id_grupo}" ClipboardContentBinding="{x:Null}" Header="Identificador" Visibility="Hidden"/>
                     <DataGridTextColumn Binding="{Binding Nombre}" ClipboardContentBinding="{x:Null}" Header="Nombre"/>
                     <DataGridTextColumn Binding="{Binding Descripcion}" ClipboardContentBinding="{x:Null}" Header="Documento"/>
-                    
+
                 </DataGrid.Columns>
             </DataGrid>
             <Label Content="Grupos:" Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top"/>

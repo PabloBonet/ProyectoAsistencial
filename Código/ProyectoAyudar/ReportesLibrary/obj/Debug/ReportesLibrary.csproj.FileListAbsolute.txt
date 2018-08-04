@@ -57,3 +57,4 @@ C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibr
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Debug\SqlServerTypes\x86\msvcr100.dll
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Debug\SqlServerTypes\x86\SqlServerSpatial120.dll
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\obj\Debug\ReportesLibrary.csprojResolveAssemblyReference.cache
