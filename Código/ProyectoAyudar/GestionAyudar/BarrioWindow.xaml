@@ -11,7 +11,7 @@
             <Ribbon.ApplicationMenu>
                 <RibbonApplicationMenu Visibility="Hidden" Width="0"/>
             </Ribbon.ApplicationMenu>
-            <RibbonTab  Header="Editar" Height="88" VerticalAlignment="Top" Background="#FFCADEB8"  BorderBrush="#FF4AA200">
+            <RibbonTab x:Name="tabConsultaBarrio" Header="Editar" Height="88" VerticalAlignment="Top" Background="#FFCADEB8"  BorderBrush="#FF4AA200">
                 <RibbonGroup x:Name="grupoEditarBarrio" Header="Editar" Margin="0,1" Width="Auto">
                     <RibbonButton x:Name="btnEliminarBarrio" Label="Eliminar" LargeImageSource="Graficos/delete.png" Height="55"  Click="btnEliminarBarrio_Click"  Margin="0,10,0,-10"/>
 

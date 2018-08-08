@@ -245,6 +245,8 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                     grupoBeneficiarioSeleccionado = (GrupoBeneficiarioClass)grillaGrupos.Items[0];
 
                     btnEliminarGrupo.IsEnabled = true;
+                    //btnEliminarGrupo.IsEnabled = PermisoClass.TienePermiso(MainWindow.usuario_logueado.Id_usuario, btnEliminarGrupo.Name);
+
                     btnAbrirGrupo.IsEnabled = true;
                     btnModificarGrupo.IsEnabled = true;
                     grillaGrupos.ItemsSource = _grupos;

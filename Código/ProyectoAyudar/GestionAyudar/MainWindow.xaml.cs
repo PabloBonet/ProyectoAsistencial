@@ -231,9 +231,10 @@ namespace Processar.ProyectoAyudar.GestionAyudar
 
                 //habilita los componentes según el permiso
                 _listaPermisos = PermisoClass.ListarPermisosPorUsuario(usuario_logueado.Id_usuario);
-
+             
                 foreach (PermisoClass permiso in _listaPermisos)
                 {
+                    
 
                     string nombreBoton = permiso.Funcion.Nombre_funcion.ToString();
                     bool tienePermiso = permiso.Permitido;
@@ -241,10 +242,12 @@ namespace Processar.ProyectoAyudar.GestionAyudar
 
                     boton.IsEnabled = tienePermiso;
                 }
+             
 
                 //Habilita los menues según el permiso
                 foreach (RibbonTab tab in ribbonPrincipal.Items)
                 {
+
                     bool menuHabilitado = PermisoClass.menuHabilitado(tab.Name, usuario_logueado.Id_usuario);
                     tab.IsEnabled = menuHabilitado;
 
@@ -267,6 +270,14 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             reporteEntregaBenWin.Owner = this;
             reporteEntregaBenWin.Show();
 
+        }
+
+        private void btnReporteEntregaGrupo_Click(object sender, RoutedEventArgs e)
+        {
+            //Entregas por grupo
+            ReporteEntregaGrupoWindow reporteEntregaGruWin = new ReporteEntregaGrupoWindow();
+            reporteEntregaGruWin.Owner = this;
+            reporteEntregaGruWin.Show();
         }
 
         private void btnAgregarOrden_Click(object sender, RoutedEventArgs e)
@@ -1366,5 +1377,7 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             adminBeneficiarioWin.Owner = this;
             adminBeneficiarioWin.Show();
         }
+
+      
     }
 }

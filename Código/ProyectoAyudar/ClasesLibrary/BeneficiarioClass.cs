@@ -260,26 +260,38 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
 
             if (Borrar_OK())
             {
-                var cur = from b in ctx.beneficiarios
-                          where b.id_beneficiario == _id_beneficiario
-                          select b;
-
-                if (cur.Count() > 0)
+                if(borrarDeGrupos())
                 {
-                    var f = cur.First();
+                    r = true;
 
-                    ctx.beneficiarios.Remove(f);
-                    try
+                    var cur = from b in ctx.beneficiarios
+                              where b.id_beneficiario == _id_beneficiario
+                              select b;
+
+                    if (cur.Count() > 0)
                     {
-                        ctx.SaveChanges();
-                        r = true;
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(e.Message, "Error al eliminar el beneficiario", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        r = false;
+                        var f = cur.First();
+
+                        ctx.beneficiarios.Remove(f);
+                        try
+                        {
+                            ctx.SaveChanges();
+                            r = true;
+                        }
+                        catch (Exception e)
+                        {
+                            MessageBox.Show(e.Message, "Error al eliminar el beneficiario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            r = false;
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Error borrar el/los grupos al que pertenece el beneficiario");
+                    r = false;
+                }
+
+                
             }
             else
             {
@@ -629,6 +641,39 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                 existe = true;
             }
             return existe;
+        }
+
+        /// <summary>
+        /// Borra la relación del beneficiario en los grupos
+        /// </summary>
+        /// <returns>Return True si se eliminó correctamente</returns>
+        private bool borrarDeGrupos()
+        {
+            bool r = false;
+
+            var cur = from bg in ctx.beneficiario_grupo
+                      where bg.id_beneficiario == _id_beneficiario
+                      select bg;
+            try
+            {
+                foreach (var bg in cur)
+                {
+                    ctx.beneficiario_grupo.Remove(bg);
+                }
+           
+                ctx.SaveChanges();
+                r = true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error al eliminar la asociación del beneficiario con el grupo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                r = false;
+            }
+        
+         
+                         
+
+            return r;
         }
         
         #endregion

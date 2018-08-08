@@ -45,10 +45,10 @@ namespace Processar.ProyectoAyudar.GestionAyudar
         {
             btnBuscarOrdenes.IsEnabled = true;
             btnImprimir.IsEnabled = false;
-            chAutorizado.IsChecked = false;
-            chIniciado.IsChecked = false;
-            chEntregado.IsChecked = false;
-            chCancelado.IsChecked = false;
+            chAutorizado.IsChecked = true;
+            chIniciado.IsChecked = true;
+            chEntregado.IsChecked = true;
+            chCancelado.IsChecked = true;
 
             /*
             Establece como fechas predeterminadas: 

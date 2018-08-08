@@ -32,6 +32,7 @@ namespace Processar.ProyectoAyudar.GestionAyudar
         public bool b_ok = false;
         private List<BeneficiarioWindow> _ventanas;
         private List<BarrioClass> _barrios;
+        private List<GrupoBeneficiarioClass> _grupos;
         
         public BeneficiarioWindow(Opcion op, BeneficiarioClass beneficiario, ref List<BeneficiarioWindow> ventanas)
         {
@@ -49,11 +50,10 @@ namespace Processar.ProyectoAyudar.GestionAyudar
     
             _ventanas = ventanas;
             _barrios = BarrioClass.ListarBarrios();
-
-
+            _grupos = new List<GrupoBeneficiarioClass>();
             //Items Source de el combo Barrio
             cmbBarrio.ItemsSource = _barrios;
-
+            grillaGrupos.ItemsSource = _grupos;
 
             //Inicializar componentes de la pantalla
             switch (op)
@@ -98,6 +98,7 @@ namespace Processar.ProyectoAyudar.GestionAyudar
         private void CargarDatosNuevo()
         {
             cmbBarrio.Items.Refresh();
+            grillaGrupos.Items.Refresh();
         }
 
 
@@ -130,7 +131,8 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             dpFechaNac.DisplayDate = beneficiario.FechaNac;
             dpFechaNac.Text = beneficiario.FechaNac.Date.ToShortDateString();
             seleccionarBarrio();
-            
+            _grupos = GrupoBeneficiarioClass.ListarGruposPorBeneficiario(beneficiario.Id_beneficiario);
+            grillaGrupos.ItemsSource = _grupos;
 
         }
 
@@ -175,6 +177,9 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             dpFechaNac.DisplayDate = beneficiario.FechaNac;
             dpFechaNac.Text = beneficiario.FechaNac.Date.ToShortDateString();
             seleccionarBarrio();
+
+            _grupos = GrupoBeneficiarioClass.ListarGruposPorBeneficiario(beneficiario.Id_beneficiario);
+            grillaGrupos.ItemsSource = _grupos;
 
         }
         private void Window_Initialized(object sender, EventArgs e)

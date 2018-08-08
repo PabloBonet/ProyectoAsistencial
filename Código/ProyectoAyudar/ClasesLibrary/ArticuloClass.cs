@@ -636,6 +636,107 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             return r;
 
         }
+
+
+        public static List<GrillaReporteEntregaGruClass> ListarArticulosPorGrupoEntreFechasParaGrilla(int id_grupo, DateTime fecha_desde, DateTime fecha_hasta, int estado, bool completo = false)
+        {
+
+            DateTime fechaDesde = new DateTime(fecha_desde.Year, fecha_desde.Month, fecha_desde.Day, 0, 0, 0);
+            DateTime fechaHasta = new DateTime(fecha_hasta.Year, fecha_hasta.Month, fecha_hasta.Day, 23, 59, 59);
+            List<GrillaReporteEntregaGruClass> r = new List<GrillaReporteEntregaGruClass>();
+            saluddbEntities mctx = new saluddbEntities();
+            GrillaReporteEntregaGruClass x;
+
+           /* List<BeneficiarioClass> listaBeneficiarios = BeneficiarioClass.ListarBeneficiariosPorGrupo(id_grupo);
+
+            foreach(BeneficiarioClass b in listaBeneficiarios)
+            {
+
+            }*/
+
+
+            //une las tablas articulos, itemEntrega, ordenEntregas y ordenEstado mediante un Join para obtener los articulos de un determinado beneficiario
+            var cur = from ord in mctx.ordenentregas
+
+                      join item in mctx.itementregas
+                      on ord.id_orden equals item.id_orden
+
+
+                      join art in mctx.articuloes
+                       on item.id_articulo equals art.id_articulo
+
+                      join ordE in mctx.ordenestadoes
+                      on ord.id_orden equals ordE.id_orden
+
+                      join bg in mctx.beneficiario_grupo
+                      on ord.id_beneficiario equals bg.id_beneficiario
+
+                      join g in mctx.grupoes
+                      on bg.id_gupo equals g.id_grupo
+
+                      join b in mctx.beneficiarios
+                      on bg.id_beneficiario equals b.id_beneficiario
+
+                      where g.id_grupo == id_grupo && ordE.estado == estado && ordE.fecha >= fechaDesde && ordE.fecha <= fechaHasta
+                      select new
+                      {
+                          id_articulo = art.id_articulo,
+                          cantidad_articulo = item.cantidad,
+                          nombre_articulo = art.nombre,
+                          descripcion_articulo = art.descripcion,
+                          id_tipo_articulo = art.id_tipo_articulo,
+                          id_orden_entrega = ord.id_orden,
+                          fechaEntrega_orden_entrega = ordE.fecha,
+                          id_autorizado = ord.id_usu_autoriza,
+                          id_entrega = ord.id_usu_entrega,
+                          nombre_grupo = g.nombre,
+                          nombre_benef = b.nombre,
+                          documento_benef = b.documento
+                      };
+
+            foreach (var f in cur)
+            {
+                x = new GrillaReporteEntregaGruClass();
+
+                x.Id_articulo = f.id_articulo;
+                x.Cantidad_articulo = f.cantidad_articulo.ToString();
+                x.Nombre_articulo = f.nombre_articulo;
+                x.Descripcion_articulo = f.descripcion_articulo;
+                x.Tipo_articulo = TipoArticuloClass.BuscarTipoArticuloPorId(f.id_tipo_articulo).Nombre_TipoArticulo;
+                x.Id_orden_entrega = f.id_orden_entrega;
+                x.FechaEntrega_orden_entrega = ((DateTime)f.fechaEntrega_orden_entrega).Date.ToShortDateString();
+                //x.HoraEntrega_orden_entrega = ((DateTime)f.fechaEntrega_orden_entrega).Date.ToShortTimeString();
+                x.HoraEntrega_orden_entrega = ((DateTime)f.fechaEntrega_orden_entrega).ToShortTimeString();
+                x.Nombre_grupo = f.nombre_grupo;
+                x.Nombre_beneficiario = f.nombre_benef;
+                x.Documento_beneficiario = f.documento_benef;
+                if ((int)f.id_autorizado != 0)
+                {
+                    x.Autorizado_por = UsuarioClass.BuscarUsuarioPorId((int)f.id_autorizado).Nombre_completo.ToString();
+
+                }
+                else
+                {
+                    x.Autorizado_por = "NO AUTORIZADO";
+                }
+
+                if ((int)f.id_entrega != 0)
+                {
+                    x.Entregado_por = UsuarioClass.BuscarUsuarioPorId((int)f.id_entrega).Nombre_completo.ToString();
+
+                }
+                else
+                {
+                    x.Entregado_por = "NO ENTREGADO";
+                }
+
+                r.Add(x);
+            }
+
+
+            return r;
+
+        }
         #endregion
     }
 }

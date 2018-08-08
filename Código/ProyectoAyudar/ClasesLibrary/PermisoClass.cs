@@ -15,6 +15,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
         private saluddbEntities ctx;
         private int _id_permiso;
         private bool _permitido;
+
         private FuncionClass _funcion;
       
 
@@ -46,7 +47,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             set { _funcion = value; }
         }
 
- 
+    
         #endregion
 
         #region Constructores
@@ -60,6 +61,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             ctx = new saluddbEntities();
             _id_permiso = 0;
             _permitido = false;
+          
             _funcion = new FuncionClass();
          
         }
@@ -77,6 +79,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             _id_permiso = id_permiso;
             _permitido = permitido;
             _funcion = funcion;
+          
        
         }
         #endregion

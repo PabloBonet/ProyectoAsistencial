@@ -199,8 +199,8 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
 
 
                     List<BeneficiarioClass> listaGuardada = new List<BeneficiarioClass>();
-                    List<BeneficiarioClass> listaAdd = new List<BeneficiarioClass>();
-                    List<BeneficiarioClass> listaBorrar = new List<BeneficiarioClass>();
+                    List<beneficiario_grupo> listaAdd = new List<beneficiario_grupo>();
+                    List<beneficiario_grupo> listaBorrar = new List<beneficiario_grupo>();
                     foreach (beneficiario_grupo bg in cur2)
                     {
                         listaGuardada.Add(BeneficiarioClass.BuscarBeneficiario((bg.id_beneficiario).ToString(), CriterioBusqueda.Busqueda_ID));
@@ -209,7 +209,8 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                     // Si se guardó la descripción guardo los beneficiarios
                     foreach (BeneficiarioClass b in _beneficiarios)
                     {
-                        if(listaGuardada.Contains(b))
+                       
+                        if (listaGuardada.Exists(x => x.Id_beneficiario == b.Id_beneficiario))
                         {
                             // No hago nada;
                         }
@@ -220,8 +221,13 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                             beneficiario_grupo bg = new beneficiario_grupo();
                             bg.id_gupo = this.Id_grupo;
                             bg.id_beneficiario = b.Id_beneficiario;
+                            listaAdd.Add(bg);
+                           // ctx.beneficiario_grupo.Attach(bg);
                             ctx.beneficiario_grupo.Add(bg);
                             ctx.SaveChanges();
+                           
+                            // ctx.beneficiario_grupo.Add(bg);
+                            // ctx.SaveChanges();
                         }
 
                         
@@ -230,7 +236,8 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
 
                     foreach(BeneficiarioClass b in listaGuardada)
                     {
-                        if(_beneficiarios.Contains(b))
+                        
+                        if (_beneficiarios.Exists(x => x.Id_beneficiario == b.Id_beneficiario))
                         {
                             // NO hago nada
                         }
@@ -240,13 +247,34 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                             beneficiario_grupo bg = new beneficiario_grupo();
                             bg.id_gupo = this.Id_grupo;
                             bg.id_beneficiario = b.Id_beneficiario;
-                            ctx.beneficiario_grupo.Remove(bg);
-                            ctx.SaveChanges();
+                            listaBorrar.Add(bg);
+                          
+                            //ctx.beneficiario_grupo.Remove(bg);
+
                         }
                     }
 
+                  /*  foreach(beneficiario_grupo bg in listaAdd)
+                    {
+                        ctx.beneficiario_grupo.Add(bg);
 
-                   
+                    }
+                    */
+                    foreach (beneficiario_grupo bg in listaBorrar)
+                    {
+
+                        if(eliminarBeneficiarioGrupo(bg.id_beneficiario, bg.id_gupo ))
+                        {
+
+                        }
+                        else
+                        {
+                            r = false;
+                        }
+                       
+
+                    }
+                    ctx.SaveChanges();
                 }
 
             }
@@ -257,6 +285,38 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             }
 
 
+
+            return r;
+        }
+
+        private bool eliminarBeneficiarioGrupo(int id_beneficiario, int id_grupo)
+        {
+            saluddbEntities mctx = new saluddbEntities();
+
+            bool r = false;
+
+
+            var cur = from g in mctx.beneficiario_grupo
+                      where g.id_beneficiario == id_beneficiario &&  g.id_gupo == id_grupo
+                      select g;
+
+
+            if (cur.Count() > 0)
+            {
+                var f = cur.First();
+
+                if(mctx.beneficiario_grupo.Remove(f) != null)
+                {
+                    r = true;
+                    mctx.SaveChanges();
+                }
+                else
+                {
+                    r = false;
+                }
+
+            
+            }
 
             return r;
         }
@@ -273,7 +333,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                       where g.id_grupo == _id_grupo
                       select g;
 
-            if (cur.Count() == 0)
+            if (cur.Count() > 0)
             {
                 return true;
             }

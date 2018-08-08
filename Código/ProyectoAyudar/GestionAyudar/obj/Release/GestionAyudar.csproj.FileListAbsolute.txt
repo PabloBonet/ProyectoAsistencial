@@ -76,3 +76,7 @@ C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyuda
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Release\GrupoBeneficiarioWindow.baml
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Release\AdministrarGruposBeneficiariosWindow.g.cs
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Release\GrupoBeneficiarioWindow.g.cs
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Release\BuscarGrupoWindow.g.cs
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Release\ReporteEntregaGrupoWindow.g.cs
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Release\BuscarGrupoWindow.baml
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Release\ReporteEntregaGrupoWindow.baml
