@@ -19,6 +19,8 @@
         <EntityTypeShape EntityType="saluddbModel.proveedor" Width="1.5" PointX="7.125" PointY="0.625" />
         <EntityTypeShape EntityType="saluddbModel.tipoarticulo" Width="1.5" PointX="2.625" PointY="2.75" />
         <EntityTypeShape EntityType="saluddbModel.usuario" Width="1.5" PointX="4.625" PointY="2.75" />
+        <EntityTypeShape EntityType="saluddbModel.beneficiario_beneficio" Width="1.5" PointX="5.375" PointY="8.75" />
+        <EntityTypeShape EntityType="saluddbModel.beneficio" Width="1.5" PointX="7.375" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

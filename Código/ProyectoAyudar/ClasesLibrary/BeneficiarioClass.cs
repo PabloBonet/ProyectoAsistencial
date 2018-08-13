@@ -20,6 +20,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
         private String _cuit_cuil;
         private DateTime _fecha_nac;
         private BarrioClass _barrio;
+        private List<BeneficioBeneficiarioClass> _beneficios;
 
 
         /// <summary>
@@ -93,6 +94,12 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             get { return _barrio; }
             set { _barrio = value; }
         }
+
+        public List<BeneficioBeneficiarioClass> Beneficios
+        {
+            get { return _beneficios; }
+            set { _beneficios = value; }
+        }
         #endregion
 
 
@@ -113,6 +120,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             _cuit_cuil = "";
             _fecha_nac = new DateTime();
             _barrio = new BarrioClass();
+            _beneficios = new List<BeneficioBeneficiarioClass>();
 
         }
 
@@ -124,7 +132,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
         /// <param name="documento">documento del beneficiario</param>
         /// <param name="direccion">dirección del beneficiario</param>
         /// <param name="telefono">teléfono del beneficiario</param>
-        public BeneficiarioClass(int id_beneficiario, String nombre, String documento, String direccion, String telefono, BarrioClass barrio, String cuit_cuil, DateTime fechaNac)
+        public BeneficiarioClass(int id_beneficiario, String nombre, String documento, String direccion, String telefono, BarrioClass barrio, String cuit_cuil, DateTime fechaNac, List<BeneficioBeneficiarioClass> listaBeneficios)
         {
             ctx = new saluddbEntities();
             _id_beneficiario = id_beneficiario;
@@ -135,6 +143,14 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             _cuit_cuil = cuit_cuil;
             _fecha_nac = fechaNac;
             _barrio = barrio;
+            if (listaBeneficios != null)
+            {
+                _beneficios = listaBeneficios;
+            }
+            else
+            {
+                _beneficios = new List<BeneficioBeneficiarioClass>();
+            }
         }
         #endregion
 
@@ -168,6 +184,21 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
 
 
                     r = true;
+
+                    if(r)
+                    {
+                            // Cargo los beneficios
+                            foreach(BeneficioBeneficiarioClass  ben in _beneficios)
+                        {
+                            beneficiario_beneficio bb = new beneficiario_beneficio();
+                            bb.id_beneficiario = _id_beneficiario;
+                            bb.id_beneficio = ben.Id_beneficio;
+                            bb.fechadesde = ben.Fecha_asignacion;
+
+                            ctx.beneficiario_beneficio.Add(bb);
+                            ctx.SaveChanges();
+                        }
+                    }
                 }
                 else
                 {
@@ -211,10 +242,93 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
 
                     ctx.SaveChanges();
                     r = true;
-                
-            
-                    
+
+                if (r)
+                {
+
+                    var cur2 = from bb in ctx.beneficiario_beneficio
+                               where bb.id_beneficiario == _id_beneficiario
+                               select bb;
+
+
+                    List<beneficiario_beneficio> listaGuardada = new List<beneficiario_beneficio>();
+                    List<beneficiario_beneficio> listaAdd = new List<beneficiario_beneficio>();
+                    List<beneficiario_beneficio> listaBorrar = new List<beneficiario_beneficio>();
+                    foreach (beneficiario_beneficio bb in cur2)
+                    {
+
+                        // listaGuardada.Add(BeneficiarioClass.BuscarBeneficiario((bg.id_beneficiario).ToString(), CriterioBusqueda.Busqueda_ID));
+                        listaGuardada.Add(bb);
+                    }
+
+                    // Si se guardó la descripción guardo los beneficios
+                    foreach (BeneficioBeneficiarioClass be in _beneficios)
+                    {
+
+                        if (listaGuardada.Exists(x => x.id_beneficio == be.Id_beneficio))
+                        {
+                            // No hago nada;
+                        }
+                        else
+                        {
+                            // Guardo en la lista para agregar
+                            // listaAdd.Add(b);
+                            beneficiario_beneficio bb = new beneficiario_beneficio();
+                            bb.id_beneficio = be.Id_beneficio;
+                            bb.id_beneficiario = be.Id_beneficiario;
+                            bb.fechadesde = be.Fecha_asignacion;
+                            
+                            listaAdd.Add(bb);
+                            // ctx.beneficiario_grupo.Attach(bg);
+                            ctx.beneficiario_beneficio.Add(bb);
+                            ctx.SaveChanges();
+
+                            
+                        }
+
+
+                    }
+
+
+                    foreach (beneficiario_beneficio bb in listaGuardada)
+                    {
+
+                        if (_beneficios.Exists(x => x.Id_beneficio == bb.id_beneficio))
+                        {
+                            // NO hago nada
+                        }
+                        else
+                        {
+                            //listaBorrar.Add(b);
+                            listaBorrar.Add(bb);
+                            ctx.SaveChanges();
+
+                            //ctx.beneficiario_grupo.Remove(bg);
+
+                        }
+                    }
+
+                   
+                    /*
+                     foreach (beneficiario_grupo bg in listaBorrar)
+                    {
+
+                        if (eliminarBeneficiarioGrupo(bg.id_beneficiario, bg.id_gupo))
+                        {
+
+                        }
+                        else
+                        {
+                            r = false;
+                        }
+
+
+                    }
+                    ctx.SaveChanges();
+                    */
                 }
+
+            }
                 catch (Exception e)
                 {
                     MessageBox.Show(e.Message, "Error al modificar el beneficiario", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -262,28 +376,32 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
             {
                 if(borrarDeGrupos())
                 {
-                    r = true;
-
-                    var cur = from b in ctx.beneficiarios
-                              where b.id_beneficiario == _id_beneficiario
-                              select b;
-
-                    if (cur.Count() > 0)
+                    if(borrarAsignacionBeneficios())
                     {
-                        var f = cur.First();
+                        r = true;
 
-                        ctx.beneficiarios.Remove(f);
-                        try
+                        var cur = from b in ctx.beneficiarios
+                                  where b.id_beneficiario == _id_beneficiario
+                                  select b;
+
+                        if (cur.Count() > 0)
                         {
-                            ctx.SaveChanges();
-                            r = true;
-                        }
-                        catch (Exception e)
-                        {
-                            MessageBox.Show(e.Message, "Error al eliminar el beneficiario", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            r = false;
+                            var f = cur.First();
+
+                            ctx.beneficiarios.Remove(f);
+                            try
+                            {
+                                ctx.SaveChanges();
+                                r = true;
+                            }
+                            catch (Exception e)
+                            {
+                                MessageBox.Show(e.Message, "Error al eliminar el beneficiario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                r = false;
+                            }
                         }
                     }
+                    
                 }
                 else
                 {
@@ -337,6 +455,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                         r._fecha_nac = (DateTime)f.fecha_nac;
                         r._cuit_cuil = f.cuit_cuil;
                        r._barrio = BarrioClass.BuscarBarrioPorId((int)f.id_barrio);
+                        r._beneficios = BeneficioBeneficiarioClass.ListarBeneficioPorBeneficiario((int)r._id_beneficiario);
                        return r;
                    }
 
@@ -362,7 +481,8 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                         r._fecha_nac = (DateTime)f.fecha_nac;
                         r._cuit_cuil = f.cuit_cuil;
                         r._barrio = BarrioClass.BuscarBarrioPorId((int)f.id_barrio);
-                       return r;
+                        r._beneficios = BeneficioBeneficiarioClass.ListarBeneficioPorBeneficiario((int)r._id_beneficiario);
+                        return r;
                    }
                    
                     
@@ -384,6 +504,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                         r._fecha_nac = (DateTime)f.fecha_nac;
                         r._cuit_cuil = f.cuit_cuil;
                         r._barrio = BarrioClass.BuscarBarrioPorId((int)f.id_barrio);
+                        r._beneficios = BeneficioBeneficiarioClass.ListarBeneficioPorBeneficiario((int)r._id_beneficiario);
                         return r;
                     }
                     break;
@@ -418,7 +539,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                 x._fecha_nac = (DateTime)f.fecha_nac;
                 x._cuit_cuil = f.cuit_cuil;
                 x._barrio = BarrioClass.BuscarBarrioPorId((int)f.id_barrio);
-
+                x._beneficios = BeneficioBeneficiarioClass.ListarBeneficioPorBeneficiario((int) x._id_beneficiario);
                 r.Add(x);
             }
             return r;
@@ -474,7 +595,8 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                 x._fecha_nac = (DateTime)f.fecha_nac;
                 x._cuit_cuil = f.cuit_cuil;
                 x._barrio = BarrioClass.BuscarBarrioPorId((int)f.id_barrio);
-                               
+                x._beneficios = BeneficioBeneficiarioClass.ListarBeneficioPorBeneficiario((int) x._id_beneficiario);
+
                 r.Add(x);
             }
 
@@ -538,7 +660,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                     x._fecha_nac = (DateTime)f.fecha_nac;
                     x._cuit_cuil = f.cuit_cuil;
                     x._barrio = BarrioClass.BuscarBarrioPorId((int)f.id_barrio);
-
+                    x._beneficios = BeneficioBeneficiarioClass.ListarBeneficioPorBeneficiario((int) x._id_beneficiario);
                     r.Add(x);
                 }
                 
@@ -611,7 +733,7 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
                 x._fecha_nac = (DateTime)f.fecha_nac;
                 x._cuit_cuil = f.cuit_cuil;
                 x._barrio = BarrioClass.BuscarBarrioPorId((int)f.id_barrio);
-
+                x._beneficios = BeneficioBeneficiarioClass.ListarBeneficioPorBeneficiario((int) x._id_beneficiario);
                 r.Add(x);
             }
 
@@ -672,6 +794,36 @@ namespace Processar.ProyectoAyudar.ClasesLibrary
         
          
                          
+
+            return r;
+        }
+
+
+        private bool borrarAsignacionBeneficios()
+        {
+            bool r = false;
+
+            var cur = from bb in ctx.beneficiario_beneficio
+                      where bb.id_beneficiario == _id_beneficiario
+                      select bb;
+            try
+            {
+                foreach (var bb in cur)
+                {
+                    ctx.beneficiario_beneficio.Remove(bb);
+                }
+
+                ctx.SaveChanges();
+                r = true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error al eliminar la asociación del beneficiario con los beneficios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                r = false;
+            }
+
+
+
 
             return r;
         }

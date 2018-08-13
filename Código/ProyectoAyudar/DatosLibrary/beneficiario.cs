@@ -16,7 +16,6 @@ namespace Processar.ProyectoAyudar.DatosLibrary
     {
         public int id_beneficiario { get; set; }
         public int id_barrio { get; set; }
-        public int id_grupo { get; set; }
         public string nombre { get; set; }
         public string documento { get; set; }
         public string direccion { get; set; }

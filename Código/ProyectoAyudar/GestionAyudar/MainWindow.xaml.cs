@@ -39,6 +39,7 @@ namespace Processar.ProyectoAyudar.GestionAyudar
         private List<OrdenEntregaWindow> _ventanasOrdenes;
         private List<BeneficiarioWindow> _ventanasBeneficiarios;
         private List<GrupoBeneficiarioWindow> _ventanasGruposBeneficiarios;
+        private List<BeneficioWindow> _ventanasBeneficios;
         private List<BarrioWindow> _ventanasBarrios;
         private List<TipoArticuloWindows> _ventanasTipoArticulos;
         private List<ArticuloWindow> _ventanasArticulos;
@@ -60,6 +61,7 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             _ventanasOrdenes = new List<OrdenEntregaWindow>();
             _ventanasBeneficiarios = new List<BeneficiarioWindow>();
             _ventanasGruposBeneficiarios = new List<GrupoBeneficiarioWindow>();
+            _ventanasBeneficios = new List<BeneficioWindow>();
             _ventanasBarrios = new List<BarrioWindow>();
             _ventanasTipoArticulos = new List<TipoArticuloWindows>();
             _ventanasArticulos = new List<ArticuloWindow>();
@@ -1378,6 +1380,23 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             adminBeneficiarioWin.Show();
         }
 
-      
+        private void btnNuevoBeneficio_Click(object sender, RoutedEventArgs e)
+        {
+            //Verifica que el beneficio no este abierto, si no esta abierto crea la ventana y la agrega a la lista
+
+            BeneficioWindow benefiWin = new BeneficioWindow(BeneficioWindow.Opcion.nuevo, null, ref _ventanasBeneficios);
+
+
+            benefiWin.Owner = this;
+            _ventanasBeneficios.Add(benefiWin); //¿ES necesario?
+            benefiWin.Show();
+        }
+
+        private void btnAdministrarBeneficio_Click(object sender, RoutedEventArgs e)
+        {
+            AdministrarBeneficiosWindow adminBeneficiosWin = new AdministrarBeneficiosWindow();
+            adminBeneficiosWin.Owner = this;
+            adminBeneficiosWin.Show();
+        }
     }
 }

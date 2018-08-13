@@ -80,3 +80,9 @@ C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyuda
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Debug\ReporteEntregaGrupoWindow.baml
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Debug\BuscarGrupoWindow.g.cs
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Debug\BuscarGrupoWindow.baml
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Debug\AdministrarBeneficiosWindow.baml
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Debug\AdministrarBeneficiosWindow.g.cs
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Debug\BeneficioWindow.baml
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Debug\BeneficioWindow.g.cs
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Debug\BuscarBeneficioWindow.g.cs
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\GestionAyudar\obj\Debug\BuscarBeneficioWindow.baml

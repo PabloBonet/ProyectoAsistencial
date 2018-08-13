@@ -47,7 +47,6 @@
           <ScalarProperty Name="direccion" ColumnName="direccion" />
           <ScalarProperty Name="documento" ColumnName="documento" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
           <ScalarProperty Name="id_barrio" ColumnName="id_barrio" />
           <ScalarProperty Name="id_beneficiario" ColumnName="id_beneficiario" />
         </MappingFragment>
@@ -146,6 +145,25 @@
           <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
           <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
           <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="beneficiario_beneficio">
+      <EntityTypeMapping TypeName="saluddbModel.beneficiario_beneficio">
+        <MappingFragment StoreEntitySet="beneficiario_beneficio">
+          <ScalarProperty Name="fechadesde" ColumnName="fechadesde" />
+          <ScalarProperty Name="id_beneficio" ColumnName="id_beneficio" />
+          <ScalarProperty Name="id_beneficiario" ColumnName="id_beneficiario" />
+          <ScalarProperty Name="id_benef_beneficio" ColumnName="id_benef_beneficio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="beneficios">
+      <EntityTypeMapping TypeName="saluddbModel.beneficio">
+        <MappingFragment StoreEntitySet="beneficio">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id_beneficio" ColumnName="id_beneficio" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -104,6 +104,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdministrarBeneficiosWindow.xaml.cs">
+      <DependentUpon>AdministrarBeneficiosWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdministrarArticulosWindow.xaml.cs">
       <DependentUpon>AdministrarArticulosWindow.xaml</DependentUpon>
     </Compile>
@@ -122,11 +125,17 @@
     <Compile Include="AdministrarUsuarioWindow.xaml.cs">
       <DependentUpon>AdministrarUsuarioWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BeneficioWindow.xaml.cs">
+      <DependentUpon>BeneficioWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BarrioWindow.xaml.cs">
       <DependentUpon>BarrioWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="BuscarArticuloWindow.xaml.cs">
       <DependentUpon>BuscarArticuloWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarBeneficioWindow.xaml.cs">
+      <DependentUpon>BuscarBeneficioWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="BuscarGrupoWindow.xaml.cs">
       <DependentUpon>BuscarGrupoWindow.xaml</DependentUpon>
@@ -163,6 +172,10 @@
       <DependentUpon>UsuarioWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValidacionesClass.cs" />
+    <Page Include="AdministrarBeneficiosWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AdministrarArticulosWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,6 +200,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="BeneficioWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ArticuloWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -202,6 +219,10 @@
     <Page Include="BuscarArticuloWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BuscarBeneficioWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="BuscarGrupoWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

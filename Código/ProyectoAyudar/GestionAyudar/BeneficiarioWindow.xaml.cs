@@ -33,6 +33,9 @@ namespace Processar.ProyectoAyudar.GestionAyudar
         private List<BeneficiarioWindow> _ventanas;
         private List<BarrioClass> _barrios;
         private List<GrupoBeneficiarioClass> _grupos;
+        private List<BeneficioBeneficiarioClass> _beneficiosAsignados;
+        private List<BeneficioClass> _beneficios;
+        private BeneficioBeneficiarioClass _beneficioBeneficiarioSeleccionado;
         
         public BeneficiarioWindow(Opcion op, BeneficiarioClass beneficiario, ref List<BeneficiarioWindow> ventanas)
         {
@@ -43,6 +46,7 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             if (op != Opcion.nuevo)
             {
                 this.beneficiario = beneficiario;
+               // beneficiario.Beneficios = BeneficioBeneficiarioClass.ListarBeneficioPorBeneficiario(beneficiario.Id_beneficiario);
             }
           
                 
@@ -51,6 +55,12 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             _ventanas = ventanas;
             _barrios = BarrioClass.ListarBarrios();
             _grupos = new List<GrupoBeneficiarioClass>();
+            _beneficiosAsignados = new List<BeneficioBeneficiarioClass>();
+            _beneficioBeneficiarioSeleccionado = null;
+            //Carga de beneficios
+            _beneficios = BeneficioClass.ListarBeneficios();
+            cmbBeneficios.ItemsSource = _beneficios;
+
             //Items Source de el combo Barrio
             cmbBarrio.ItemsSource = _barrios;
             grillaGrupos.ItemsSource = _grupos;
@@ -93,10 +103,14 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             btnGuardarBeneficiario.IsEnabled = true;
             btnGuardarBeneficiario.Label = "Crear";
             btnCancelarCambios.IsEnabled = true;
+            btnAgregarBeneficio.IsEnabled = true;
+            btnQuitarBeneficio.IsEnabled = true;
+            btnBuscarBeneficio.IsEnabled = true;
         }
 
         private void CargarDatosNuevo()
         {
+            cmbBeneficios.Items.Refresh();
             cmbBarrio.Items.Refresh();
             grillaGrupos.Items.Refresh();
         }
@@ -120,6 +134,9 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             btnGuardarBeneficiario.IsEnabled = true;
             btnGuardarBeneficiario.Label = "Guardar";
             btnCancelarCambios.IsEnabled = true;
+            btnAgregarBeneficio.IsEnabled = true;
+            btnQuitarBeneficio.IsEnabled = true;
+            btnBuscarBeneficio.IsEnabled = true;
         }
         private void CargarDatosModificar()
         {
@@ -133,6 +150,9 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             seleccionarBarrio();
             _grupos = GrupoBeneficiarioClass.ListarGruposPorBeneficiario(beneficiario.Id_beneficiario);
             grillaGrupos.ItemsSource = _grupos;
+
+            _beneficiosAsignados = beneficiario.Beneficios;
+            grillaBeneficios.ItemsSource = _beneficiosAsignados;
 
         }
 
@@ -180,6 +200,10 @@ namespace Processar.ProyectoAyudar.GestionAyudar
 
             _grupos = GrupoBeneficiarioClass.ListarGruposPorBeneficiario(beneficiario.Id_beneficiario);
             grillaGrupos.ItemsSource = _grupos;
+
+
+            _beneficiosAsignados = beneficiario.Beneficios;
+            grillaBeneficios.ItemsSource = _beneficiosAsignados;
 
         }
         private void Window_Initialized(object sender, EventArgs e)
@@ -396,6 +420,99 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             this.Owner.Focus();
         }
 
-       
+        private void btnAgregarBeneficio_Click(object sender, RoutedEventArgs e)
+        {
+            BeneficioClass nuevoBeneficio = null;
+            nuevoBeneficio = (BeneficioClass)cmbBeneficios.SelectedItem;
+
+
+            if (nuevoBeneficio != null)
+            {
+                DateTime fechaAsignacion = dpFechaAsignacion.DisplayDate.Date;
+
+                BeneficioBeneficiarioClass nuevoBB = new BeneficioBeneficiarioClass();
+
+                nuevoBB.Id_beneficiario = beneficiario.Id_beneficiario;
+                nuevoBB.Id_beneficio = nuevoBeneficio.Id_beneficio;
+                nuevoBB.Nombre_beneficio = nuevoBeneficio.Nombre_beneficio;
+                nuevoBB.Descripcion_beneficio = nuevoBeneficio.Descripcion_beneficio;
+                nuevoBB.Fecha_asignacion = fechaAsignacion;
+
+                _beneficiosAsignados.Add(nuevoBB);
+                grillaBeneficios.ItemsSource = _beneficiosAsignados;
+                grillaBeneficios.Items.Refresh();
+                
+
+                
+               
+            }
+        }
+
+        private void btnBuscarBeneficio_Click(object sender, RoutedEventArgs e)
+        {
+            BuscarBeneficioWindow buscarBenWin = new BuscarBeneficioWindow();
+
+            buscarBenWin.Owner = this;
+
+            buscarBenWin.ShowDialog();
+
+            if (buscarBenWin.b_ok && buscarBenWin.beneficioSeleccionado.Id_beneficio != 0)
+            {
+                if (buscarBenWin.b_ok)
+                {
+                    seleccionarBeneficio(buscarBenWin.beneficioSeleccionado); //Selecciona el beneficio pasado como paràmetro
+
+                   
+                }
+                else
+                {
+                    _beneficios = BeneficioClass.ListarBeneficios();
+                    cmbBeneficios.ItemsSource = _beneficios;
+                }
+
+               
+
+                
+            }
+
+            buscarBenWin  = null;
+        }
+
+        private void btnQuitarBeneficio_Click(object sender, RoutedEventArgs e)
+        {
+            if (_beneficioBeneficiarioSeleccionado != null)
+            {
+                _beneficiosAsignados.Remove(_beneficioBeneficiarioSeleccionado);
+
+                grillaBeneficios.ItemsSource = _beneficiosAsignados;
+
+                grillaBeneficios.Items.Refresh();
+                
+            }
+        }
+
+        private void grillaBeneficios_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _beneficioBeneficiarioSeleccionado = (BeneficioBeneficiarioClass)grillaBeneficios.SelectedItem;
+        }
+
+        /// <summary>
+        /// Selecciona el beneficio pasado como parámetro en el comboBeneficios
+        /// </summary>
+        /// <param name="beneficio">beneficio a seleccionar</param>
+        private void seleccionarBeneficio(BeneficioClass benef)
+        {
+            foreach (BeneficioClass b in cmbBeneficios.Items)
+            {
+                if (b.Id_beneficio == benef.Id_beneficio)
+                {
+                    cmbBeneficios.SelectedItem = b;
+                    break;
+                }
+
+            }
+
+        }
+
     }
 }

@@ -23,13 +23,21 @@
     </Key>
     <Property Name="id_beneficiario" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_barrio" Type="uint" Nullable="false" />
-    <Property Name="id_grupo" Type="uint" Nullable="false" />
     <Property Name="nombre" Type="char" MaxLength="254" Nullable="false" />
     <Property Name="documento" Type="char" MaxLength="254" Nullable="false" />
     <Property Name="direccion" Type="char" MaxLength="254" Nullable="false" />
     <Property Name="telefono" Type="char" MaxLength="254" Nullable="false" />
     <Property Name="cuit_cuil" Type="char" MaxLength="254" />
     <Property Name="fecha_nac" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="beneficiario_beneficio">
+    <Key>
+      <PropertyRef Name="id_benef_beneficio" />
+    </Key>
+    <Property Name="id_benef_beneficio" Type="uint" Nullable="false" />
+    <Property Name="id_beneficiario" Type="uint" Nullable="false" />
+    <Property Name="id_beneficio" Type="uint" Nullable="false" />
+    <Property Name="fechadesde" Type="datetime" Precision="0" Nullable="false" />
   </EntityType>
   <EntityType Name="beneficiario_grupo">
     <Key>
@@ -38,6 +46,14 @@
     <Property Name="id_benef_grupo" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_beneficiario" Type="uint" Nullable="false" />
     <Property Name="id_gupo" Type="uint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="beneficio">
+    <Key>
+      <PropertyRef Name="id_beneficio" />
+    </Key>
+    <Property Name="id_beneficio" Type="uint" Nullable="false" />
+    <Property Name="nombre" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="descripcion" Type="char" MaxLength="250" Nullable="false" />
   </EntityType>
   <EntityType Name="funcion">
     <Key>
@@ -138,7 +154,9 @@
     <EntitySet Name="articulo" EntityType="Self.articulo" Schema="ayudardb" store:Type="Tables" />
     <EntitySet Name="barrio" EntityType="Self.barrio" Schema="ayudardb" store:Type="Tables" />
     <EntitySet Name="beneficiario" EntityType="Self.beneficiario" Schema="ayudardb" store:Type="Tables" />
+    <EntitySet Name="beneficiario_beneficio" EntityType="Self.beneficiario_beneficio" Schema="ayudardb" store:Type="Tables" />
     <EntitySet Name="beneficiario_grupo" EntityType="Self.beneficiario_grupo" Schema="ayudardb" store:Type="Tables" />
+    <EntitySet Name="beneficio" EntityType="Self.beneficio" Schema="ayudardb" store:Type="Tables" />
     <EntitySet Name="funcion" EntityType="Self.funcion" Schema="ayudardb" store:Type="Tables" />
     <EntitySet Name="grupo" EntityType="Self.grupo" Schema="ayudardb" store:Type="Tables" />
     <EntitySet Name="itemcompra" EntityType="Self.itemcompra" Schema="ayudardb" store:Type="Tables" />

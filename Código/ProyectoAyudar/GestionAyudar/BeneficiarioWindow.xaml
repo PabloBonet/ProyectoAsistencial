@@ -27,16 +27,16 @@
         </Ribbon>
 
         <Grid x:Name="gridBeneficiarios" Style="{StaticResource GridVerde}" Margin="10,163,10,10">
-            <TextBox x:Name="txtNombre" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="180,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" />
-            <Label x:Name="lblNombre" Content="Nombre:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="100,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.583"/>
-            <TextBox x:Name="txtDocumento" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="180,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" />
-            <Label x:Name="lblDocumento" Content="Documento:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtDireccion" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="180,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" />
-            <Label x:Name="lblDireccion" Content="Dirección"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="100,250,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,-0.667"/>
-            <TextBox x:Name="txtTelefono" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="180,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" />
-            <Label x:Name="lblTelefono" Content="Teléfono:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="100,300,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="lblBarrio" Content="Barrio:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="100,350,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cmbBarrio" Style="{StaticResource ListaDesplegable}" HorizontalAlignment="Left" Margin="180,350,0,0" VerticalAlignment="Top" Width="260">
+            <TextBox x:Name="txtNombre" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="180,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" />
+            <Label x:Name="lblNombre" Content="Nombre:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="100,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.583"/>
+            <TextBox x:Name="txtDocumento" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="180,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" />
+            <Label x:Name="lblDocumento" Content="Documento:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="100,25,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtDireccion" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="180,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" />
+            <Label x:Name="lblDireccion" Content="Dirección"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="99,139,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.517,-0.667"/>
+            <TextBox x:Name="txtTelefono" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="180,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" />
+            <Label x:Name="lblTelefono" Content="Teléfono:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="100,167,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblBarrio" Content="Barrio:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="100,195,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cmbBarrio" Style="{StaticResource ListaDesplegable}" HorizontalAlignment="Left" Margin="180,195,0,0" VerticalAlignment="Top" Width="260">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -45,19 +45,66 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <TextBox x:Name="txtCuitCuil" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="180,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" />
-            <Label x:Name="lblFechaNac" Content="Fecha Nac.:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="100,150,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.583"/>
-            <Label x:Name="lblCuitCuil" Content="CUIT/CUIL:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="100,200,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.583"/>
-            <DatePicker x:Name="dpFechaNac" Margin="180,133,668,339" />
-            <DataGrid x:Name="grillaGrupos" Style="{StaticResource Tabla}" CellStyle="{StaticResource CeldaGrilla}" Margin="490,200,0,143" IsReadOnly="True" AutoGenerateColumns="False" DataContext="{Binding}"  HorizontalAlignment="Left" Width="401" >
+            <TextBox x:Name="txtCuitCuil" Style="{StaticResource CajadeTexto}" IsReadOnly="true" HorizontalAlignment="Left" Height="23" Margin="180,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" />
+            <Label x:Name="lblFechaNac" Content="Fecha Nac.:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="100,82,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.583"/>
+            <Label x:Name="lblCuitCuil" Content="CUIT/CUIL:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="100,112,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.946,0.583"/>
+            <DatePicker x:Name="dpFechaNac" Margin="180,81,668,407" />
+            <DataGrid x:Name="grillaGrupos" Style="{StaticResource Tabla}" CellStyle="{StaticResource CeldaGrilla}" Margin="100,299,0,44" IsReadOnly="True" AutoGenerateColumns="False" DataContext="{Binding}"  HorizontalAlignment="Left" Width="340" >
                 <DataGrid.Columns>
                     <DataGridTextColumn  Binding="{Binding Id_grupo}" ClipboardContentBinding="{x:Null}" Header="Id" Visibility="Hidden"/>
                     <DataGridTextColumn Binding="{Binding Nombre}" Header="Nombre"/>
                     <DataGridTextColumn Binding="{Binding Descripcion}" Header="Descripción"/>
-                    
+
                 </DataGrid.Columns>
             </DataGrid>
-            <Label x:Name="lblItems" Content="Grupos a los que pertenece:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="490,171,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblGrupos" Content="Grupos a los que pertenece:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="100,270,0,0" VerticalAlignment="Top"/>
+            <GroupBox Header="Agregar Beneficios" HorizontalAlignment="Left" Margin="509,112,0,0" VerticalAlignment="Top" Height="153" Width="433" Background="#FFCADEB8">
+                <Grid Margin="0,0,-2,1">
+                    <ComboBox x:Name="cmbBeneficios" Style="{StaticResource ListaDesplegable}" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="205">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Nombre_beneficio}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label x:Name="lblBeneficio" Content="Beneficios" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lblFecha" Content="Fecha de asignación" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="btnAgregarBeneficio" Style="{StaticResource BotonMenu}" HorizontalAlignment="Left" Margin="290,25,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="btnAgregarBeneficio_Click">
+                        <Grid>
+                            <Image x:Name="imgbtnAgregar" Source="Graficos/add.png" Height="32" Width="32" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+
+                        </Grid>
+                    </Button>
+                    <Button x:Name="btnBuscarBeneficio" Style="{StaticResource BotonMenu}" HorizontalAlignment="Left" Margin="220,25,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="btnBuscarBeneficio_Click">
+                        <Grid>
+                            <Image x:Name="imgbtnBuscar" Source="Graficos/find.png" Height="32" Width="32" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+
+                        </Grid>
+                    </Button>
+
+
+                    <Button x:Name="btnQuitarBeneficio" Style="{StaticResource BotonMenu}" HorizontalAlignment="Left" Margin="360,25,0,0" VerticalAlignment="Top" Width="40" Height="40" Click="btnQuitarBeneficio_Click">
+                        <Grid>
+                            <Image x:Name="imgbtnQuitar" Source="Graficos/quitar.png" Height="32" Width="32" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+
+                        </Grid>
+                    </Button>
+                    <DatePicker x:Name="dpFechaAsignacion" Margin="10,81,306,21" />
+
+                </Grid>
+
+            </GroupBox>
+            <DataGrid x:Name="grillaBeneficios" Style="{StaticResource Tabla}" CellStyle="{StaticResource CeldaGrilla}" Margin="509,299,0,44" IsReadOnly="True" AutoGenerateColumns="False" DataContext="{Binding}" SelectionChanged="grillaBeneficios_SelectionChanged"  HorizontalAlignment="Left" Width="433">
+                <DataGrid.Columns>
+                    <DataGridTextColumn  Binding="{Binding Id_beneficio}" ClipboardContentBinding="{x:Null}" Header="Id" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Nombre_beneficio}" Header="Cantidad"/>
+                    <DataGridTextColumn Binding="{Binding Descripcion_beneficio}" Header="Artículo"/>
+                    <DataGridTextColumn Binding="{Binding Fecha_asignado}" Header="Descripción"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label x:Name="lblBeneficios" Content="Beneficios asignados:"  Style="{StaticResource Label_Comun}" HorizontalAlignment="Left" Margin="509,270,0,0" VerticalAlignment="Top" Height="22"/>
         </Grid>
         <TextBox Name="txtBien" Style="{StaticResource CajadeTexto}" Visibility="Hidden"/>
         <TextBox Name="txtMal" Style="{StaticResource CajadeTextoError}" Visibility="Hidden"/>

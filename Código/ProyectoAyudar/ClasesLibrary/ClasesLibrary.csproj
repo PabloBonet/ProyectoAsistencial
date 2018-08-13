@@ -70,6 +70,8 @@
     <Compile Include="ArticuloClass.cs" />
     <Compile Include="BarrioClass.cs" />
     <Compile Include="BeneficiarioClass.cs" />
+    <Compile Include="BeneficioBeneficiarioClass.cs" />
+    <Compile Include="BeneficioClass.cs" />
     <Compile Include="EnumeracionClass.cs" />
     <Compile Include="FuncionClass.cs" />
     <Compile Include="GrillaReporteEntregaGruClass.cs" />

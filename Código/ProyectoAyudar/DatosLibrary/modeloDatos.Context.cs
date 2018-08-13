@@ -39,5 +39,7 @@ namespace Processar.ProyectoAyudar.DatosLibrary
         public DbSet<proveedor> proveedors { get; set; }
         public DbSet<tipoarticulo> tipoarticuloes { get; set; }
         public DbSet<usuario> usuarios { get; set; }
+        public DbSet<beneficiario_beneficio> beneficiario_beneficio { get; set; }
+        public DbSet<beneficio> beneficios { get; set; }
     }
 }

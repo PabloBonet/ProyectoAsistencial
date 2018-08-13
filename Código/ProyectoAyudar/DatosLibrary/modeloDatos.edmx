@@ -28,13 +28,21 @@
           </Key>
           <Property Name="id_beneficiario" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_barrio" Type="uint" Nullable="false" />
-          <Property Name="id_grupo" Type="uint" Nullable="false" />
           <Property Name="nombre" Type="char" MaxLength="254" Nullable="false" />
           <Property Name="documento" Type="char" MaxLength="254" Nullable="false" />
           <Property Name="direccion" Type="char" MaxLength="254" Nullable="false" />
           <Property Name="telefono" Type="char" MaxLength="254" Nullable="false" />
           <Property Name="cuit_cuil" Type="char" MaxLength="254" />
           <Property Name="fecha_nac" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="beneficiario_beneficio">
+          <Key>
+            <PropertyRef Name="id_benef_beneficio" />
+          </Key>
+          <Property Name="id_benef_beneficio" Type="uint" Nullable="false" />
+          <Property Name="id_beneficiario" Type="uint" Nullable="false" />
+          <Property Name="id_beneficio" Type="uint" Nullable="false" />
+          <Property Name="fechadesde" Type="datetime" Precision="0" Nullable="false" />
         </EntityType>
         <EntityType Name="beneficiario_grupo">
           <Key>
@@ -43,6 +51,14 @@
           <Property Name="id_benef_grupo" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_beneficiario" Type="uint" Nullable="false" />
           <Property Name="id_gupo" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="beneficio">
+          <Key>
+            <PropertyRef Name="id_beneficio" />
+          </Key>
+          <Property Name="id_beneficio" Type="uint" Nullable="false" />
+          <Property Name="nombre" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="descripcion" Type="char" MaxLength="250" Nullable="false" />
         </EntityType>
         <EntityType Name="funcion">
           <Key>
@@ -143,7 +159,9 @@
           <EntitySet Name="articulo" EntityType="Self.articulo" Schema="ayudardb" store:Type="Tables" />
           <EntitySet Name="barrio" EntityType="Self.barrio" Schema="ayudardb" store:Type="Tables" />
           <EntitySet Name="beneficiario" EntityType="Self.beneficiario" Schema="ayudardb" store:Type="Tables" />
+          <EntitySet Name="beneficiario_beneficio" EntityType="Self.beneficiario_beneficio" Schema="ayudardb" store:Type="Tables" />
           <EntitySet Name="beneficiario_grupo" EntityType="Self.beneficiario_grupo" Schema="ayudardb" store:Type="Tables" />
+          <EntitySet Name="beneficio" EntityType="Self.beneficio" Schema="ayudardb" store:Type="Tables" />
           <EntitySet Name="funcion" EntityType="Self.funcion" Schema="ayudardb" store:Type="Tables" />
           <EntitySet Name="grupo" EntityType="Self.grupo" Schema="ayudardb" store:Type="Tables" />
           <EntitySet Name="itemcompra" EntityType="Self.itemcompra" Schema="ayudardb" store:Type="Tables" />
@@ -174,6 +192,8 @@
           <EntitySet Name="proveedors" EntityType="saluddbModel.proveedor" />
           <EntitySet Name="tipoarticuloes" EntityType="saluddbModel.tipoarticulo" />
           <EntitySet Name="usuarios" EntityType="saluddbModel.usuario" />
+          <EntitySet Name="beneficiario_beneficio" EntityType="saluddbModel.beneficiario_beneficio" />
+          <EntitySet Name="beneficios" EntityType="saluddbModel.beneficio" />
         </EntityContainer>
         <EntityType Name="beneficiario_grupo">
           <Key>
@@ -214,7 +234,6 @@
           </Key>
           <Property Name="id_beneficiario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_barrio" Type="Int32" Nullable="false" />
-          <Property Name="id_grupo" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
           <Property Name="documento" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
           <Property Name="direccion" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
@@ -309,6 +328,23 @@
           <Property Name="contrasenia" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
           <Property Name="nombre_completo" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="beneficiario_beneficio">
+          <Key>
+            <PropertyRef Name="id_benef_beneficio" />
+          </Key>
+          <Property Name="id_benef_beneficio" Type="Int32" Nullable="false" />
+          <Property Name="id_beneficiario" Type="Int32" Nullable="false" />
+          <Property Name="id_beneficio" Type="Int32" Nullable="false" />
+          <Property Name="fechadesde" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="beneficio">
+          <Key>
+            <PropertyRef Name="id_beneficio" />
+          </Key>
+          <Property Name="id_beneficio" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -361,7 +397,6 @@
                 <ScalarProperty Name="direccion" ColumnName="direccion" />
                 <ScalarProperty Name="documento" ColumnName="documento" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
                 <ScalarProperty Name="id_barrio" ColumnName="id_barrio" />
                 <ScalarProperty Name="id_beneficiario" ColumnName="id_beneficiario" />
               </MappingFragment>
@@ -460,6 +495,25 @@
                 <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
                 <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
                 <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="beneficiario_beneficio">
+            <EntityTypeMapping TypeName="saluddbModel.beneficiario_beneficio">
+              <MappingFragment StoreEntitySet="beneficiario_beneficio">
+                <ScalarProperty Name="fechadesde" ColumnName="fechadesde" />
+                <ScalarProperty Name="id_beneficio" ColumnName="id_beneficio" />
+                <ScalarProperty Name="id_beneficiario" ColumnName="id_beneficiario" />
+                <ScalarProperty Name="id_benef_beneficio" ColumnName="id_benef_beneficio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="beneficios">
+            <EntityTypeMapping TypeName="saluddbModel.beneficio">
+              <MappingFragment StoreEntitySet="beneficio">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_beneficio" ColumnName="id_beneficio" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
