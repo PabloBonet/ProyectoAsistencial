@@ -104,6 +104,12 @@
     <Compile Include="frmInformeEntrega.Designer.cs">
       <DependentUpon>frmInformeEntrega.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOrdenEntrega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrdenEntrega.Designer.cs">
+      <DependentUpon>frmOrdenEntrega.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReporteEntregaConArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,9 @@
     <EmbeddedResource Include="frmInformeEntrega.resx">
       <DependentUpon>frmInformeEntrega.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmOrdenEntrega.resx">
+      <DependentUpon>frmOrdenEntrega.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReporteEntregaConArticulo.resx">
       <DependentUpon>frmReporteEntregaConArticulo.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +160,7 @@
     <EmbeddedResource Include="InformeEntrega.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="OrdenEntrega.rdlc" />
     <EmbeddedResource Include="ReporteEntregaGrupo.rdlc" />
     <EmbeddedResource Include="ReporteEntregaBeneficiario.rdlc" />
     <EmbeddedResource Include="ReporteEntregaConArticulo.rdlc" />

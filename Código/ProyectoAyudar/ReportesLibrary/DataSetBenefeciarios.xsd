@@ -109,6 +109,26 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="OrdenEntrega" msprop:Generator_TableClassName="OrdenEntregaDataTable" msprop:Generator_TableVarName="tableOrdenEntrega" msprop:Generator_RowChangedName="OrdenEntregaRowChanged" msprop:Generator_TablePropName="OrdenEntrega" msprop:Generator_RowDeletingName="OrdenEntregaRowDeleting" msprop:Generator_RowChangingName="OrdenEntregaRowChanging" msprop:Generator_RowEvHandlerName="OrdenEntregaRowChangeEventHandler" msprop:Generator_RowDeletedName="OrdenEntregaRowDeleted" msprop:Generator_RowClassName="OrdenEntregaRow" msprop:Generator_UserTableName="OrdenEntrega" msprop:Generator_RowEvArgName="OrdenEntregaRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idOrden" msprop:Generator_ColumnVarNameInTable="columnidOrden" msprop:Generator_ColumnPropNameInRow="idOrden" msprop:Generator_ColumnPropNameInTable="idOrdenColumn" msprop:Generator_UserColumnName="idOrden" type="xs:string" minOccurs="0" />
+              <xs:element name="usuarioEntrega" msprop:Generator_ColumnVarNameInTable="columnusuarioEntrega" msprop:Generator_ColumnPropNameInRow="usuarioEntrega" msprop:Generator_ColumnPropNameInTable="usuarioEntregaColumn" msprop:Generator_UserColumnName="usuarioEntrega" type="xs:string" minOccurs="0" />
+              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:string" minOccurs="0" />
+              <xs:element name="hora" msprop:Generator_ColumnVarNameInTable="columnhora" msprop:Generator_ColumnPropNameInRow="hora" msprop:Generator_ColumnPropNameInTable="horaColumn" msprop:Generator_UserColumnName="hora" type="xs:string" minOccurs="0" />
+              <xs:element name="dniBeneficiario" msprop:Generator_ColumnVarNameInTable="columndniBeneficiario" msprop:Generator_ColumnPropNameInRow="dniBeneficiario" msprop:Generator_ColumnPropNameInTable="dniBeneficiarioColumn" msprop:Generator_UserColumnName="dniBeneficiario" type="xs:string" minOccurs="0" />
+              <xs:element name="nombreBeneficiario" msprop:Generator_ColumnVarNameInTable="columnnombreBeneficiario" msprop:Generator_ColumnPropNameInRow="nombreBeneficiario" msprop:Generator_ColumnPropNameInTable="nombreBeneficiarioColumn" msprop:Generator_UserColumnName="nombreBeneficiario" type="xs:string" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="cantidadArticulos" msprop:Generator_ColumnVarNameInTable="columncantidadArticulos" msprop:Generator_ColumnPropNameInRow="cantidadArticulos" msprop:Generator_ColumnPropNameInTable="cantidadArticulosColumn" msprop:Generator_UserColumnName="cantidadArticulos" type="xs:string" minOccurs="0" />
+              <xs:element name="nombreArticulo" msprop:Generator_ColumnVarNameInTable="columnnombreArticulo" msprop:Generator_ColumnPropNameInRow="nombreArticulo" msprop:Generator_ColumnPropNameInTable="nombreArticuloColumn" msprop:Generator_UserColumnName="nombreArticulo" type="xs:string" minOccurs="0" />
+              <xs:element name="descripcionArticulo" msprop:Generator_ColumnVarNameInTable="columndescripcionArticulo" msprop:Generator_ColumnPropNameInRow="descripcionArticulo" msprop:Generator_ColumnPropNameInTable="descripcionArticuloColumn" msprop:Generator_UserColumnName="descripcionArticulo" type="xs:string" minOccurs="0" />
+              <xs:element name="tipoArticulo" msprop:Generator_ColumnVarNameInTable="columntipoArticulo" msprop:Generator_ColumnPropNameInRow="tipoArticulo" msprop:Generator_ColumnPropNameInTable="tipoArticuloColumn" msprop:Generator_UserColumnName="tipoArticulo" type="xs:string" minOccurs="0" />
+              <xs:element name="estadoActual" msprop:Generator_ColumnVarNameInTable="columnestadoActual" msprop:Generator_ColumnPropNameInRow="estadoActual" msprop:Generator_ColumnPropNameInTable="estadoActualColumn" msprop:Generator_UserColumnName="estadoActual" type="xs:string" minOccurs="0" />
+              <xs:element name="usuarioCrea" msprop:Generator_ColumnVarNameInTable="columnusuarioCrea" msprop:Generator_ColumnPropNameInRow="usuarioCrea" msprop:Generator_ColumnPropNameInTable="usuarioCreaColumn" msprop:Generator_UserColumnName="usuarioCrea" type="xs:string" minOccurs="0" />
+              <xs:element name="usuarioAutoriza" msprop:Generator_ColumnVarNameInTable="columnusuarioAutoriza" msprop:Generator_ColumnPropNameInRow="usuarioAutoriza" msprop:Generator_ColumnPropNameInTable="usuarioAutorizaColumn" msprop:Generator_UserColumnName="usuarioAutoriza" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

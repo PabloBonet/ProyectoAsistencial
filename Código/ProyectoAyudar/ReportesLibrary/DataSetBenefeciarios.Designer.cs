@@ -34,6 +34,8 @@ namespace Processar.ProyectoAyudar.ReportesLibrary {
         
         private EntregaPorGrupoDataTable tableEntregaPorGrupo;
         
+        private OrdenEntregaDataTable tableOrdenEntrega;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -76,6 +78,9 @@ namespace Processar.ProyectoAyudar.ReportesLibrary {
                 }
                 if ((ds.Tables["EntregaPorGrupo"] != null)) {
                     base.Tables.Add(new EntregaPorGrupoDataTable(ds.Tables["EntregaPorGrupo"]));
+                }
+                if ((ds.Tables["OrdenEntrega"] != null)) {
+                    base.Tables.Add(new OrdenEntregaDataTable(ds.Tables["OrdenEntrega"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -142,6 +147,16 @@ namespace Processar.ProyectoAyudar.ReportesLibrary {
         public EntregaPorGrupoDataTable EntregaPorGrupo {
             get {
                 return this.tableEntregaPorGrupo;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public OrdenEntregaDataTable OrdenEntrega {
+            get {
+                return this.tableOrdenEntrega;
             }
         }
         
@@ -227,6 +242,9 @@ namespace Processar.ProyectoAyudar.ReportesLibrary {
                 if ((ds.Tables["EntregaPorGrupo"] != null)) {
                     base.Tables.Add(new EntregaPorGrupoDataTable(ds.Tables["EntregaPorGrupo"]));
                 }
+                if ((ds.Tables["OrdenEntrega"] != null)) {
+                    base.Tables.Add(new OrdenEntregaDataTable(ds.Tables["OrdenEntrega"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -290,6 +308,12 @@ namespace Processar.ProyectoAyudar.ReportesLibrary {
                     this.tableEntregaPorGrupo.InitVars();
                 }
             }
+            this.tableOrdenEntrega = ((OrdenEntregaDataTable)(base.Tables["OrdenEntrega"]));
+            if ((initTable == true)) {
+                if ((this.tableOrdenEntrega != null)) {
+                    this.tableOrdenEntrega.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -310,6 +334,8 @@ namespace Processar.ProyectoAyudar.ReportesLibrary {
             base.Tables.Add(this.tableEntregaOrdenes);
             this.tableEntregaPorGrupo = new EntregaPorGrupoDataTable();
             base.Tables.Add(this.tableEntregaPorGrupo);
+            this.tableOrdenEntrega = new OrdenEntregaDataTable();
+            base.Tables.Add(this.tableOrdenEntrega);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -339,6 +365,12 @@ namespace Processar.ProyectoAyudar.ReportesLibrary {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeEntregaPorGrupo() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeOrdenEntrega() {
             return false;
         }
         
@@ -411,6 +443,9 @@ namespace Processar.ProyectoAyudar.ReportesLibrary {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void EntregaPorGrupoRowChangeEventHandler(object sender, EntregaPorGrupoRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void OrdenEntregaRowChangeEventHandler(object sender, OrdenEntregaRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2551,6 +2586,435 @@ namespace Processar.ProyectoAyudar.ReportesLibrary {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class OrdenEntregaDataTable : global::System.Data.TypedTableBase<OrdenEntregaRow> {
+            
+            private global::System.Data.DataColumn columnidOrden;
+            
+            private global::System.Data.DataColumn columnusuarioEntrega;
+            
+            private global::System.Data.DataColumn columnfecha;
+            
+            private global::System.Data.DataColumn columnhora;
+            
+            private global::System.Data.DataColumn columndniBeneficiario;
+            
+            private global::System.Data.DataColumn columnnombreBeneficiario;
+            
+            private global::System.Data.DataColumn columndescripcion;
+            
+            private global::System.Data.DataColumn columncantidadArticulos;
+            
+            private global::System.Data.DataColumn columnnombreArticulo;
+            
+            private global::System.Data.DataColumn columndescripcionArticulo;
+            
+            private global::System.Data.DataColumn columntipoArticulo;
+            
+            private global::System.Data.DataColumn columnestadoActual;
+            
+            private global::System.Data.DataColumn columnusuarioCrea;
+            
+            private global::System.Data.DataColumn columnusuarioAutoriza;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OrdenEntregaDataTable() {
+                this.TableName = "OrdenEntrega";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal OrdenEntregaDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected OrdenEntregaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn idOrdenColumn {
+                get {
+                    return this.columnidOrden;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn usuarioEntregaColumn {
+                get {
+                    return this.columnusuarioEntrega;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn fechaColumn {
+                get {
+                    return this.columnfecha;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn horaColumn {
+                get {
+                    return this.columnhora;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn dniBeneficiarioColumn {
+                get {
+                    return this.columndniBeneficiario;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nombreBeneficiarioColumn {
+                get {
+                    return this.columnnombreBeneficiario;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn descripcionColumn {
+                get {
+                    return this.columndescripcion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cantidadArticulosColumn {
+                get {
+                    return this.columncantidadArticulos;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nombreArticuloColumn {
+                get {
+                    return this.columnnombreArticulo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn descripcionArticuloColumn {
+                get {
+                    return this.columndescripcionArticulo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn tipoArticuloColumn {
+                get {
+                    return this.columntipoArticulo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn estadoActualColumn {
+                get {
+                    return this.columnestadoActual;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn usuarioCreaColumn {
+                get {
+                    return this.columnusuarioCrea;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn usuarioAutorizaColumn {
+                get {
+                    return this.columnusuarioAutoriza;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OrdenEntregaRow this[int index] {
+                get {
+                    return ((OrdenEntregaRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event OrdenEntregaRowChangeEventHandler OrdenEntregaRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event OrdenEntregaRowChangeEventHandler OrdenEntregaRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event OrdenEntregaRowChangeEventHandler OrdenEntregaRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event OrdenEntregaRowChangeEventHandler OrdenEntregaRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddOrdenEntregaRow(OrdenEntregaRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OrdenEntregaRow AddOrdenEntregaRow(string idOrden, string usuarioEntrega, string fecha, string hora, string dniBeneficiario, string nombreBeneficiario, string descripcion, string cantidadArticulos, string nombreArticulo, string descripcionArticulo, string tipoArticulo, string estadoActual, string usuarioCrea, string usuarioAutoriza) {
+                OrdenEntregaRow rowOrdenEntregaRow = ((OrdenEntregaRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        idOrden,
+                        usuarioEntrega,
+                        fecha,
+                        hora,
+                        dniBeneficiario,
+                        nombreBeneficiario,
+                        descripcion,
+                        cantidadArticulos,
+                        nombreArticulo,
+                        descripcionArticulo,
+                        tipoArticulo,
+                        estadoActual,
+                        usuarioCrea,
+                        usuarioAutoriza};
+                rowOrdenEntregaRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowOrdenEntregaRow);
+                return rowOrdenEntregaRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                OrdenEntregaDataTable cln = ((OrdenEntregaDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new OrdenEntregaDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnidOrden = base.Columns["idOrden"];
+                this.columnusuarioEntrega = base.Columns["usuarioEntrega"];
+                this.columnfecha = base.Columns["fecha"];
+                this.columnhora = base.Columns["hora"];
+                this.columndniBeneficiario = base.Columns["dniBeneficiario"];
+                this.columnnombreBeneficiario = base.Columns["nombreBeneficiario"];
+                this.columndescripcion = base.Columns["descripcion"];
+                this.columncantidadArticulos = base.Columns["cantidadArticulos"];
+                this.columnnombreArticulo = base.Columns["nombreArticulo"];
+                this.columndescripcionArticulo = base.Columns["descripcionArticulo"];
+                this.columntipoArticulo = base.Columns["tipoArticulo"];
+                this.columnestadoActual = base.Columns["estadoActual"];
+                this.columnusuarioCrea = base.Columns["usuarioCrea"];
+                this.columnusuarioAutoriza = base.Columns["usuarioAutoriza"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnidOrden = new global::System.Data.DataColumn("idOrden", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidOrden);
+                this.columnusuarioEntrega = new global::System.Data.DataColumn("usuarioEntrega", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusuarioEntrega);
+                this.columnfecha = new global::System.Data.DataColumn("fecha", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfecha);
+                this.columnhora = new global::System.Data.DataColumn("hora", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhora);
+                this.columndniBeneficiario = new global::System.Data.DataColumn("dniBeneficiario", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndniBeneficiario);
+                this.columnnombreBeneficiario = new global::System.Data.DataColumn("nombreBeneficiario", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnombreBeneficiario);
+                this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescripcion);
+                this.columncantidadArticulos = new global::System.Data.DataColumn("cantidadArticulos", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncantidadArticulos);
+                this.columnnombreArticulo = new global::System.Data.DataColumn("nombreArticulo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnombreArticulo);
+                this.columndescripcionArticulo = new global::System.Data.DataColumn("descripcionArticulo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescripcionArticulo);
+                this.columntipoArticulo = new global::System.Data.DataColumn("tipoArticulo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipoArticulo);
+                this.columnestadoActual = new global::System.Data.DataColumn("estadoActual", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnestadoActual);
+                this.columnusuarioCrea = new global::System.Data.DataColumn("usuarioCrea", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusuarioCrea);
+                this.columnusuarioAutoriza = new global::System.Data.DataColumn("usuarioAutoriza", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusuarioAutoriza);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OrdenEntregaRow NewOrdenEntregaRow() {
+                return ((OrdenEntregaRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new OrdenEntregaRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(OrdenEntregaRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.OrdenEntregaRowChanged != null)) {
+                    this.OrdenEntregaRowChanged(this, new OrdenEntregaRowChangeEvent(((OrdenEntregaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.OrdenEntregaRowChanging != null)) {
+                    this.OrdenEntregaRowChanging(this, new OrdenEntregaRowChangeEvent(((OrdenEntregaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.OrdenEntregaRowDeleted != null)) {
+                    this.OrdenEntregaRowDeleted(this, new OrdenEntregaRowChangeEvent(((OrdenEntregaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.OrdenEntregaRowDeleting != null)) {
+                    this.OrdenEntregaRowDeleting(this, new OrdenEntregaRowChangeEvent(((OrdenEntregaRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveOrdenEntregaRow(OrdenEntregaRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSetBenefeciarios ds = new DataSetBenefeciarios();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "OrdenEntregaDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class EntregaPorBeneficiarioRow : global::System.Data.DataRow {
@@ -4531,6 +4995,415 @@ namespace Processar.ProyectoAyudar.ReportesLibrary {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class OrdenEntregaRow : global::System.Data.DataRow {
+            
+            private OrdenEntregaDataTable tableOrdenEntrega;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal OrdenEntregaRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableOrdenEntrega = ((OrdenEntregaDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string idOrden {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrdenEntrega.idOrdenColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'idOrden\' de la tabla \'OrdenEntrega\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrdenEntrega.idOrdenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string usuarioEntrega {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrdenEntrega.usuarioEntregaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'usuarioEntrega\' de la tabla \'OrdenEntrega\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrdenEntrega.usuarioEntregaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string fecha {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrdenEntrega.fechaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fecha\' de la tabla \'OrdenEntrega\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrdenEntrega.fechaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string hora {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrdenEntrega.horaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'hora\' de la tabla \'OrdenEntrega\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrdenEntrega.horaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string dniBeneficiario {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrdenEntrega.dniBeneficiarioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'dniBeneficiario\' de la tabla \'OrdenEntrega\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrdenEntrega.dniBeneficiarioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nombreBeneficiario {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrdenEntrega.nombreBeneficiarioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'nombreBeneficiario\' de la tabla \'OrdenEntrega\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableOrdenEntrega.nombreBeneficiarioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string descripcion {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrdenEntrega.descripcionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'descripcion\' de la tabla \'OrdenEntrega\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrdenEntrega.descripcionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string cantidadArticulos {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrdenEntrega.cantidadArticulosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cantidadArticulos\' de la tabla \'OrdenEntrega\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrdenEntrega.cantidadArticulosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nombreArticulo {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrdenEntrega.nombreArticuloColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'nombreArticulo\' de la tabla \'OrdenEntrega\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrdenEntrega.nombreArticuloColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string descripcionArticulo {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrdenEntrega.descripcionArticuloColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'descripcionArticulo\' de la tabla \'OrdenEntrega\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableOrdenEntrega.descripcionArticuloColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string tipoArticulo {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrdenEntrega.tipoArticuloColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipoArticulo\' de la tabla \'OrdenEntrega\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrdenEntrega.tipoArticuloColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string estadoActual {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrdenEntrega.estadoActualColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'estadoActual\' de la tabla \'OrdenEntrega\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrdenEntrega.estadoActualColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string usuarioCrea {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrdenEntrega.usuarioCreaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'usuarioCrea\' de la tabla \'OrdenEntrega\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrdenEntrega.usuarioCreaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string usuarioAutoriza {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrdenEntrega.usuarioAutorizaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'usuarioAutoriza\' de la tabla \'OrdenEntrega\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrdenEntrega.usuarioAutorizaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsidOrdenNull() {
+                return this.IsNull(this.tableOrdenEntrega.idOrdenColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetidOrdenNull() {
+                this[this.tableOrdenEntrega.idOrdenColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsusuarioEntregaNull() {
+                return this.IsNull(this.tableOrdenEntrega.usuarioEntregaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetusuarioEntregaNull() {
+                this[this.tableOrdenEntrega.usuarioEntregaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsfechaNull() {
+                return this.IsNull(this.tableOrdenEntrega.fechaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetfechaNull() {
+                this[this.tableOrdenEntrega.fechaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IshoraNull() {
+                return this.IsNull(this.tableOrdenEntrega.horaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SethoraNull() {
+                this[this.tableOrdenEntrega.horaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdniBeneficiarioNull() {
+                return this.IsNull(this.tableOrdenEntrega.dniBeneficiarioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdniBeneficiarioNull() {
+                this[this.tableOrdenEntrega.dniBeneficiarioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnombreBeneficiarioNull() {
+                return this.IsNull(this.tableOrdenEntrega.nombreBeneficiarioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnombreBeneficiarioNull() {
+                this[this.tableOrdenEntrega.nombreBeneficiarioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdescripcionNull() {
+                return this.IsNull(this.tableOrdenEntrega.descripcionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdescripcionNull() {
+                this[this.tableOrdenEntrega.descripcionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscantidadArticulosNull() {
+                return this.IsNull(this.tableOrdenEntrega.cantidadArticulosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcantidadArticulosNull() {
+                this[this.tableOrdenEntrega.cantidadArticulosColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnombreArticuloNull() {
+                return this.IsNull(this.tableOrdenEntrega.nombreArticuloColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnombreArticuloNull() {
+                this[this.tableOrdenEntrega.nombreArticuloColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdescripcionArticuloNull() {
+                return this.IsNull(this.tableOrdenEntrega.descripcionArticuloColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdescripcionArticuloNull() {
+                this[this.tableOrdenEntrega.descripcionArticuloColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstipoArticuloNull() {
+                return this.IsNull(this.tableOrdenEntrega.tipoArticuloColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettipoArticuloNull() {
+                this[this.tableOrdenEntrega.tipoArticuloColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsestadoActualNull() {
+                return this.IsNull(this.tableOrdenEntrega.estadoActualColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetestadoActualNull() {
+                this[this.tableOrdenEntrega.estadoActualColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsusuarioCreaNull() {
+                return this.IsNull(this.tableOrdenEntrega.usuarioCreaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetusuarioCreaNull() {
+                this[this.tableOrdenEntrega.usuarioCreaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsusuarioAutorizaNull() {
+                return this.IsNull(this.tableOrdenEntrega.usuarioAutorizaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetusuarioAutorizaNull() {
+                this[this.tableOrdenEntrega.usuarioAutorizaColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -4686,6 +5559,40 @@ namespace Processar.ProyectoAyudar.ReportesLibrary {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public EntregaPorGrupoRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class OrdenEntregaRowChangeEvent : global::System.EventArgs {
+            
+            private OrdenEntregaRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OrdenEntregaRowChangeEvent(OrdenEntregaRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OrdenEntregaRow Row {
                 get {
                     return this.eventRow;
                 }

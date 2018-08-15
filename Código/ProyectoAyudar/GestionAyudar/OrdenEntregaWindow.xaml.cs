@@ -143,7 +143,9 @@ namespace Processar.ProyectoAyudar.GestionAyudar
             btnCancelarOrden.IsEnabled = false;
             btnGuardarOrden.Label = "Crear";
             btnAgregarBeneficiario.IsEnabled = true;
-
+            btnImprimirOrden.IsEnabled = false;
+            btnImprimirAutorizacion.IsEnabled = false;
+            btnImprimirEntrega.IsEnabled = false;
             //btnAgregarItem.IsEnabled = true;
         }
 
@@ -189,8 +191,10 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                     btnAutorizarOrden.IsEnabled = PermisoClass.TienePermiso(MainWindow.usuario_logueado.Id_usuario, btnAutorizarOrden.Name);
                     btnEntregarOrden.IsEnabled = false;
                     btnCancelarOrden.IsEnabled = false;
-                   
-                   // btnAgregarItem.IsEnabled = true;
+                    btnImprimirOrden.IsEnabled = true;
+                    btnImprimirAutorizacion.IsEnabled = false;
+                    btnImprimirEntrega.IsEnabled = false;
+                    // btnAgregarItem.IsEnabled = true;
                     break;
 
                 case EstadoOrden.AUTORIZADO:
@@ -198,7 +202,9 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                     btnAutorizarOrden.IsEnabled = false;
                     btnEntregarOrden.IsEnabled = PermisoClass.TienePermiso(MainWindow.usuario_logueado.Id_usuario, btnEntregarOrden.Name);
                     btnCancelarOrden.IsEnabled = PermisoClass.TienePermiso(MainWindow.usuario_logueado.Id_usuario, btnCancelarOrden.Name);
-
+                    btnImprimirOrden.IsEnabled = true;
+                    btnImprimirAutorizacion.IsEnabled = true;
+                    btnImprimirEntrega.IsEnabled = false;
                     // btnAgregarItem.IsEnabled = false;
                     break;
 
@@ -207,7 +213,9 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                     btnAutorizarOrden.IsEnabled = false;
                     btnEntregarOrden.IsEnabled = false;
                     btnCancelarOrden.IsEnabled = false;
-                  
+                    btnImprimirOrden.IsEnabled = true;
+                    btnImprimirAutorizacion.IsEnabled = false;
+                    btnImprimirEntrega.IsEnabled = false;
                     //btnAgregarItem.IsEnabled = false;
                     break;
 
@@ -216,8 +224,10 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                     btnAutorizarOrden.IsEnabled = false;
                     btnEntregarOrden.IsEnabled = false;
                     btnCancelarOrden.IsEnabled = false;
-                   
-                   // btnAgregarItem.IsEnabled = false;
+                    btnImprimirOrden.IsEnabled = false;
+                    btnImprimirAutorizacion.IsEnabled = false;
+                    btnImprimirEntrega.IsEnabled = false;
+                    // btnAgregarItem.IsEnabled = false;
                     break;
 
                 case EstadoOrden.ENTREGADO:
@@ -225,8 +235,10 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                     btnAutorizarOrden.IsEnabled = false;
                     btnEntregarOrden.IsEnabled = false;
                     btnCancelarOrden.IsEnabled = false;
-                    
-                  //  btnAgregarItem.IsEnabled = false;
+                    btnImprimirOrden.IsEnabled = true;
+                    btnImprimirAutorizacion.IsEnabled = true;
+                    btnImprimirEntrega.IsEnabled = true;
+                    //  btnAgregarItem.IsEnabled = false;
                     break;
             }
 
@@ -279,6 +291,47 @@ namespace Processar.ProyectoAyudar.GestionAyudar
 
 
             btnAgregarBeneficiario.IsEnabled = false;
+
+
+            switch (ordenEntrega.EstadoActual.Estado)
+            {
+                case EstadoOrden.INICIADO:
+                    btnImprimirOrden.IsEnabled = true;
+                    btnImprimirAutorizacion.IsEnabled = false;
+                    btnImprimirEntrega.IsEnabled = false;
+                   
+                    break;
+
+                case EstadoOrden.AUTORIZADO:
+                    btnImprimirOrden.IsEnabled = true;
+                    btnImprimirAutorizacion.IsEnabled = true;
+                    btnImprimirEntrega.IsEnabled = false;
+                
+                    break;
+
+                case EstadoOrden.CANCELADO:
+            
+                    btnImprimirOrden.IsEnabled = true;
+                    btnImprimirAutorizacion.IsEnabled = false;
+                    btnImprimirEntrega.IsEnabled = false;
+           
+                    break;
+
+                case EstadoOrden.ELIMINADO:
+            
+                    btnImprimirOrden.IsEnabled = false;
+                    btnImprimirAutorizacion.IsEnabled = false;
+                    btnImprimirEntrega.IsEnabled = false;
+           
+                    break;
+
+                case EstadoOrden.ENTREGADO:
+                  
+                    btnImprimirOrden.IsEnabled = true;
+                    btnImprimirAutorizacion.IsEnabled = true;
+                    btnImprimirEntrega.IsEnabled = true;
+                    break;
+            }
         }
 
         private void CargarDatosNuevo()
@@ -703,10 +756,15 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                         {
                             MessageBox.Show("Orden de entrega " + nuevaOrden.Id_orden_entrega + " creada con éxito", "Crear Orden de Entrega", MessageBoxButton.OK, MessageBoxImage.Information);
                             b_ok = true;
-
+                            ordenEntrega = nuevaOrden;
+                            // IMprimo la orden
+                            imprimirOrden();
                             actualizarGrillasVentanaPrincipal();
                             this.Close();
                             this.Owner.Focus();
+
+                           
+
                         }
                         else
                         {
@@ -715,6 +773,7 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                         }
                     }
 
+                   
                 }
                 else
                 { //Solo se va a poder modificar si la Orden esta Iniciada
@@ -992,6 +1051,153 @@ namespace Processar.ProyectoAyudar.GestionAyudar
         private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
         {
             modifico = true;
+        }
+
+        private void btnImprimirOrden_Click(object sender, RoutedEventArgs e)
+        {
+            imprimirOrden();
+            
+        }
+
+        private void imprimirOrden()
+        {
+            //Genera Orden de entrega 
+            frmOrdenEntrega formulario = new frmOrdenEntrega();
+
+            frmOrdenEntrega.articulo a;
+
+            formulario.idOrden = ordenEntrega.Id_orden_entrega;
+            // formulario.usuario = ordenEntrega.EstadoActual.Usuario.Nombre_completo;
+            formulario.usuario = ordenEntrega.UsuarioCreador.Nombre_completo;
+            formulario.fecha = ordenEntrega.Fecha.ToShortDateString();
+            // formulario.horaEntregado = fecha.ToShortTimeString();
+            formulario.dniBeneficiario = ordenEntrega.Beneficiario.Documento;
+            formulario.nombreBeneficiario = ordenEntrega.Beneficiario.Nombre;
+            formulario.descripcion = ordenEntrega.Descripcion;
+            if (ordenEntrega.UsuarioAutoriza == null)
+            {
+                formulario.usuarioAutoriza = "";
+            }
+            else
+            {
+                formulario.usuarioAutoriza = ordenEntrega.UsuarioAutoriza.Nombre_completo;
+            }
+
+            if (ordenEntrega.UsuarioEntrega == null)
+            {
+                formulario.usuarioEntrega = "";
+            }
+            else
+            {
+                formulario.usuarioEntrega = ordenEntrega.UsuarioEntrega.Nombre_completo;
+            }
+           
+        
+            formulario.estadoActual = ordenEntrega.EstadoActual.Estado.ToString();
+
+
+
+            List<ItemEntregaClass> items = ItemEntregaClass.ListarItemEntregaPorOrden(ordenEntrega.Id_orden_entrega);
+
+            //List<ArticuloClass> articulos = ArticuloClass.listarArticulosPorOrden(ordenSeleccionada.Id_orden_entrega);
+
+            foreach (ItemEntregaClass item in items)
+            {
+                a = new frmOrdenEntrega.articulo();
+
+
+                a.cantidad = item.Cantidad.ToString();
+                a.descripcionArticulo = item.Articulo.Descripcion_articulo;
+                a.nombreArticulo = item.Articulo.Nombre_articulo;
+                a.tipoArticulo = item.Articulo.Tipo_articulo.Nombre_TipoArticulo;
+
+                formulario.datos.Add(a);
+            }
+
+            formulario.ShowDialog();
+            formulario.Close();
+            formulario = null;
+
+
+        }
+        private void imprimirAutorizar()
+        {
+            //Genera comprobante  para firmar
+            List<OrdenEstadoClass> listaEstados = OrdenEstadoClass.ListarPorOrden(ordenEntrega.Id_orden_entrega);
+
+
+            OrdenEstadoClass ultEstadoAutorizado = listaEstados.FindLast(x => x.Estado == EstadoOrden.AUTORIZADO);
+            DateTime fecha = ultEstadoAutorizado.Fecha;
+            frmInformeAutorizacion formulario = new frmInformeAutorizacion();
+
+            formulario.idOrden = ordenEntrega.Id_orden_entrega;
+            formulario.usuario = ordenEntrega.EstadoActual.Usuario.Nombre_completo;
+            formulario.fechaAutorizado = fecha.ToShortDateString();
+            formulario.horaAutorizado = fecha.ToShortTimeString();
+            formulario.nombreBeneficiario = ordenEntrega.Beneficiario.Nombre;
+            formulario.dniBeneficiario = ordenEntrega.Beneficiario.Documento;
+            formulario.descripcion = ordenEntrega.Descripcion;
+
+            formulario.ShowDialog();
+            formulario.Close();
+            formulario = null;
+
+
+
+        }
+
+        private void btnImprimirAutorizacion_Click(object sender, RoutedEventArgs e)
+        {
+            
+            imprimirAutorizar();
+        }
+        private void imprimirEntregar()
+        {
+            //Genera comprobante para firmar
+            List<OrdenEstadoClass> listaEstados = OrdenEstadoClass.ListarPorOrden(ordenEntrega.Id_orden_entrega);
+
+
+            OrdenEstadoClass ultEstadoAutorizado = listaEstados.FindLast(x => x.Estado == EstadoOrden.ENTREGADO);
+            DateTime fecha = ultEstadoAutorizado.Fecha;
+            frmInformeEntrega formulario = new frmInformeEntrega();
+            frmInformeEntrega.articulo a;
+
+            formulario.idOrden = ordenEntrega.Id_orden_entrega;
+            formulario.usuario = ordenEntrega.EstadoActual.Usuario.Nombre_completo;
+            formulario.fechaEntregado = fecha.ToShortDateString();
+            formulario.horaEntregado = fecha.ToShortTimeString();
+            formulario.dniBeneficiario = ordenEntrega.Beneficiario.Documento;
+            formulario.nombreBeneficiario = ordenEntrega.Beneficiario.Nombre;
+            formulario.descripcion = ordenEntrega.Descripcion;
+
+
+
+            List<ItemEntregaClass> items = ItemEntregaClass.ListarItemEntregaPorOrden(ordenEntrega.Id_orden_entrega);
+
+            //List<ArticuloClass> articulos = ArticuloClass.listarArticulosPorOrden(ordenSeleccionada.Id_orden_entrega);
+
+            foreach (ItemEntregaClass item in items)
+            {
+                a = new frmInformeEntrega.articulo();
+
+
+                a.cantidad = item.Cantidad.ToString();
+                a.descripcionArticulo = item.Articulo.Descripcion_articulo;
+                a.nombreArticulo = item.Articulo.Nombre_articulo;
+                a.tipoArticulo = item.Articulo.Tipo_articulo.Nombre_TipoArticulo;
+
+                formulario.datos.Add(a);
+            }
+
+            formulario.ShowDialog();
+            formulario.Close();
+            formulario = null;
+        }
+
+
+        private void btnImprimirEntrega_Click(object sender, RoutedEventArgs e)
+        {
+            imprimirEntregar();
         }
     }
 }

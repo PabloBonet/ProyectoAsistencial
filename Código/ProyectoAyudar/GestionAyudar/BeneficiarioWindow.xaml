@@ -22,6 +22,8 @@
                     <RibbonButton x:Name="btnCancelarCambios" Label="Cancelar" LargeImageSource="Graficos/cancel.png" Height="55"  Click="btnCancelarCambios_Click"  Margin="4,10,-4,-10"/>
                 </RibbonGroup>
 
+              
+
             </RibbonTab>
 
         </Ribbon>

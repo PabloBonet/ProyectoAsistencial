@@ -418,22 +418,8 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                         MessageBox.Show("La orden " + ordenSeleccionada.Id_orden_entrega + " fue autorizada con éxito!", "Autorizar orden", MessageBoxButton.OK, MessageBoxImage.Information);
 
                         actualizarGrillasVentanaPrincipal();
-                        //Genera comprobante  para firmar
 
-                        frmInformeAutorizacion formulario = new frmInformeAutorizacion();
-
-                        formulario.idOrden = ordenSeleccionada.Id_orden_entrega;
-                        formulario.usuario = ordenSeleccionada.EstadoActual.Usuario.Nombre_completo;
-                        formulario.fechaAutorizado = fecha.ToShortDateString();
-                        formulario.horaAutorizado = fecha.ToShortTimeString();
-                        formulario.nombreBeneficiario = ordenSeleccionada.Beneficiario.Nombre;
-                        formulario.dniBeneficiario = ordenSeleccionada.Beneficiario.Documento;
-                        formulario.descripcion = ordenSeleccionada.Descripcion;
-
-                        formulario.ShowDialog();
-                        formulario.Close();
-                        formulario = null;
-              
+                        imprimirAutorizar(fecha);
 
                         actualizarGrillasIniAut();
                         habilitarBotonesSeleccion();
@@ -446,6 +432,28 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                 }
             }
 
+        }
+
+        private void imprimirAutorizar(DateTime fecha)
+        {
+            //Genera comprobante  para firmar
+
+            frmInformeAutorizacion formulario = new frmInformeAutorizacion();
+
+            formulario.idOrden = ordenSeleccionada.Id_orden_entrega;
+            formulario.usuario = ordenSeleccionada.EstadoActual.Usuario.Nombre_completo;
+            formulario.fechaAutorizado = fecha.ToShortDateString();
+            formulario.horaAutorizado = fecha.ToShortTimeString();
+            formulario.nombreBeneficiario = ordenSeleccionada.Beneficiario.Nombre;
+            formulario.dniBeneficiario = ordenSeleccionada.Beneficiario.Documento;
+            formulario.descripcion = ordenSeleccionada.Descripcion;
+
+            formulario.ShowDialog();
+            formulario.Close();
+            formulario = null;
+
+
+          
         }
 
         private void actualizarGrillasIniAut()
@@ -509,41 +517,7 @@ namespace Processar.ProyectoAyudar.GestionAyudar
 
                         actualizarGrillasVentanaPrincipal();
 
-                        //Genera comprobante para firmar
-
-                        frmInformeEntrega formulario = new frmInformeEntrega();
-                        frmInformeEntrega.articulo a;
-
-                        formulario.idOrden = ordenSeleccionada.Id_orden_entrega;
-                        formulario.usuario = ordenSeleccionada.EstadoActual.Usuario.Nombre_completo;
-                        formulario.fechaEntregado = fecha.ToShortDateString();
-                        formulario.horaEntregado = fecha.ToShortTimeString();
-                        formulario.dniBeneficiario = ordenSeleccionada.Beneficiario.Documento;
-                        formulario.nombreBeneficiario = ordenSeleccionada.Beneficiario.Nombre;
-                        formulario.descripcion = ordenSeleccionada.Descripcion;
-
-                       
-
-                        List<ItemEntregaClass> items = ItemEntregaClass.ListarItemEntregaPorOrden(ordenSeleccionada.Id_orden_entrega);
-
-                        //List<ArticuloClass> articulos = ArticuloClass.listarArticulosPorOrden(ordenSeleccionada.Id_orden_entrega);
-
-                        foreach (ItemEntregaClass item in items)
-                        {
-                            a = new frmInformeEntrega.articulo();
-
-
-                            a.cantidad = item.Cantidad.ToString();
-                            a.descripcionArticulo = item.Articulo.Descripcion_articulo;
-                            a.nombreArticulo = item.Articulo.Nombre_articulo;
-                            a.tipoArticulo = item.Articulo.Tipo_articulo.Nombre_TipoArticulo;
-
-                            formulario.datos.Add(a);
-                        }
-
-                        formulario.ShowDialog();
-                        formulario.Close();
-                        formulario = null;
+                        imprimirEntregar(fecha);
 
                         actualizarGrillasIniAut();
                         habilitarBotonesSeleccion();
@@ -554,6 +528,45 @@ namespace Processar.ProyectoAyudar.GestionAyudar
                     }
                 }
             }
+        }
+
+        private void imprimirEntregar(DateTime fecha)
+        {
+            //Genera comprobante para firmar
+
+            frmInformeEntrega formulario = new frmInformeEntrega();
+            frmInformeEntrega.articulo a;
+
+            formulario.idOrden = ordenSeleccionada.Id_orden_entrega;
+            formulario.usuario = ordenSeleccionada.EstadoActual.Usuario.Nombre_completo;
+            formulario.fechaEntregado = fecha.ToShortDateString();
+            formulario.horaEntregado = fecha.ToShortTimeString();
+            formulario.dniBeneficiario = ordenSeleccionada.Beneficiario.Documento;
+            formulario.nombreBeneficiario = ordenSeleccionada.Beneficiario.Nombre;
+            formulario.descripcion = ordenSeleccionada.Descripcion;
+
+
+
+            List<ItemEntregaClass> items = ItemEntregaClass.ListarItemEntregaPorOrden(ordenSeleccionada.Id_orden_entrega);
+
+            //List<ArticuloClass> articulos = ArticuloClass.listarArticulosPorOrden(ordenSeleccionada.Id_orden_entrega);
+
+            foreach (ItemEntregaClass item in items)
+            {
+                a = new frmInformeEntrega.articulo();
+
+
+                a.cantidad = item.Cantidad.ToString();
+                a.descripcionArticulo = item.Articulo.Descripcion_articulo;
+                a.nombreArticulo = item.Articulo.Nombre_articulo;
+                a.tipoArticulo = item.Articulo.Tipo_articulo.Nombre_TipoArticulo;
+
+                formulario.datos.Add(a);
+            }
+
+            formulario.ShowDialog();
+            formulario.Close();
+            formulario = null;
         }
 
         private void btnCancelarOrden_Click(object sender, RoutedEventArgs e)

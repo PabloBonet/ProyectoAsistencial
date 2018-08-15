@@ -58,3 +58,4 @@ C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibr
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\SqlServerTypes\x86\SqlServerSpatial120.dll
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\bin\Release\Microsoft.SqlServer.Types.dll
 C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\obj\Release\ReportesLibrary.csprojResolveAssemblyReference.cache
+C:\Users\pablo\documents\visual studio 2015\Projects\ProyectoAyudar\ReportesLibrary\obj\Release\Processar.ProyectoAyudar.ReportesLibrary.frmOrdenEntrega.resources

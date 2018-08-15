@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Processar.ProyectoAyudar.ClasesLibrary;
 using Processar.ProyectoAyudar.DatosLibrary;
+using Processar.ProyectoAyudar.ReportesLibrary;
 
 namespace Processar.ProyectoAyudar.GestionAyudar
 {
@@ -514,5 +515,6 @@ namespace Processar.ProyectoAyudar.GestionAyudar
 
         }
 
+       
     }
 }

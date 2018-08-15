@@ -33,7 +33,12 @@
                     <RibbonButton x:Name="btnCancelarCambios" Label="Cancelar" LargeImageSource="Graficos/cancel.png" Height="55"  ToolTip="Cancelar y cerrar la ventana" Click="btnCancelarCambios_Click"  Margin="4,10,-4,-10"/>
                 </RibbonGroup>
 
+                <RibbonGroup x:Name="grupoReimpresion" Header="Imprimir" Margin="0,1" Width="Auto">
+                    <RibbonButton x:Name="btnImprimirOrden" Label="Orden" LargeImageSource="Graficos/imprimir.png" Height="55"  Click="btnImprimirOrden_Click"  Margin="4,10,-4,-10"/>
+                    <RibbonButton x:Name="btnImprimirAutorizacion" Label="Autorización" LargeImageSource="Graficos/imprimir.png" Height="55"  Click="btnImprimirAutorizacion_Click"  Margin="4,10,-4,-10"/>
+                    <RibbonButton x:Name="btnImprimirEntrega" Label="Entrega" LargeImageSource="Graficos/imprimir.png" Height="55"  Click="btnImprimirEntrega_Click"  Margin="4,10,-4,-10"/>
 
+                </RibbonGroup>
             </RibbonTab>
             <!--
             <RibbonTab  Header="Items Entrega" Height="88" VerticalAlignment="Top" Background="#FFCADEB8"  BorderBrush="#FF4AA200">

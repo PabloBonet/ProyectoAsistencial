@@ -730,8 +730,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>datosEntrega</DataSetName>
-        <Top>3.25822cm</Top>
-        <Left>1.82572cm</Left>
+        <Top>3.50088cm</Top>
+        <Left>1.80001cm</Left>
         <Height>5.6cm</Height>
         <Width>14.44625cm</Width>
         <Style>
@@ -898,8 +898,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>datosEntrega</DataSetName>
-        <Top>2.4638cm</Top>
-        <Left>8.56665cm</Left>
+        <Top>2.70646cm</Top>
+        <Left>8.54094cm</Left>
         <Height>0.6cm</Height>
         <Width>7.70533cm</Width>
         <ZIndex>1</ZIndex>
@@ -931,8 +931,8 @@
         </Style>
       </Tablix>
       <Line Name="Line3">
-        <Top>12.39912cm</Top>
-        <Left>3.81255cm</Left>
+        <Top>12.40419cm</Top>
+        <Left>3.67546cm</Left>
         <Height>0cm</Height>
         <Width>3.17596cm</Width>
         <ZIndex>2</ZIndex>
@@ -957,8 +957,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox121</rd:DefaultName>
-        <Top>12.55787cm</Top>
-        <Left>4.44755cm</Left>
+        <Top>12.56294cm</Top>
+        <Left>4.31046cm</Left>
         <Height>0.6cm</Height>
         <Width>1.89146cm</Width>
         <ZIndex>3</ZIndex>
@@ -973,8 +973,8 @@
         </Style>
       </Textbox>
       <Line Name="Line6">
-        <Top>12.39912cm</Top>
-        <Left>10.76241cm</Left>
+        <Top>12.40419cm</Top>
+        <Left>10.62532cm</Left>
         <Height>0cm</Height>
         <Width>3.17596cm</Width>
         <ZIndex>4</ZIndex>
@@ -999,8 +999,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox121</rd:DefaultName>
-        <Top>12.55787cm</Top>
-        <Left>11.39741cm</Left>
+        <Top>12.56294cm</Top>
+        <Left>11.26032cm</Left>
         <Height>0.6cm</Height>
         <Width>2.23542cm</Width>
         <ZIndex>5</ZIndex>
@@ -1034,8 +1034,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>2.36855cm</Top>
-        <Left>1.82571cm</Left>
+        <Top>2.61121cm</Top>
+        <Left>1.8cm</Left>
         <Height>0.89104cm</Height>
         <Width>5.22521cm</Width>
         <ZIndex>6</ZIndex>
@@ -1564,8 +1564,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>datosEntrega</DataSetName>
-        <Top>9.03461cm</Top>
-        <Left>0.05142cm</Left>
+        <Top>9.27727cm</Top>
+        <Left>0.02571cm</Left>
         <Height>1.95875cm</Height>
         <Width>17.47287cm</Width>
         <ZIndex>7</ZIndex>
@@ -1600,8 +1600,8 @@
         <Source>Embedded</Source>
         <Value>logoReporte</Value>
         <Sizing>FitProportional</Sizing>
-        <Top>0.19579cm</Top>
-        <Left>8.46791cm</Left>
+        <Top>0.15875cm</Top>
+        <Left>7.18989cm</Left>
         <Height>2.07257cm</Height>
         <Width>9.05638cm</Width>
         <ZIndex>8</ZIndex>
@@ -1612,7 +1612,7 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>5.2636in</Height>
+    <Height>5.30726in</Height>
     <Style />
   </Body>
   <Width>6.96726in</Width>
